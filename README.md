@@ -1,2 +1,2 @@
-# projetS6
+# ProjetS6
 fichiers sources bras robotique 6DOF
