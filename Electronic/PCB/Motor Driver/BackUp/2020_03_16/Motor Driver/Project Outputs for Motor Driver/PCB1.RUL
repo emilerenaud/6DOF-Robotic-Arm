@@ -1,5 +1,6 @@
-DRC Rules Export File for PCB: C:\Users\Emile\Google Drive\Altium\PCB\Motor Driver\2020_03_15\Motor Driver\PCB1.PcbDoc
-RuleKind=Width|RuleName=Width_Power|Scope=Board|Minimum=9.02
+DRC Rules Export File for PCB: C:\Users\Emile\Google Drive\Altium\PCB\Motor Driver\2020_03_16\Motor Driver\PCB1.PcbDoc
+RuleKind=Width|RuleName=Stepper Wires|Scope=Board|Minimum=9.02
+RuleKind=Width|RuleName=Width Power|Scope=Board|Minimum=9.02
 RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
 RuleKind=Width|RuleName=Width|Scope=Board|Minimum=7.87
 RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.87
