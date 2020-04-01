@@ -1,0 +1,4 @@
+Added Component: Designator=P1(PAD)
+Added Component: Designator=P2(PAD)
+Added Member To Class: ClassName=STM32 Member=Component P1 PAD
+Added Member To Class: ClassName=STM32 Member=Component P2 PAD

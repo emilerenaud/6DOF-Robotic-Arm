@@ -1,0 +1,214 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\lukab\Desktop\2020_03_08\Motor Driver\PCB1.PcbDoc
+Date     : 3/9/2020
+Time     : 2:46:22 PM
+
+WARNING: Zero hole size multi-layer pad(s) detected
+   Pad J5-6(40.451mm,15.363mm) on Multi-Layer on Net GND
+   Pad J5-5(39.3mm,15.9mm) on Multi-Layer on Net GND
+   Pad J5-4(39.914mm,14.212mm) on Multi-Layer on Net BOOT1
+   Pad J5-2(39.378mm,13.061mm) on Multi-Layer on Net +3.3V
+   Pad J5-3(38.763mm,14.749mm) on Multi-Layer on Net BOOT0
+   Pad J5-1(38.227mm,13.598mm) on Multi-Layer on Net +3.3V
+
+WARNING: Multilayer Pads with 0 size Hole found
+   Pad J5-6(40.451mm,15.363mm) on Multi-Layer
+   Pad J5-5(39.3mm,15.9mm) on Multi-Layer
+   Pad J5-4(39.914mm,14.212mm) on Multi-Layer
+   Pad J5-2(39.378mm,13.061mm) on Multi-Layer
+   Pad J5-3(38.763mm,14.749mm) on Multi-Layer
+   Pad J5-1(38.227mm,13.598mm) on Multi-Layer
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+   Violation between Clearance Constraint: (0.199mm < 0.2mm) Between Pad J5-1(38.227mm,13.598mm) on Multi-Layer And Track (37.4mm,14.1mm)(38mm,14.7mm) on Top Layer 
+   Violation between Clearance Constraint: (0.165mm < 0.2mm) Between Pad J5-3(38.763mm,14.749mm) on Multi-Layer And Track (37.4mm,14.1mm)(38mm,14.7mm) on Top Layer 
+   Violation between Clearance Constraint: (0.163mm < 0.2mm) Between Pad J5-3(38.763mm,14.749mm) on Multi-Layer And Track (38mm,14.7mm)(38mm,16.4mm) on Top Layer 
+   Violation between Clearance Constraint: (0.082mm < 0.2mm) Between Pad U1-20(24.85mm,26.916mm) on Top Layer And Track (24.4mm,27.6mm)(24.8mm,28mm) on Top Layer 
+   Violation between Clearance Constraint: (0.128mm < 0.2mm) Between Pad U1-21(24.35mm,26.916mm) on Top Layer And Track (23.9mm,27.666mm)(24.634mm,28.4mm) on Top Layer 
+   Violation between Clearance Constraint: (0.171mm < 0.2mm) Between Pad U1-22(23.85mm,26.916mm) on Top Layer And Track (23.4mm,26.4mm)(23.4mm,29.7mm) on Top Layer 
+   Violation between Clearance Constraint: (0.186mm < 0.2mm) Between Pad U2-20(10.15mm,26.515mm) on Bottom Layer And Track (10.65mm,25.75mm)(10.65mm,26.515mm) on Bottom Layer 
+   Violation between Clearance Constraint: (0.187mm < 0.2mm) Between Pad U2-20(10.15mm,26.515mm) on Bottom Layer And Track (10.65mm,25.75mm)(11.098mm,25.302mm) on Bottom Layer 
+   Violation between Clearance Constraint: (0.186mm < 0.2mm) Between Pad U2-22(11.15mm,26.515mm) on Bottom Layer And Track (10.65mm,25.75mm)(10.65mm,26.515mm) on Bottom Layer 
+   Violation between Clearance Constraint: (0.093mm < 0.2mm) Between Pad U2-22(11.15mm,26.515mm) on Bottom Layer And Track (10.65mm,25.75mm)(11.098mm,25.302mm) on Bottom Layer 
+   Violation between Clearance Constraint: (0.127mm < 0.2mm) Between Track (22.7mm,15.9mm)(24.7mm,15.9mm) on Bottom Layer And Via (25.15mm,15.855mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (0.052mm < 0.2mm) Between Track (24.4mm,18.8mm)(27.1mm,16.1mm) on Bottom Layer And Via (25.85mm,16.816mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (0.025mm < 0.2mm) Between Track (24.7mm,15.9mm)(25.1mm,16.3mm) on Bottom Layer And Via (25.15mm,15.855mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (0.12mm < 0.2mm) Between Track (25.1mm,16.3mm)(25.9mm,16.3mm) on Bottom Layer And Via (25.15mm,15.855mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (25.2mm,28.4mm)(26.865mm,30.065mm) on Top Layer And Track (25.85mm,26.916mm)(25.85mm,28.485mm) on Top Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (25.2mm,28.4mm)(26.865mm,30.065mm) on Top Layer And Track (25.85mm,28.485mm)(27.146mm,29.781mm) on Top Layer 
+   Violation between Clearance Constraint: (0.2mm < 0.2mm) Between Track (25.2mm,28.4mm)(26.865mm,30.065mm) on Top Layer And Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (25.366mm,28mm)(27.031mm,29.665mm) on Top Layer And Track (25.85mm,26.916mm)(25.85mm,28.485mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (25.366mm,28mm)(27.031mm,29.665mm) on Top Layer And Track (25.85mm,28.485mm)(27.146mm,29.781mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (25.366mm,28mm)(27.031mm,29.665mm) on Top Layer And Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer 
+   Violation between Clearance Constraint: (0.084mm < 0.2mm) Between Track (25.85mm,28.485mm)(27.146mm,29.781mm) on Top Layer And Track (26.865mm,30.065mm)(27.465mm,30.065mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (25.85mm,28.485mm)(27.146mm,29.781mm) on Top Layer And Track (27.031mm,29.665mm)(27.631mm,29.665mm) on Top Layer 
+   Violation between Clearance Constraint: (0.084mm < 0.2mm) Between Track (26.865mm,30.065mm)(27.465mm,30.065mm) on Top Layer And Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (27.031mm,29.665mm)(27.631mm,29.665mm) on Top Layer And Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer 
+   Violation between Clearance Constraint: (0.018mm < 0.2mm) Between Track (27.031mm,29.665mm)(27.631mm,29.665mm) on Top Layer And Track (27.815mm,29.781mm)(28.55mm,30.516mm) on Top Layer 
+   Violation between Clearance Constraint: (0.084mm < 0.2mm) Between Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer And Track (27.465mm,30.065mm)(28.635mm,31.235mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer And Track (27.631mm,29.665mm)(28.801mm,30.835mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (27.631mm,29.665mm)(28.801mm,30.835mm) on Top Layer And Track (27.815mm,29.781mm)(28.55mm,30.516mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (27.631mm,29.665mm)(28.801mm,30.835mm) on Top Layer And Track (28.55mm,30.516mm)(29.65mm,30.516mm) on Top Layer 
+   Violation between Clearance Constraint: (0.119mm < 0.2mm) Between Track (28.55mm,30.516mm)(29.65mm,30.516mm) on Top Layer And Track (28.801mm,30.835mm)(30.287mm,30.835mm) on Top Layer 
+   Violation between Clearance Constraint: (0.119mm < 0.2mm) Between Track (28.801mm,30.835mm)(30.287mm,30.835mm) on Top Layer And Track (29.65mm,30.516mm)(29.75mm,30.416mm) on Top Layer 
+   Violation between Clearance Constraint: (0.094mm < 0.2mm) Between Track (28.801mm,30.835mm)(30.287mm,30.835mm) on Top Layer And Via (29.85mm,30.416mm) from Top Layer to Bottom Layer 
+   Violation between Clearance Constraint: (0.146mm < 0.2mm) Between Track (31.9mm,25.8mm)(32.2mm,25.5mm) on Top Layer And Track (32.05mm,23.416mm)(32.05mm,25.188mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (31.9mm,25.8mm)(32.2mm,25.5mm) on Top Layer And Track (32.05mm,25.188mm)(32.478mm,25.616mm) on Top Layer 
+   Violation between Clearance Constraint: (0.101mm < 0.2mm) Between Track (31.9mm,25.8mm)(32.2mm,25.5mm) on Top Layer And Track (32.478mm,25.616mm)(33.584mm,25.616mm) on Top Layer 
+   Violation between Clearance Constraint: (0.146mm < 0.2mm) Between Track (32.05mm,23.416mm)(32.05mm,25.188mm) on Top Layer And Track (32.2mm,25.5mm)(33.8mm,25.5mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (32.05mm,25.188mm)(32.478mm,25.616mm) on Top Layer And Track (32.2mm,25.5mm)(33.8mm,25.5mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (32.2mm,25.5mm)(33.8mm,25.5mm) on Top Layer And Track (32.478mm,25.616mm)(33.584mm,25.616mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (32.2mm,25.5mm)(33.8mm,25.5mm) on Top Layer And Track (33.584mm,25.616mm)(35.65mm,23.551mm) on Top Layer 
+   Violation between Clearance Constraint: (0.045mm < 0.2mm) Between Track (32.478mm,25.616mm)(33.584mm,25.616mm) on Top Layer And Track (33.8mm,25.5mm)(37.75mm,21.55mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (33.584mm,25.616mm)(35.65mm,23.551mm) on Top Layer And Track (33.8mm,25.5mm)(37.75mm,21.55mm) on Top Layer 
+   Violation between Clearance Constraint: (Collision < 0.2mm) Between Track (33.8mm,25.5mm)(37.75mm,21.55mm) on Top Layer And Track (35.65mm,20.816mm)(35.65mm,23.551mm) on Top Layer 
+Rule Violations :42
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Track (25.366mm,28mm)(27.031mm,29.665mm) on Top Layer And Track (25.85mm,26.916mm)(25.85mm,28.485mm) on Top Layer Location : [X = 95.25mm][Y = 81.013mm]
+   Violation between Short-Circuit Constraint: Between Track (25.366mm,28mm)(27.031mm,29.665mm) on Top Layer And Track (25.85mm,28.485mm)(27.146mm,29.781mm) on Top Layer Location : [X = 95.84mm][Y = 81.675mm]
+   Violation between Short-Circuit Constraint: Between Track (25.366mm,28mm)(27.031mm,29.665mm) on Top Layer And Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer Location : [X = 96.489mm][Y = 82.323mm]
+   Violation between Short-Circuit Constraint: Between Track (25.85mm,28.485mm)(27.146mm,29.781mm) on Top Layer And Track (27.031mm,29.665mm)(27.631mm,29.665mm) on Top Layer Location : [X = 96.487mm][Y = 82.265mm]
+   Violation between Short-Circuit Constraint: Between Track (27.031mm,29.665mm)(27.631mm,29.665mm) on Top Layer And Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer Location : [X = 96.789mm][Y = 82.323mm]
+   Violation between Short-Circuit Constraint: Between Track (27.146mm,29.781mm)(27.815mm,29.781mm) on Top Layer And Track (27.631mm,29.665mm)(28.801mm,30.835mm) on Top Layer Location : [X = 97.122mm][Y = 82.381mm]
+   Violation between Short-Circuit Constraint: Between Track (27.631mm,29.665mm)(28.801mm,30.835mm) on Top Layer And Track (27.815mm,29.781mm)(28.55mm,30.516mm) on Top Layer Location : [X = 97.58mm][Y = 82.751mm]
+   Violation between Short-Circuit Constraint: Between Track (27.631mm,29.665mm)(28.801mm,30.835mm) on Top Layer And Track (28.55mm,30.516mm)(29.65mm,30.516mm) on Top Layer Location : [X = 97.988mm][Y = 83.119mm]
+   Violation between Short-Circuit Constraint: Between Track (31.9mm,25.8mm)(32.2mm,25.5mm) on Top Layer And Track (32.05mm,25.188mm)(32.478mm,25.616mm) on Top Layer Location : [X = 101.62mm][Y = 78.08mm]
+   Violation between Short-Circuit Constraint: Between Track (32.05mm,25.188mm)(32.478mm,25.616mm) on Top Layer And Track (32.2mm,25.5mm)(33.8mm,25.5mm) on Top Layer Location : [X = 101.758mm][Y = 78.1mm]
+   Violation between Short-Circuit Constraint: Between Track (32.2mm,25.5mm)(33.8mm,25.5mm) on Top Layer And Track (32.478mm,25.616mm)(33.584mm,25.616mm) on Top Layer Location : [X = 102.431mm][Y = 78.158mm]
+   Violation between Short-Circuit Constraint: Between Track (32.2mm,25.5mm)(33.8mm,25.5mm) on Top Layer And Track (33.584mm,25.616mm)(35.65mm,23.551mm) on Top Layer Location : [X = 103.088mm][Y = 78.1mm]
+   Violation between Short-Circuit Constraint: Between Track (33.584mm,25.616mm)(35.65mm,23.551mm) on Top Layer And Track (33.8mm,25.5mm)(37.75mm,21.55mm) on Top Layer Location : [X = 104.125mm][Y = 77.125mm]
+   Violation between Short-Circuit Constraint: Between Track (33.8mm,25.5mm)(37.75mm,21.55mm) on Top Layer And Track (35.65mm,20.816mm)(35.65mm,23.551mm) on Top Layer Location : [X = 105.056mm][Y = 76.128mm]
+Rule Violations :14
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND Between Track (36.348mm,29.551mm)(36.354mm,29.545mm) on Bottom Layer And Pad C10-1(37.1mm,26.1mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C10-1(37.1mm,26.1mm) on Bottom Layer And Track (37.9mm,24.2mm)(37.9mm,24.2mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Track (9.6mm,11.051mm)(10mm,10.651mm) on Bottom Layer And Pad C11-1(12.8mm,7.6mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C18-1(5mm,12.9mm) on Bottom Layer And Via (5.7mm,18.2mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Track (25.4mm,23.149mm)(26.4mm,24.149mm) on Bottom Layer And Pad C8-1(29.8mm,22.6mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net 5V Between Track (15.6mm,15.8mm)(15.6mm,20.1mm) on Bottom Layer And Pad R12-1(19.9mm,23.1mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net 5V Between Pad R12-1(19.9mm,23.1mm) on Bottom Layer And Track (24.235mm,20.432mm)(24.4mm,20.267mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net XTAL1_OUT Between Pad R8-2(9.4mm,9.2mm) on Bottom Layer And Pad U1-6(29.816mm,22.45mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_10 Between Via (3.4mm,19.4mm) from Top Layer to Bottom Layer And Pad U1-10(29.816mm,24.45mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_12 Between Pad U2-29(13.515mm,23.15mm) on Bottom Layer And Pad U1-12(29.816mm,25.45mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_13 Between Pad U2-8(5.285mm,23.15mm) on Bottom Layer And Pad U1-13(28.35mm,26.916mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_14 Between Via (1.6mm,22mm) from Top Layer to Bottom Layer And Pad U1-14(27.85mm,26.916mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_15 Between Via (3.4mm,20.6mm) from Top Layer to Bottom Layer And Pad U1-15(27.35mm,26.916mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_16 Between Pad U2-7(5.285mm,22.65mm) on Bottom Layer And Pad U1-16(26.85mm,26.916mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_17 Between Via (3.9mm,21.7mm) from Top Layer to Bottom Layer And Pad U1-17(26.35mm,26.916mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad U1-36(21.384mm,19.95mm) on Top Layer And Pad U1-24(22.85mm,26.916mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_28 Between Pad U2-25(13.515mm,25.15mm) on Bottom Layer And Pad U1-28(21.384mm,23.95mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad U1-36(21.384mm,19.95mm) on Top Layer And Pad U1-48(28.35mm,18.484mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_45 Between Pad U2-26(13.515mm,24.65mm) on Bottom Layer And Pad U1-45(26.85mm,18.484mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net NetU1_46 Between Pad U2-27(13.515mm,24.15mm) on Bottom Layer And Pad U1-46(27.35mm,18.484mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net XTAL1_IN Between Track (11mm,7.8mm)(11mm,9.2mm) on Bottom Layer And Pad U1-5(29.816mm,21.95mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net +3.3V Between Via (29.758mm,18.542mm) from Top Layer to Bottom Layer And Pad U1-9(29.816mm,23.95mm) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Via (9.2mm,22.2mm) from Top Layer to Bottom Layer And Pad U2-32(13.515mm,21.65mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND Between Track (23.2mm,22.7mm)(23.366mm,22.534mm) on Bottom Layer And Pad U4-2(25.4mm,19.95mm) on Bottom Layer [Unplated] 
+   Violation between Un-Routed Net Constraint: Net LEDR Between Via (24.311mm,17.078mm) from Top Layer to Bottom Layer And Track (24.1mm,16.3mm)(24.361mm,16.561mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net LEDG Between Via (25.15mm,15.855mm) from Top Layer to Bottom Layer And Track (25.161mm,15.3mm)(25.2mm,15.339mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net LEDB Between Via (25.85mm,16.816mm) from Top Layer to Bottom Layer And Track (25.1mm,16.3mm)(25.9mm,16.3mm) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net +12 Between Track (27.8mm,10.716mm)(27.8mm,10.8mm) on Bottom Layer And Via (30mm,32.6mm) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net NetR3_1 Between Via (29.55mm,26.616mm) from Top Layer to Bottom Layer And Track (29.6mm,26mm)(29.6mm,26.1mm) on Bottom Layer 
+Rule Violations :29
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.229mm) (Max=0.4mm) (Preferred=0.4mm) (InNet('+12') or InNet('GND') or InNet('OA1') or InNet('OA2') or InNet('OB1') or InNet('OB2'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=0.2mm) (Preferred=0.2mm) (All)
+Rule Violations :0
+
+Processing Rule : SMD Neck-Down Constraint (Percent=50%) (All)
+   Violation between SMD Neck-Down Constraint: Between Pad U1-1(29.816mm,19.95mm) on Top Layer And Track (29.816mm,18.601mm)(29.816mm,19.95mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-11(29.816mm,24.95mm) on Top Layer And Track (29.816mm,24.95mm)(29.85mm,24.916mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-18(25.85mm,26.916mm) on Top Layer And Track (25.85mm,26.916mm)(25.85mm,28.485mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-20(24.85mm,26.916mm) on Top Layer And Track (24.85mm,26.916mm)(24.85mm,26.916mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-21(24.35mm,26.916mm) on Top Layer And Track (24.4mm,27.6mm)(24.8mm,28mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-22(23.85mm,26.916mm) on Top Layer And Track (23.9mm,26.4mm)(23.9mm,26.4mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-23(23.35mm,26.916mm) on Top Layer And Track (23.4mm,26.4mm)(23.4mm,29.7mm) on Top Layer Relative Track Width: 99.86%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-24(22.85mm,26.916mm) on Top Layer And Track (22.85mm,26.916mm)(22.85mm,28.55mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-25(21.384mm,25.45mm) on Top Layer And Track (21.384mm,25.45mm)(21.384mm,27.464mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-26(21.384mm,24.95mm) on Top Layer And Track (21.35mm,24.916mm)(21.384mm,24.95mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-27(21.384mm,24.45mm) on Top Layer And Track (21.35mm,24.416mm)(21.384mm,24.45mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-33(21.384mm,21.45mm) on Top Layer And Track (21.35mm,21.483mm)(21.384mm,21.45mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-34(21.384mm,20.95mm) on Top Layer And Track (21.344mm,20.91mm)(21.384mm,20.95mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-35(21.384mm,20.45mm) on Top Layer And Track (21.384mm,20.45mm)(22.916mm,20.45mm) on Top Layer Relative Track Width: 81.96%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-37(22.85mm,18.484mm) on Top Layer And Track (22.85mm,15.416mm)(22.85mm,18.484mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-41(24.85mm,18.484mm) on Top Layer And Track (24.85mm,17.316mm)(24.85mm,18.484mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-42(25.35mm,18.484mm) on Top Layer And Track (25.35mm,18.484mm)(25.35mm,18.484mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-43(25.85mm,18.484mm) on Top Layer And Track (25.85mm,18.484mm)(25.85mm,18.484mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-44(26.35mm,18.484mm) on Top Layer And Track (26.4mm,16.966mm)(26.4mm,17.967mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-47(27.85mm,18.484mm) on Top Layer And Track (27.85mm,18.484mm)(27.85mm,20.216mm) on Top Layer Relative Track Width: 81.96%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-48(28.35mm,18.484mm) on Top Layer And Track (28.35mm,18.484mm)(29.699mm,18.484mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-7(29.816mm,22.95mm) on Top Layer And Track (29.816mm,22.95mm)(31.493mm,22.95mm) on Top Layer Relative Track Width: 71.58%
+   Violation between SMD Neck-Down Constraint: Between Pad U1-8(29.816mm,23.45mm) on Top Layer And Track (24.65mm,23.45mm)(29.816mm,23.45mm) on Top Layer Relative Track Width: 81.96%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-1(5.285mm,19.65mm) on Bottom Layer And Track (5.285mm,18.836mm)(5.285mm,19.65mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-10(5.285mm,24.15mm) on Bottom Layer And Track (2.64mm,24.15mm)(5.285mm,24.15mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-13(6.65mm,26.515mm) on Bottom Layer And Track (6.65mm,26.515mm)(6.65mm,27.45mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-15(7.65mm,26.515mm) on Bottom Layer And Track (7.65mm,26.515mm)(7.65mm,27.45mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-17(8.65mm,26.515mm) on Bottom Layer And Track (8.65mm,25.567mm)(8.65mm,26.515mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-19(9.65mm,26.515mm) on Bottom Layer And Track (9.65mm,26.515mm)(9.65mm,27.35mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-2(5.285mm,20.15mm) on Bottom Layer And Track (5.285mm,19.65mm)(5.285mm,20.15mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-21(10.65mm,26.515mm) on Bottom Layer And Track (10.65mm,25.75mm)(11.098mm,25.302mm) on Bottom Layer Relative Track Width: 174.98%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-23(11.65mm,26.515mm) on Bottom Layer And Track (11.65mm,26.515mm)(11.65mm,27.65mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-24(12.15mm,26.515mm) on Bottom Layer And Track (12.15mm,26.515mm)(12.164mm,26.529mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-3(5.285mm,20.65mm) on Bottom Layer And Track (4.663mm,20.65mm)(5.285mm,20.65mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-30(13.515mm,22.65mm) on Bottom Layer And Track (13.515mm,22.65mm)(17.901mm,22.65mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-32(13.515mm,21.65mm) on Bottom Layer And Track (13.515mm,21.65mm)(18.15mm,21.65mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-33(13.515mm,21.15mm) on Bottom Layer And Track (13.515mm,21.15mm)(17.101mm,21.15mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-34(13.515mm,20.65mm) on Bottom Layer And Track (13.515mm,20.65mm)(15.05mm,20.65mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-35(13.515mm,20.15mm) on Bottom Layer And Track (13.515mm,20.15mm)(13.529mm,20.136mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-37(12.15mm,18.285mm) on Bottom Layer And Track (12.164mm,17.517mm)(12.164mm,18.271mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-38(11.65mm,18.285mm) on Bottom Layer And Track (11.65mm,16.099mm)(11.65mm,18.285mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-39(11.15mm,18.285mm) on Bottom Layer And Track (11.136mm,19.187mm)(11.37mm,19.422mm) on Bottom Layer Relative Track Width: 174.98%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-4(5.285mm,21.15mm) on Bottom Layer And Track (4.35mm,21.15mm)(5.285mm,21.15mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-40(10.65mm,18.285mm) on Bottom Layer And Track (10.65mm,15.75mm)(10.65mm,18.285mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-42(9.65mm,18.285mm) on Bottom Layer And Track (9.65mm,16.75mm)(9.65mm,18.285mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-44(8.65mm,18.285mm) on Bottom Layer And Track (8.65mm,14.999mm)(8.65mm,18.285mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-46(7.65mm,18.285mm) on Bottom Layer And Track (7.65mm,17.272mm)(7.65mm,18.285mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-48(6.65mm,18.285mm) on Bottom Layer And Track (6.1mm,18.3mm)(6.635mm,18.3mm) on Bottom Layer Relative Track Width: 100.17%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-5(5.285mm,21.65mm) on Bottom Layer And Track (4.018mm,21.65mm)(5.285mm,21.65mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-7(5.285mm,22.65mm) on Bottom Layer And Track (3.881mm,22.65mm)(5.285mm,22.65mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-8(5.285mm,23.15mm) on Bottom Layer And Track (3.816mm,23.15mm)(5.285mm,23.15mm) on Bottom Layer Relative Track Width: 87.49%
+   Violation between SMD Neck-Down Constraint: Between Pad U2-9(5.285mm,23.65mm) on Bottom Layer And Track (3.75mm,23.65mm)(5.285mm,23.65mm) on Bottom Layer Relative Track Width: 87.49%
+Rule Violations :52
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+   Violation between Starved Thermal on Int1 (GND): Pad U5-2(38.402mm,31.061mm) on Multi-Layer. Blocked 2 out of 4 entries.
+Rule Violations :1
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.9mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Track (22.734mm,15.3mm)(25.161mm,15.3mm) on Bottom Layer 
+   Violation between Net Antennae: Track (24.1mm,16.3mm)(24.361mm,16.561mm) on Bottom Layer 
+   Violation between Net Antennae: Track (25.1mm,16.3mm)(25.9mm,16.3mm) on Bottom Layer 
+   Violation between Net Antennae: Track (29.9mm,29.9mm)(29.9mm,31mm) on Bottom Layer 
+   Violation between Net Antennae: Track (29mm,25.4mm)(29.6mm,26mm) on Bottom Layer 
+   Violation between Net Antennae: Track (35.7mm,20.3mm)(35.7mm,20.552mm) on Bottom Layer 
+   Violation between Net Antennae: Via (1.6mm,19.8mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (1.6mm,20.9mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (1.6mm,22mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (25.15mm,15.855mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (25.85mm,16.816mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (29.55mm,26.616mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3.4mm,19.4mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3.4mm,20.6mm) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (30mm,32.6mm) from Top Layer to Bottom Layer 
+Rule Violations :15
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 153
+Waived Violations : 0
+Time Elapsed        : 00:00:02
