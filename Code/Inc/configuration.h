@@ -4,7 +4,7 @@
   from Arduino variant.h file.*/
 
 #define TMC2130
-#define SPI
+#define SPI_EN
 #define HALL_SENSOR
 #define TEMP_SENSOR
 #define RS485
@@ -23,7 +23,7 @@
     #define DCIN  PB15
 #endif 
 
-#ifdef SPI
+#ifdef SPI_EN
     #define SCK  PA5
     #define MISO PA6
     #define MOSI PA7
@@ -51,5 +51,9 @@
 
 #ifdef FAN_EN
     #define FAN PA12
+#endif
+
+#ifdef SERVO_EN
+    //#define SERVO pin?? 
 #endif
 
