@@ -1,6 +1,6 @@
 
 
-Pilotes :
+Pilotes:
 
 	- SPI 
 		Emile
@@ -12,8 +12,7 @@ Pilotes :
 		Luka
 	- PWM
 		Emile
-	
-	
+		
 Interfaces:
 	
 	- TMC
@@ -30,5 +29,18 @@ Interfaces:
 	
 	- Servo
 	
+	
+Processus:
+	
+	- Moteur (homing) 
+	
+	- Communication
+	
+	- Température
+	
+	- Pince
+	
+	
+
 	
 	
