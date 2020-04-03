@@ -2,19 +2,18 @@
 FileName = PCB1.GBR
 AutoAperture = True
 *************************************************************
-Generating : Top Solder
-      File : PCB1.GTS
+Generating : Bottom Solder
+      File : PCB1.GBS
 
-    Adding Layer      : Top Solder
+    Adding Layer      : Bottom Solder
 
-    Adding Layer      : Top Layer
+    Adding Layer      : Bottom Layer
 
     Adding Layer      : Multi-Layer
 
 
 Used DCodes :
     D15
-    D16
     D17
     D18
     D19
@@ -28,18 +27,19 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Bottom Solder
-      File : PCB1.GBS
+Generating : Top Solder
+      File : PCB1.GTS
 
-    Adding Layer      : Bottom Solder
+    Adding Layer      : Top Solder
 
-    Adding Layer      : Bottom Layer
+    Adding Layer      : Top Layer
 
     Adding Layer      : Multi-Layer
 
 
 Used DCodes :
     D15
+    D16
     D17
     D18
     D19
@@ -68,10 +68,10 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Top Layer
-      File : PCB1.GTL
+Generating : Bottom Layer
+      File : PCB1.GBL
 
-    Adding Layer      : Top Layer
+    Adding Layer      : Bottom Layer
 
     Adding Layer      : Multi-Layer
 
@@ -80,9 +80,6 @@ Used DCodes :
     D10
     D21
     D27
-    D28
-    D29
-    D30
     D31
     D32
     D33
@@ -93,6 +90,7 @@ Used DCodes :
     D38
     D39
     D40
+    D41
 *************************************************************
 
 *************************************************************
@@ -120,10 +118,10 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Bottom Layer
-      File : PCB1.GBL
+Generating : Top Layer
+      File : PCB1.GTL
 
-    Adding Layer      : Bottom Layer
+    Adding Layer      : Top Layer
 
     Adding Layer      : Multi-Layer
 
@@ -132,6 +130,9 @@ Used DCodes :
     D10
     D21
     D27
+    D28
+    D29
+    D30
     D31
     D32
     D33
@@ -142,6 +143,5 @@ Used DCodes :
     D38
     D39
     D40
-    D41
 *************************************************************
 
