@@ -4,11 +4,26 @@
 #include <Arduino.h>
 #include "configuration.h"
 
-void spi_init(const int chip_select);
-void spi_writeByte(unsigned char data);
-unsigned char spi_readByte(void);
-void clock_low(void);
-void clock_high(void);
-void spi_delay(void);
+
+class SPIClass
+{
+private:
+    int _SCK;
+    int _MISO;
+    int _MOSI;
+    int _CS;
+
+    void spi_delay(void);
+    void clock_low(void);
+    void clock_high(void);
+    
+public:
+    SPIClass(const int inSCK, const int inMISO, const int inMOSI, const int inCS);
+    void enableDevice(void);
+    void disableDevice(void);
+    unsigned char readByte(void);
+    void writeByte(unsigned char byte);
+
+};
 
 #endif

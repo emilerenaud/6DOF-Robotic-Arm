@@ -4,21 +4,30 @@
 #include "PWM_driver.h"
 
 int doOnce = 0;
-
+SPIClass spi(SCK,MISO,MOSI,CS_TMC2130);
 
 void setup() 
 {
   pinMode(onBoardLED,OUTPUT);
-  spi_init(CS_TMC2130);
+  
 }
 
 void loop() 
 {
   if(!doOnce)
   {
-    spi_writeByte(0x55);
-    spi_writeByte(0xAA);
-    spi_writeByte(0x00);
+    spi.enableDevice();
+    spi.writeByte(0x55);
+    spi.writeByte(0x72);
+    spi.disableDevice();
+
+    spi.enableDevice();
+    unsigned char byte = spi.readByte();
+    spi.disableDevice();
+
+    spi.enableDevice();
+    spi.writeByte(byte);
+    spi.disableDevice();
     doOnce = 1;
   }
   //digitalToggle(onBoardLED);

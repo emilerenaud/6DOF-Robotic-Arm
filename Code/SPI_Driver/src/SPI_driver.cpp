@@ -1,66 +1,77 @@
 #include "SPI_driver.h"
 
-int cs = 0;
-
-void spi_init(const int chip_select)
+SPIClass::SPIClass(const int inSCK, const int inMISO, const int inMOSI, const int inCS)
 {
-    #ifndef SPI_EN
-    #define SPI_EN
-    #endif
-    cs = chip_select;
+    _SCK = inSCK;
+    _MISO = inMISO;
+    _MOSI = inMOSI;
+    _CS = inCS;
+
     // Init pin
-    pinMode(SCK,OUTPUT);
-    pinMode(MISO,INPUT);
-    pinMode(MOSI,OUTPUT);
-    pinMode(cs,OUTPUT);
+    pinMode(_SCK,OUTPUT);
+    pinMode(_MISO,INPUT);
+    pinMode(_MOSI,OUTPUT);
+    pinMode(_CS,OUTPUT);
 
-    digitalWrite(cs,HIGH);  // disable device.
-    digitalWrite(SCK,LOW);  // pull down clock.
-}
+    SPIClass::disableDevice();  // Disable device.
+    SPIClass::clock_low();       // Pull down clock.
+}   // end SPIClass
 
-void spi_writeByte(unsigned char data)
+void SPIClass::enableDevice()
 {
-    digitalWrite(cs,LOW);       // Activate chip.
+    digitalWrite(_CS,LOW);  // Enable device.
+}   // end enableDevice
+
+void SPIClass::disableDevice()
+{
+    digitalWrite(_CS,HIGH);  // Disable device.
+}   // end disableDevice
+
+unsigned char SPIClass::readByte()
+{
+    unsigned char byte = 0;
     for(int i = 0; i<8; i++)    // Send 8 bits
     {
-        if(data & 0x80)                 // MSB is 1
-            digitalWrite(MOSI,HIGH);    // Pull high data line.
+        SPIClass::clock_high();
+        SPIClass::spi_delay();
+        if(digitalRead(_MISO))
+            byte = byte + 0x01;
+        byte = byte << 1;
+        SPIClass::clock_low();
+        
+    }   // end for.
+    return byte;
+}   // end readbyte
+
+void SPIClass::writeByte(unsigned char byte)
+{
+    for(int i = 0; i<8; i++)    // Send 8 bits
+    {
+        if(byte & 0x80)                 // MSB is 1
+            digitalWrite(_MOSI,HIGH);   // Pull high data line.
         else                            // MSB is 0
-            digitalWrite(MOSI,LOW);     // Pull down data line.
-        clock_low();                    // Pull down clock line.
-        spi_delay();
-        clock_high();                   // Pull high clock line. The chip now see data.
-        data = data << 1;               // Shift byte to send the next bit.
+            digitalWrite(_MOSI,LOW);    // Pull down data line.
+        SPIClass::clock_high();         // Pull high clock line. The chip now see data.
+        SPIClass::spi_delay();
+        SPIClass::clock_low();          // Pull down clock line.
+        byte = byte << 1;               // Shift byte to send the next bit.
     }   // end for.
-}   // end spi_writeByte.
+}   // end writeByte
 
-unsigned char spi_readByte(void)
-{
-    unsigned char data = 0;
-    digitalWrite(cs,LOW);       // Activate chip.
-    for(int i = 0; i<8; i++)    // Send 8 bits
-    {
-        clock_low();
-        spi_delay();
-        clock_high();
-        if(digitalRead(MISO))
-            data = data + 0x01;
-        data = data << 1;
-    }   // end for.
-    return data;
-}   // end spi_readByte.
+// Private Function SPIClass
 
-void clock_low()
+void SPIClass::clock_low()
 {
-    digitalWrite(SCK,LOW);
-}
+    digitalWrite(_SCK,LOW);
+}   // end clock_low
 
-void clock_high()
+void SPIClass::clock_high()
 {
-    digitalWrite(SCK,HIGH);
-}
+    digitalWrite(_SCK,HIGH);
+}   // end clock_high
 
-void spi_delay()
+void SPIClass::spi_delay()
 {
-    for(int j = 0; j<5; j++);
-}
+    for(int j = 0; j<5; j++); 
+}   // end spi_delay
+
