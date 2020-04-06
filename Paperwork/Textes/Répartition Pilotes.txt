@@ -1,26 +1,24 @@
-
-
 Pilotes:
 
 	- SPI 
-		Emile
+		Emile √
 	- Analog
-		Luka
+		Luka  √
 	- RS485
-		Luka
+		Luka  √
 	- GPIO
-		Luka
+		Luka  √
 	- PWM
-		Emile
+		Emile √
 		
 Interfaces:
 	
 	- TMC
 	
 	- Hall Sensor
-	
+		Luka
 	- Temp Sensor
-	
+		Luka
 	- Communication
 	
 	- Debug
