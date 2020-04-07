@@ -17,17 +17,24 @@ void loop()
   if(!doOnce)
   {
     spi.enableDevice();
-    spi.writeByte(0x55);
-    spi.writeByte(0x72);
+    spi.writeByte(0xAA);
+    spi.writeByte(0x51);
     spi.disableDevice();
 
     spi.enableDevice();
-    unsigned char byte = spi.readByte();
+    unsigned char byte = 0;
+    byte = spi.readByte();
     spi.disableDevice();
 
     spi.enableDevice();
     spi.writeByte(byte);
     spi.disableDevice();
+
+    spi.enableDevice();
+    byte = spi.readWritebyte(0xF6);
+    spi.writeByte(byte);
+    spi.disableDevice();
+
     doOnce = 1;
   }
   //digitalToggle(onBoardLED);
