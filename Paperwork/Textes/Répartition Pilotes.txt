@@ -22,7 +22,7 @@ Interfaces:
 	- Communication
 	
 	- Debug
-	
+
 	- Fan
 	
 	- Servo
