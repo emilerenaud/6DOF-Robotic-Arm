@@ -57,4 +57,10 @@
     //#define SERVO pin?? 
 #endif
 
+#define ENABLED HIGH
+#define DISABLED LOW
+
+#define READ LOW
+#define WRITE HIGH
+
 #define onBoardLED PC13

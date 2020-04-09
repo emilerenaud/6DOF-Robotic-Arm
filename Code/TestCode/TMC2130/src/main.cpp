@@ -12,12 +12,12 @@ void setup()
 
 void loop() 
 {
-    tmc_read dataIn;
-    tmc_add add;
+    // tmc.GeneralConfig();
+    // tmc.ChopConfig();
+    // tmc.CoolConfig();
+    // tmc.PWMConfig();
 
-    add.address = 0x91;
-    add.readWrite = LOW;
+    tmc.ReadRegisters();
 
-    dataIn = tmc.Write(add, t.g_conf.sendBytes);
     delay(200);
 }

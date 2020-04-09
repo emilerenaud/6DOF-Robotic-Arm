@@ -13,7 +13,15 @@ private:
     SPIClass _spi = SPIClass(SCK,MISO,MOSI,CS_TMC2130);
 public:
     TMC2130Class();
-    tmc_read Write(tmc_add add, tmc_write dataOut);
+    void Write(tmc_add add, tmc_write dataOut);
+    tmc_read Read(tmc_add add);
+    void GeneralConfig();
+    void ReadRegisters();
+    void SPIModeConfig();
+    void ChopConfig();
+    void CoolConfig();
+    void MicroSteppingConfig();
+    void PWMConfig();
 };
 
 #endif

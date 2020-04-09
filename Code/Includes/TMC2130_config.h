@@ -106,19 +106,16 @@ struct GCONF_S
 
         uint8_t I_SCALE_ANALOG      : 1;    //LSB
         uint8_t INT_RSENSE          : 1;
-        uint8_t EN_PWM_MODE         : 1;
-        uint8_t ENC_COMMUTATION     : 1;
-
-        uint8_t SHAFT               : 1;
-        uint8_t DIAG0_ERROR         : 1;
-        uint8_t DIAG0_OTPW          : 1;
-        uint8_t DIAG0_STALL         : 1;
-        
-        uint8_t DIAG1_STALL         : 1;
-        uint8_t DIAG1_INDEX         : 1;
-        uint8_t DIAG1_ONSTATE       : 1;
-        uint8_t DIAG1_STEPS_SKIPPED : 1;
-        
+        uint8_t EN_PWM_MODE         : 1;//R
+        uint8_t ENC_COMMUTATION     : 1;//R
+        uint8_t SHAFT               : 1;//R
+        uint8_t DIAG0_ERROR         : 1;//R
+        uint8_t DIAG0_OTPW          : 1;//R
+        uint8_t DIAG0_STALL         : 1;//R
+        uint8_t DIAG1_STALL         : 1;//R
+        uint8_t DIAG1_INDEX         : 1;//R
+        uint8_t DIAG1_ONSTATE       : 1;//R
+        uint8_t DIAG1_STEPS_SKIPPED : 1;//R
         uint8_t DIAG0_INT_PUSHPULL  : 1;
         uint8_t DIAG1_PUSHPULL      : 1;
         uint8_t SMALL_HYSTERISIS    : 1;
@@ -132,8 +129,9 @@ struct GCONF_S
 
 union   GCONF_U
 { 
-    GCONF_S    bits;
-    tmc_write  sendBytes;
+    GCONF_S   bits;
+    tmc_write sendBytes;
+    tmc_read  receiveBytes; 
 }; 
 
 //////////////////////////////////////
@@ -149,7 +147,7 @@ struct GSTAT_S
 union GSTAT_U
 {
     GSTAT_S   bits;
-    tmc_write sendBytes;
+    tmc_read  receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -164,14 +162,14 @@ struct IOIN_S
     uint8_t DCO_REG      : 1;
     uint8_t RESERVED0    : 1;
     uint8_t RESERVED1    : 1;
-    uint8_t VERSION      : 8;
     uint16_t RESERVED2   : 16;
+    uint8_t VERSION      : 8;
 };
 
 union IOIN_U
 {
     IOIN_S    bits;
-    tmc_write sendBytes;
+    tmc_read  receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -217,7 +215,7 @@ struct TSTEP_S
 union TSTEP_U
 {
     TSTEP_S   bits;
-    tmc_write sendBytes;
+    tmc_read  receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -266,8 +264,18 @@ union THIGH_U
 
 struct XDIRECT_S
 {  
-    uint32_t XDIRECT : 32;  
+    uint16_t COIL_A_CUR : 9;    //VERIFY (p.29)
+    uint8_t  RESERVED   : 7;
+    uint16_t COIL_B_CUR : 9;
 };
+
+union XDIRECT_U
+{
+    XDIRECT_S bits;
+    tmc_write sendBytes;
+    tmc_read  receiveBytes;
+};
+
 
 //////////////////////////////////////
 
@@ -280,7 +288,7 @@ struct VDCMIN_S
 union VDCMIN_U
 {
     VDCMIN_S  bits;
-    tmc_write sendBytes;
+    tmc_read  receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -342,8 +350,8 @@ struct MSCNT_S
 
 union MSCNT_U
 {
-    MSCNT_S    bits;
-    tmc_write  sendBytes;
+    MSCNT_S  bits;
+    tmc_read receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -359,7 +367,7 @@ struct MSCURACT_S
 union MSCURACT_U
 {
     MSCURACT_S bits;
-    tmc_write  sendBytes;
+    tmc_read  receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -394,8 +402,8 @@ struct CHOPCONF_S
     uint8_t MRES1    : 1;
     uint8_t MRES2    : 1;
     uint8_t MRES3    : 1;
-    uint8_t INTPOL   : 1;
-    uint8_t DEDGE    : 1;
+    uint8_t INTPOL   : 1;//R
+    uint8_t DEDGE    : 1;//R
     uint8_t DISS2G   : 1;
     uint8_t RESERVED : 1;
 };
@@ -404,6 +412,7 @@ union CHOPCONF_U
 {
     CHOPCONF_S bits;
     tmc_write  sendBytes;
+    tmc_read   receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -425,7 +434,7 @@ struct COOLCONF_S
     uint8_t RESERVED2 : 1;
     uint8_t SEDN0     : 1;
     uint8_t SEDN1     : 1;
-    uint8_t seimin    : 1;
+    uint8_t SEIMIN    : 1;
     uint8_t SGT0      : 1;   
     uint8_t SGT1      : 1;
     uint8_t SGT2      : 1;
@@ -482,7 +491,7 @@ struct DRVSTATUS_S
 union DRVSTATUS_U
 {
     DRVSTATUS_S bits;
-    tmc_write  sendBytes;
+    tmc_read  receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -517,7 +526,7 @@ struct PWM_SCALE_S
 union PWM_SCALE_U
 {
     PWM_SCALE_S bits;
-    tmc_write   sendBytes;
+    tmc_read    receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -546,7 +555,7 @@ struct LOST_STEPS_S
 union LOST_STEPS_U
 {
     LOST_STEPS_S bits;
-    tmc_write  sendBytes;
+    tmc_read     receiveBytes;
 }; 
 
 //////////////////////////////////////
@@ -558,11 +567,11 @@ struct TMC
     IOIN_U       ioin;
     IHOLD_IRUN_U ihold_irun;
     TPOWERDOWN_U t_powerdown;
-    TSTEP_S      t_step;
+    TSTEP_U      t_step;
     TPWMTHRS_U   t_pwm_thresh;
     TCOOLTHRS_U  t_cool_thresh;
     THIGH_U      t_high;
-    XDIRECT_S    xdirect;
+    XDIRECT_U    xdirect;
     VDCMIN_U     vdc_min;
     MSLUT_S      ms_lut;
     MSLUTSEL_U   ms_lut_sel;
