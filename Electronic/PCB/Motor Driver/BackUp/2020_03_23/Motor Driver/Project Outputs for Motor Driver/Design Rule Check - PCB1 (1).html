@@ -1,0 +1,634 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">23/03/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">20:28:41</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc" class="file"><acronym title="D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc">D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">98</td></tr>
+</table>
+</td>
+</table><a name="IDTERGG4V2EELDL2YHBS1HRDAHJL0JN1YNKYHBD1POETGR5PC0R0SI"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY4CLVY1JRCSMK5DVJM23QKRYYICJORSYZQ4UEDSD2RQEPSQXXEF">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBFDW4QOTPUC1LQ52AT0CPGOZBKMB0NVHJOPN2DBBQHOGBUCXM5TB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3XAXO2YDZX51DL3QZ4LXDQU5ME51D1OQNKYJAD2A3G1AKFJMK5K">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDE342MPGWBKHTCMMCTJIWM02NOLPUU1NXND1L5MLDLXJ05ROG3PDC">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFPV3XZVI4EDGIVES5SIQZMNWGXYMBLF4XRPF1IROSV1YHZW0ZHH">Width Constraint (Min=0.229mm) (Max=0.8mm) (Preferred=0.8mm) (InNet('OA1') or InNet('OA2') or InNet('OB1') or InNet('OB2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGZ1V3ZGH4WFWPCHQBFRJEYEP4PYBNMXO4JA2Z1MWWEXYACJEWZFB">Width Constraint (Min=0.229mm) (Max=0.4mm) (Preferred=0.4mm) (InNet('+12') or InNet('GND'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2PSFANMVUQS0OECOCHX5PESXH0K5ZYFYMOPFHNBAFJG2V24MEMB">Width Constraint (Min=0.2mm) (Max=0.2mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVDTDGXLB0YI1BOHPHZUEPOCA2ETWEPNX2XF3OEH5504TCEH0PTRD">Routing Layers(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDE15MONZ1ZHPNIVB4OVYZY1E1BBRBLCZOAVDHHYLY53UHKA35H1PO">Routing Via (MinHoleWidth=0.3mm) (MaxHoleWidth=0.3mm) (PreferredHoleWidth=0.3mm) (MinWidth=0.6mm) (MaxWidth=0.6mm) (PreferedWidth=0.6mm) (All)</a></td>
+<td class="column2">93</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWIYQHEJ0FHIPEG2E3QHBF03MBDPHNQF2NY3S25PL4FOAF0FM4W5B">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZ5SSQWYIRC0JMHCFV03VZC2WPMSLOBMXJYQIYVHPPQWPGHZGNI0H">Hole Size Constraint (Min=0.025mm) (Max=2.9mm) (Disabled)(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIJDP3T4WK1RAPA1R25KIHDUFUOOPQ04WI4UKG2BYBRZPI3FFWD0P">Hole To Hole Clearance (Gap=0.254mm) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQFDQEWHR4LN3IKHFWPRVXCVSJIR0LCHS4ANVU1BEM5YTQNERTIQD">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFSYWIUO0RQL4P5UDRYROQVFRML3CENHKPUJVDWHLGK00GO4JQANN">Component Clearance Constraint ( Horizontal Gap = 0.254mm, Vertical Gap = 0.254mm ) (All),(All) </a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMVZ0GI54AGCCKPZPNEP3CECXXCEZ5KOPNEDLG2GLRIFJID0WUM5M">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">98</td>
+</tr>
+</table><br><a name="IDE15MONZ1ZHPNIVB4OVYZY1E1BBRBLCZOAVDHHYLY53UHKA35H1PO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Routing Via (MinHoleWidth=0.3mm) (MaxHoleWidth=0.3mm) (PreferredHoleWidth=0.3mm) (MinWidth=0.6mm) (MaxWidth=0.6mm) (PreferedWidth=0.6mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.445mil|Location2.X=3588.161mil|Location1.Y=2604.752mil|Location2.Y=2631.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.445mil|Location2.X=3588.161mil|Location1.Y=2604.752mil|Location2.Y=2631.468mil|Absolute=True">Routing Via Style: Via (-0.2mm,-6.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3545.697mil|Location2.X=3572.413mil|Location1.Y=2734.673mil|Location2.Y=2761.39mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3545.697mil|Location2.X=3572.413mil|Location1.Y=2734.673mil|Location2.Y=2761.39mil|Absolute=True">Routing Via Style: Via (-0.6mm,-3.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3569.319mil|Location2.X=3596.035mil|Location1.Y=2695.303mil|Location2.Y=2722.02mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3569.319mil|Location2.X=3596.035mil|Location1.Y=2695.303mil|Location2.Y=2722.02mil|Absolute=True">Routing Via Style: Via (0mm,-4.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.5mil|Location2.X=3647.216mil|Location1.Y=3049.633mil|Location2.Y=3076.35mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3620.5mil|Location2.X=3647.216mil|Location1.Y=3049.633mil|Location2.Y=3076.35mil|Absolute=True">Routing Via Style: Via (1.3mm,4.8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.138mil|Location2.X=3544.854mil|Location1.Y=2620.5mil|Location2.Y=2647.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3518.138mil|Location2.X=3544.854mil|Location1.Y=2620.5mil|Location2.Y=2647.216mil|Absolute=True">Routing Via Style: Via (-1.3mm,-6.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3619.517mil|Location2.X=3667.887mil|Location1.Y=2960.713mil|Location2.Y=3009.083mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3619.517mil|Location2.X=3667.887mil|Location1.Y=2960.713mil|Location2.Y=3009.083mil|Absolute=True">Routing Via Style: Via (1.55mm,2.816mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3506.327mil|Location2.X=3533.043mil|Location1.Y=2939.398mil|Location2.Y=2966.114mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3506.327mil|Location2.X=3533.043mil|Location1.Y=2939.398mil|Location2.Y=2966.114mil|Absolute=True">Routing Via Style: Via (-1.6mm,2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3506.327mil|Location2.X=3533.043mil|Location1.Y=3073.256mil|Location2.Y=3099.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3506.327mil|Location2.X=3533.043mil|Location1.Y=3073.256mil|Location2.Y=3099.972mil|Absolute=True">Routing Via Style: Via (-1.6mm,5.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3644.122mil|Location2.X=3670.838mil|Location1.Y=2662.483mil|Location2.Y=2689.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3644.122mil|Location2.X=3670.838mil|Location1.Y=2662.483mil|Location2.Y=2689.2mil|Absolute=True">Routing Via Style: Via (1.9mm,-5.034mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.98mil|Location2.X=3201.35mil|Location1.Y=2853.768mil|Location2.Y=2902.138mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.98mil|Location2.X=3201.35mil|Location1.Y=2853.768mil|Location2.Y=2902.138mil|Absolute=True">Routing Via Style: Via (-10.3mm,0.1mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3974.831mil|Location2.X=4001.547mil|Location1.Y=3314.595mil|Location2.Y=3341.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3974.831mil|Location2.X=4001.547mil|Location1.Y=3314.595mil|Location2.Y=3341.311mil|Absolute=True">Routing Via Style: Via (10.3mm,11.53mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.98mil|Location2.X=3201.35mil|Location1.Y=2928.571mil|Location2.Y=2976.941mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.98mil|Location2.X=3201.35mil|Location1.Y=2928.571mil|Location2.Y=2976.941mil|Absolute=True">Routing Via Style: Via (-10.3mm,2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.98mil|Location2.X=3201.35mil|Location1.Y=3003.374mil|Location2.Y=3051.744mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.98mil|Location2.X=3201.35mil|Location1.Y=3003.374mil|Location2.Y=3051.744mil|Absolute=True">Routing Via Style: Via (-10.3mm,3.9mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3133.295mil|Location2.X=3181.665mil|Location1.Y=2660.854mil|Location2.Y=2709.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3133.295mil|Location2.X=3181.665mil|Location1.Y=2660.854mil|Location2.Y=2709.224mil|Absolute=True">Routing Via Style: Via (-10.8mm,-4.8mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4000.028mil|Location2.X=4026.744mil|Location1.Y=3259.87mil|Location2.Y=3286.586mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4000.028mil|Location2.X=4026.744mil|Location1.Y=3259.87mil|Location2.Y=3286.586mil|Absolute=True">Routing Via Style: Via (10.94mm,10.14mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4013.119mil|Location2.X=4039.835mil|Location1.Y=3151.995mil|Location2.Y=3178.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4013.119mil|Location2.X=4039.835mil|Location1.Y=3151.995mil|Location2.Y=3178.712mil|Absolute=True">Routing Via Style: Via (11.273mm,7.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4020.5mil|Location2.X=4047.216mil|Location1.Y=3307.114mil|Location2.Y=3333.831mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4020.5mil|Location2.X=4047.216mil|Location1.Y=3307.114mil|Location2.Y=3333.831mil|Absolute=True">Routing Via Style: Via (11.46mm,11.34mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4026.011mil|Location2.X=4052.727mil|Location1.Y=2951.209mil|Location2.Y=2977.925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4026.011mil|Location2.X=4052.727mil|Location1.Y=2951.209mil|Location2.Y=2977.925mil|Absolute=True">Routing Via Style: Via (11.6mm,2.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.641mil|Location2.X=3135.011mil|Location1.Y=2704.161mil|Location2.Y=2752.531mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.641mil|Location2.X=3135.011mil|Location1.Y=2704.161mil|Location2.Y=2752.531mil|Absolute=True">Routing Via Style: Via (-11.985mm,-3.7mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.869mil|Location2.X=4067.491mil|Location1.Y=3048.649mil|Location2.Y=3081.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4034.869mil|Location2.X=4067.491mil|Location1.Y=3048.649mil|Location2.Y=3081.271mil|Absolute=True">Routing Via Style: Via (11.9mm,4.85mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3079.358mil|Location2.X=3127.728mil|Location1.Y=3001.405mil|Location2.Y=3049.776mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3079.358mil|Location2.X=3127.728mil|Location1.Y=3001.405mil|Location2.Y=3049.776mil|Absolute=True">Routing Via Style: Via (-12.17mm,3.85mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3077.784mil|Location2.X=3126.153mil|Location1.Y=2927.784mil|Location2.Y=2976.153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3077.784mil|Location2.X=3126.153mil|Location1.Y=2927.784mil|Location2.Y=2976.153mil|Absolute=True">Routing Via Style: Via (-12.21mm,1.98mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3077.39mil|Location2.X=3125.76mil|Location1.Y=2854.555mil|Location2.Y=2902.925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3077.39mil|Location2.X=3125.76mil|Location1.Y=2854.555mil|Location2.Y=2902.925mil|Absolute=True">Routing Via Style: Via (-12.22mm,0.12mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4065.382mil|Location2.X=4092.098mil|Location1.Y=2864.595mil|Location2.Y=2891.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4065.382mil|Location2.X=4092.098mil|Location1.Y=2864.595mil|Location2.Y=2891.311mil|Absolute=True">Routing Via Style: Via (12.6mm,0.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4065.382mil|Location2.X=4092.098mil|Location1.Y=2774.043mil|Location2.Y=2800.76mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4065.382mil|Location2.X=4092.098mil|Location1.Y=2774.043mil|Location2.Y=2800.76mil|Absolute=True">Routing Via Style: Via (12.6mm,-2.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4079.162mil|Location2.X=4105.878mil|Location1.Y=3276.405mil|Location2.Y=3303.122mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4079.162mil|Location2.X=4105.878mil|Location1.Y=3276.405mil|Location2.Y=3303.122mil|Absolute=True">Routing Via Style: Via (12.95mm,10.56mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3042.745mil|Location2.X=3091.115mil|Location1.Y=3448.255mil|Location2.Y=3496.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3042.745mil|Location2.X=3091.115mil|Location1.Y=3448.255mil|Location2.Y=3496.625mil|Absolute=True">Routing Via Style: Via (-13.1mm,15.2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3049.121mil|Location2.X=3075.838mil|Location1.Y=3211.051mil|Location2.Y=3237.768mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3049.121mil|Location2.X=3075.838mil|Location1.Y=3211.051mil|Location2.Y=3237.768mil|Absolute=True">Routing Via Style: Via (-13.213mm,8.9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3011.248mil|Location2.X=3059.618mil|Location1.Y=2708.098mil|Location2.Y=2756.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3011.248mil|Location2.X=3059.618mil|Location1.Y=2708.098mil|Location2.Y=2756.468mil|Absolute=True">Routing Via Style: Via (-13.9mm,-3.6mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4081.13mil|Location2.X=4107.846mil|Location1.Y=3313.413mil|Location2.Y=3340.13mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4081.13mil|Location2.X=4107.846mil|Location1.Y=3313.413mil|Location2.Y=3340.13mil|Absolute=True">Routing Via Style: Via (13mm,11.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3003.374mil|Location2.X=3051.744mil|Location1.Y=2853.768mil|Location2.Y=2902.138mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3003.374mil|Location2.X=3051.744mil|Location1.Y=2853.768mil|Location2.Y=2902.138mil|Absolute=True">Routing Via Style: Via (-14.1mm,0.1mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3003.374mil|Location2.X=3051.744mil|Location1.Y=2928.571mil|Location2.Y=2976.941mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3003.374mil|Location2.X=3051.744mil|Location1.Y=2928.571mil|Location2.Y=2976.941mil|Absolute=True">Routing Via Style: Via (-14.1mm,2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3003.374mil|Location2.X=3051.744mil|Location1.Y=3003.374mil|Location2.Y=3051.744mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3003.374mil|Location2.X=3051.744mil|Location1.Y=3003.374mil|Location2.Y=3051.744mil|Absolute=True">Routing Via Style: Via (-14.1mm,3.9mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2994.517mil|Location2.X=3021.233mil|Location1.Y=3262.232mil|Location2.Y=3288.949mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2994.517mil|Location2.X=3021.233mil|Location1.Y=3262.232mil|Location2.Y=3288.949mil|Absolute=True">Routing Via Style: Via (-14.6mm,10.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2926.406mil|Location2.X=2953.122mil|Location1.Y=2789.398mil|Location2.Y=2816.114mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2926.406mil|Location2.X=2953.122mil|Location1.Y=2789.398mil|Location2.Y=2816.114mil|Absolute=True">Routing Via Style: Via (-16.33mm,-1.81mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2912.823mil|Location2.X=2961.193mil|Location1.Y=3097.862mil|Location2.Y=3146.232mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2912.823mil|Location2.X=2961.193mil|Location1.Y=3097.862mil|Location2.Y=3146.232mil|Absolute=True">Routing Via Style: Via (-16.4mm,6.3mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2939.398mil|Location2.X=2966.114mil|Location1.Y=3312.902mil|Location2.Y=3339.618mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2939.398mil|Location2.X=2966.114mil|Location1.Y=3312.902mil|Location2.Y=3339.618mil|Absolute=True">Routing Via Style: Via (-16mm,11.487mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2887.429mil|Location2.X=2914.146mil|Location1.Y=2783.578mil|Location2.Y=2810.294mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2887.429mil|Location2.X=2914.146mil|Location1.Y=2783.578mil|Location2.Y=2810.294mil|Absolute=True">Routing Via Style: Via (-17.32mm,-1.958mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2857.116mil|Location2.X=2883.832mil|Location1.Y=2781.918mil|Location2.Y=2808.634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2857.116mil|Location2.X=2883.832mil|Location1.Y=2781.918mil|Location2.Y=2808.634mil|Absolute=True">Routing Via Style: Via (-18.09mm,-2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4275.028mil|Location2.X=4323.398mil|Location1.Y=3164.791mil|Location2.Y=3213.161mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4275.028mil|Location2.X=4323.398mil|Location1.Y=3164.791mil|Location2.Y=3213.161mil|Absolute=True">Routing Via Style: Via (18.2mm,8mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2828.768mil|Location2.X=2887.768mil|Location1.Y=2537.429mil|Location2.Y=2596.429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2828.768mil|Location2.X=2887.768mil|Location1.Y=2537.429mil|Location2.Y=2596.429mil|Absolute=True">Routing Via Style: Via (-18.4mm,-7.8mm) from Top Layer to Bottom Layer Actual Size : 1.27mm Actual Hole Size : 1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2831.132mil|Location2.X=2857.848mil|Location1.Y=2780.736mil|Location2.Y=2807.453mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2831.132mil|Location2.X=2857.848mil|Location1.Y=2780.736mil|Location2.Y=2807.453mil|Absolute=True">Routing Via Style: Via (-18.75mm,-2.03mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2804.162mil|Location2.X=2852.532mil|Location1.Y=2646.287mil|Location2.Y=2694.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2804.162mil|Location2.X=2852.532mil|Location1.Y=2646.287mil|Location2.Y=2694.657mil|Absolute=True">Routing Via Style: Via (-19.16mm,-5.17mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2805.541mil|Location2.X=2832.257mil|Location1.Y=2781.524mil|Location2.Y=2808.24mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2805.541mil|Location2.X=2832.257mil|Location1.Y=2781.524mil|Location2.Y=2808.24mil|Absolute=True">Routing Via Style: Via (-19.4mm,-2.01mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2781.524mil|Location2.X=2840.524mil|Location1.Y=2978.374mil|Location2.Y=3037.374mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2781.524mil|Location2.X=2840.524mil|Location1.Y=2978.374mil|Location2.Y=3037.374mil|Absolute=True">Routing Via Style: Via (-19.6mm,3.4mm) from Top Layer to Bottom Layer Actual Size : 1.27mm Actual Hole Size : 1mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3608.689mil|Location2.X=3635.405mil|Location1.Y=3175.618mil|Location2.Y=3202.334mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3608.689mil|Location2.X=3635.405mil|Location1.Y=3175.618mil|Location2.Y=3202.334mil|Absolute=True">Routing Via Style: Via (1mm,8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3655.933mil|Location2.X=3682.65mil|Location1.Y=2317.35mil|Location2.Y=2344.067mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3655.933mil|Location2.X=3682.65mil|Location1.Y=2317.35mil|Location2.Y=2344.067mil|Absolute=True">Routing Via Style: Via (2.2mm,-13.8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.681mil|Location2.X=3698.398mil|Location1.Y=3065.382mil|Location2.Y=3092.098mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.681mil|Location2.X=3698.398mil|Location1.Y=3065.382mil|Location2.Y=3092.098mil|Absolute=True">Routing Via Style: Via (2.6mm,5.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3463.02mil|Location2.X=3489.736mil|Location1.Y=2927.587mil|Location2.Y=2954.303mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3463.02mil|Location2.X=3489.736mil|Location1.Y=2927.587mil|Location2.Y=2954.303mil|Absolute=True">Routing Via Style: Via (-2.7mm,1.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2778.768mil|Location2.X=2805.484mil|Location1.Y=2782.311mil|Location2.Y=2809.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2778.768mil|Location2.X=2805.484mil|Location1.Y=2782.311mil|Location2.Y=2809.027mil|Absolute=True">Routing Via Style: Via (-20.08mm,-1.99mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3479.752mil|Location2.X=3528.122mil|Location1.Y=2070.303mil|Location2.Y=2118.673mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3479.752mil|Location2.X=3528.122mil|Location1.Y=2070.303mil|Location2.Y=2118.673mil|Absolute=True">Routing Via Style: Via (-2mm,-19.8mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3648.059mil|Location2.X=3674.776mil|Location1.Y=2726.799mil|Location2.Y=2753.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3648.059mil|Location2.X=3674.776mil|Location1.Y=2726.799mil|Location2.Y=2753.516mil|Absolute=True">Routing Via Style: Via (2mm,-3.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3684.477mil|Location2.X=3732.847mil|Location1.Y=3239.595mil|Location2.Y=3287.965mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3684.477mil|Location2.X=3732.847mil|Location1.Y=3239.595mil|Location2.Y=3287.965mil|Absolute=True">Routing Via Style: Via (3.2mm,9.9mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3703.177mil|Location2.X=3729.894mil|Location1.Y=2687.429mil|Location2.Y=2714.146mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3703.177mil|Location2.X=3729.894mil|Location1.Y=2687.429mil|Location2.Y=2714.146mil|Absolute=True">Routing Via Style: Via (3.4mm,-4.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3431.524mil|Location2.X=3458.24mil|Location1.Y=2963.02mil|Location2.Y=2989.736mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3431.524mil|Location2.X=3458.24mil|Location1.Y=2963.02mil|Location2.Y=2989.736mil|Absolute=True">Routing Via Style: Via (-3.5mm,2.6mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3722.862mil|Location2.X=3749.579mil|Location1.Y=3037.823mil|Location2.Y=3064.539mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3722.862mil|Location2.X=3749.579mil|Location1.Y=3037.823mil|Location2.Y=3064.539mil|Absolute=True">Routing Via Style: Via (3.9mm,4.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3738.61mil|Location2.X=3765.327mil|Location1.Y=2616.563mil|Location2.Y=2643.279mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3738.61mil|Location2.X=3765.327mil|Location1.Y=2616.563mil|Location2.Y=2643.279mil|Absolute=True">Routing Via Style: Via (4.3mm,-6.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3381.327mil|Location2.X=3429.697mil|Location1.Y=2597.862mil|Location2.Y=2646.232mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3381.327mil|Location2.X=3429.697mil|Location1.Y=2597.862mil|Location2.Y=2646.232mil|Absolute=True">Routing Via Style: Via (-4.5mm,-6.4mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3388.217mil|Location2.X=3414.933mil|Location1.Y=2730.736mil|Location2.Y=2757.453mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3388.217mil|Location2.X=3414.933mil|Location1.Y=2730.736mil|Location2.Y=2757.453mil|Absolute=True">Routing Via Style: Via (-4.6mm,-3.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.406mil|Location2.X=3403.122mil|Location1.Y=2927.587mil|Location2.Y=2954.303mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.406mil|Location2.X=3403.122mil|Location1.Y=2927.587mil|Location2.Y=2954.303mil|Absolute=True">Routing Via Style: Via (-4.9mm,1.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3770.106mil|Location2.X=3796.823mil|Location1.Y=3214.988mil|Location2.Y=3241.705mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3770.106mil|Location2.X=3796.823mil|Location1.Y=3214.988mil|Location2.Y=3241.705mil|Absolute=True">Routing Via Style: Via (5.1mm,9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.595mil|Location2.X=3391.311mil|Location1.Y=2998.453mil|Location2.Y=3025.169mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3364.595mil|Location2.X=3391.311mil|Location1.Y=2998.453mil|Location2.Y=3025.169mil|Absolute=True">Routing Via Style: Via (-5.2mm,3.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.854mil|Location2.X=3812.571mil|Location1.Y=3309.476mil|Location2.Y=3336.193mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.854mil|Location2.X=3812.571mil|Location1.Y=3309.476mil|Location2.Y=3336.193mil|Absolute=True">Routing Via Style: Via (5.5mm,11.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.854mil|Location2.X=3812.571mil|Location1.Y=2663.807mil|Location2.Y=2690.523mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.854mil|Location2.X=3812.571mil|Location1.Y=2663.807mil|Location2.Y=2690.523mil|Absolute=True">Routing Via Style: Via (5.5mm,-5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3766.169mil|Location2.X=3792.886mil|Location1.Y=2703.177mil|Location2.Y=2729.894mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3766.169mil|Location2.X=3792.886mil|Location1.Y=2703.177mil|Location2.Y=2729.894mil|Absolute=True">Routing Via Style: Via (5mm,-4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3325.224mil|Location2.X=3351.941mil|Location1.Y=2939.398mil|Location2.Y=2966.114mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3325.224mil|Location2.X=3351.941mil|Location1.Y=2939.398mil|Location2.Y=2966.114mil|Absolute=True">Routing Via Style: Via (-6.2mm,2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3325.224mil|Location2.X=3351.941mil|Location1.Y=3100.815mil|Location2.Y=3127.531mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3325.224mil|Location2.X=3351.941mil|Location1.Y=3100.815mil|Location2.Y=3127.531mil|Absolute=True">Routing Via Style: Via (-6.2mm,6.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3321.287mil|Location2.X=3348.004mil|Location1.Y=3069.319mil|Location2.Y=3096.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3321.287mil|Location2.X=3348.004mil|Location1.Y=3069.319mil|Location2.Y=3096.035mil|Absolute=True">Routing Via Style: Via (-6.3mm,5.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3821.287mil|Location2.X=3848.004mil|Location1.Y=3340.972mil|Location2.Y=3367.689mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3821.287mil|Location2.X=3848.004mil|Location1.Y=3340.972mil|Location2.Y=3367.689mil|Absolute=True">Routing Via Style: Via (6.4mm,12.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.351mil|Location2.X=3344.067mil|Location1.Y=2982.705mil|Location2.Y=3009.421mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3317.351mil|Location2.X=3344.067mil|Location1.Y=2982.705mil|Location2.Y=3009.421mil|Absolute=True">Routing Via Style: Via (-6.4mm,3.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3805.539mil|Location2.X=3832.256mil|Location1.Y=3069.319mil|Location2.Y=3096.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3805.539mil|Location2.X=3832.256mil|Location1.Y=3069.319mil|Location2.Y=3096.035mil|Absolute=True">Routing Via Style: Via (6mm,5.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3805.539mil|Location2.X=3832.256mil|Location1.Y=2620.5mil|Location2.Y=2647.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3805.539mil|Location2.X=3832.256mil|Location1.Y=2620.5mil|Location2.Y=2647.216mil|Absolute=True">Routing Via Style: Via (6mm,-6.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3293.729mil|Location2.X=3320.445mil|Location1.Y=3451.209mil|Location2.Y=3477.925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3293.729mil|Location2.X=3320.445mil|Location1.Y=3451.209mil|Location2.Y=3477.925mil|Absolute=True">Routing Via Style: Via (-7mm,15mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3891.169mil|Location2.X=3917.886mil|Location1.Y=3126.406mil|Location2.Y=3153.122mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3891.169mil|Location2.X=3917.886mil|Location1.Y=3126.406mil|Location2.Y=3153.122mil|Absolute=True">Routing Via Style: Via (8.175mm,6.75mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3250.421mil|Location2.X=3277.138mil|Location1.Y=3226.799mil|Location2.Y=3253.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3250.421mil|Location2.X=3277.138mil|Location1.Y=3226.799mil|Location2.Y=3253.516mil|Absolute=True">Routing Via Style: Via (-8.1mm,9.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3892.154mil|Location2.X=3918.87mil|Location1.Y=3085.067mil|Location2.Y=3111.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3892.154mil|Location2.X=3918.87mil|Location1.Y=3085.067mil|Location2.Y=3111.783mil|Absolute=True">Routing Via Style: Via (8.2mm,5.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3892.154mil|Location2.X=3918.87mil|Location1.Y=2589.004mil|Location2.Y=2615.72mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3892.154mil|Location2.X=3918.87mil|Location1.Y=2589.004mil|Location2.Y=2615.72mil|Absolute=True">Routing Via Style: Via (8.2mm,-6.9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3892.154mil|Location2.X=3918.87mil|Location1.Y=3151.996mil|Location2.Y=3178.713mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3892.154mil|Location2.X=3918.87mil|Location1.Y=3151.996mil|Location2.Y=3178.713mil|Absolute=True">Routing Via Style: Via (8.2mm,7.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.201mil|Location2.X=3921.823mil|Location1.Y=2483.689mil|Location2.Y=2516.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3889.201mil|Location2.X=3921.823mil|Location1.Y=2483.689mil|Location2.Y=2516.311mil|Absolute=True">Routing Via Style: Via (8.2mm,-9.5mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3896.091mil|Location2.X=3922.807mil|Location1.Y=3183.492mil|Location2.Y=3210.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3896.091mil|Location2.X=3922.807mil|Location1.Y=3183.492mil|Location2.Y=3210.209mil|Absolute=True">Routing Via Style: Via (8.3mm,8.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3896.089mil|Location2.X=3922.806mil|Location1.Y=3211.051mil|Location2.Y=3237.768mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3896.089mil|Location2.X=3922.806mil|Location1.Y=3211.051mil|Location2.Y=3237.768mil|Absolute=True">Routing Via Style: Via (8.3mm,8.9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3896.091mil|Location2.X=3922.807mil|Location1.Y=3238.61mil|Location2.Y=3265.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3896.091mil|Location2.X=3922.807mil|Location1.Y=3238.61mil|Location2.Y=3265.327mil|Absolute=True">Routing Via Style: Via (8.3mm,9.6mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3238.61mil|Location2.X=3265.327mil|Location1.Y=3506.327mil|Location2.Y=3533.043mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3238.61mil|Location2.X=3265.327mil|Location1.Y=3506.327mil|Location2.Y=3533.043mil|Absolute=True">Routing Via Style: Via (-8.4mm,16.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3897.075mil|Location2.X=3929.697mil|Location1.Y=2523.059mil|Location2.Y=2555.681mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3897.075mil|Location2.X=3929.697mil|Location1.Y=2523.059mil|Location2.Y=2555.681mil|Absolute=True">Routing Via Style: Via (8.4mm,-8.5mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3897.075mil|Location2.X=3945.445mil|Location1.Y=2771.09mil|Location2.Y=2819.461mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3897.075mil|Location2.X=3945.445mil|Location1.Y=2771.09mil|Location2.Y=2819.461mil|Absolute=True">Routing Via Style: Via (8.6mm,-2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3230.736mil|Location2.X=3257.453mil|Location1.Y=3207.114mil|Location2.Y=3233.831mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3230.736mil|Location2.X=3257.453mil|Location1.Y=3207.114mil|Location2.Y=3233.831mil|Absolute=True">Routing Via Style: Via (-8.6mm,8.8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.575mil|Location2.X=3236.291mil|Location1.Y=3181.032mil|Location2.Y=3207.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.575mil|Location2.X=3236.291mil|Location1.Y=3181.032mil|Location2.Y=3207.748mil|Absolute=True">Routing Via Style: Via (-9.138mm,8.137mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3935.854mil|Location2.X=3962.57mil|Location1.Y=3001.996mil|Location2.Y=3028.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3935.854mil|Location2.X=3962.57mil|Location1.Y=3001.996mil|Location2.Y=3028.712mil|Absolute=True">Routing Via Style: Via (9.31mm,3.59mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3953.965mil|Location2.X=3980.681mil|Location1.Y=3035.067mil|Location2.Y=3061.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3953.965mil|Location2.X=3980.681mil|Location1.Y=3035.067mil|Location2.Y=3061.783mil|Absolute=True">Routing Via Style: Via (9.77mm,4.43mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3944.902mil|Location2.X=3993.272mil|Location1.Y=2601.412mil|Location2.Y=2649.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3944.902mil|Location2.X=3993.272mil|Location1.Y=2601.412mil|Location2.Y=2649.782mil|Absolute=True">Routing Via Style: Via (9.815mm,-6.31mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3183.492mil|Location2.X=3210.209mil|Location1.Y=3557.508mil|Location2.Y=3584.224mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3183.492mil|Location2.X=3210.209mil|Location1.Y=3557.508mil|Location2.Y=3584.224mil|Absolute=True">Routing Via Style: Via (-9.8mm,17.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3952.193mil|Location2.X=3984.815mil|Location1.Y=2530.933mil|Location2.Y=2563.555mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3952.193mil|Location2.X=3984.815mil|Location1.Y=2530.933mil|Location2.Y=2563.555mil|Absolute=True">Routing Via Style: Via (9.8mm,-8.3mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3959.083mil|Location2.X=3985.799mil|Location1.Y=3069.319mil|Location2.Y=3096.035mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3959.083mil|Location2.X=3985.799mil|Location1.Y=3069.319mil|Location2.Y=3096.035mil|Absolute=True">Routing Via Style: Via (9.9mm,5.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDFSYWIUO0RQL4P5UDRYROQVFRML3CENHKPUJVDWHLGK00GO4JQANN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Component Clearance Constraint ( Horizontal Gap = 0.254mm, Vertical Gap = 0.254mm ) (All),(All) </th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4105.6mil|Location2.X=4113.267mil|Location1.Y=2550.482mil|Location2.Y=2558.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4105.6mil|Location2.X=4113.267mil|Location1.Y=2550.482mil|Location2.Y=2558.148mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 0.254mm) Between Component J1-SWD-PROG (10.9mm,-14.7mm) on Bottom Layer And SMT Small Component R4-Resistor 0603 (13.2mm,-8.3mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4118.023mil|Location2.X=4129.273mil|Location1.Y=2578.636mil|Location2.Y=2589.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4118.023mil|Location2.X=4129.273mil|Location1.Y=2578.636mil|Location2.Y=2589.886mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 0.254mm) Between Component J1-SWD-PROG (10.9mm,-14.7mm) on Bottom Layer And SMT Small Component R9-Resistor 0603 (14.3mm,-7.2mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4324.021mil|Location2.X=4335.271mil|Location1.Y=2783.643mil|Location2.Y=2794.893mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4324.021mil|Location2.X=4335.271mil|Location1.Y=2783.643mil|Location2.Y=2794.893mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 0.254mm) Between Component J5-BOOT (18.4mm,-4.2mm) on Top Layer And DIP Component U3-MAX485CPA+ (19.1mm,-1.4mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3589.726mil|Location2.X=3597.392mil|Location1.Y=2378.827mil|Location2.Y=2386.494mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3589.726mil|Location2.X=3597.392mil|Location1.Y=2378.827mil|Location2.Y=2386.494mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 0.254mm) Between SIP Component J2-MAIN_IN (6.2mm,-9.6mm) on Bottom Layer And SIP Component J3-MAIN_OUT (-4.6mm,-12.1mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4156.102mil|Location2.X=4163.769mil|Location1.Y=3238.44mil|Location2.Y=3246.107mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4156.102mil|Location2.X=4163.769mil|Location1.Y=3238.44mil|Location2.Y=3246.107mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 0.254mm) Between Small Component U5-AH372-P-B (15.5mm,11.3mm) on Bottom Layer And SMT Small Component C1-Capacitor SMD (14.6mm,9mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

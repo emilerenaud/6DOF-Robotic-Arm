@@ -1,0 +1,152 @@
+Protel Design System Design Rule Check
+PCB File : D:\Google Drive\CEGEP Limoilou\247-516 - Planifier et analyser un projet de conception\Emile-Luka\Motor Driver\PCB1.PcbDoc
+Date     : 23/03/2020
+Time     : 20:28:41
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.229mm) (Max=0.8mm) (Preferred=0.8mm) (InNet('OA1') or InNet('OA2') or InNet('OB1') or InNet('OB2'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.229mm) (Max=0.4mm) (Preferred=0.4mm) (InNet('+12') or InNet('GND'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=0.2mm) (Preferred=0.2mm) (All)
+Rule Violations :0
+
+Processing Rule : Routing Layers(All)
+Rule Violations :0
+
+Processing Rule : Routing Via (MinHoleWidth=0.3mm) (MaxHoleWidth=0.3mm) (PreferredHoleWidth=0.3mm) (MinWidth=0.6mm) (MaxWidth=0.6mm) (PreferedWidth=0.6mm) (All)
+   Violation between Routing Via Style: Via (-0.2mm,-6.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-0.6mm,-3.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (0mm,-4.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (1.3mm,4.8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-1.3mm,-6.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (1.55mm,2.816mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-1.6mm,2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-1.6mm,5.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (1.9mm,-5.034mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-10.3mm,0.1mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (10.3mm,11.53mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-10.3mm,2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-10.3mm,3.9mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-10.8mm,-4.8mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (10.94mm,10.14mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (11.273mm,7.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (11.46mm,11.34mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (11.6mm,2.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-11.985mm,-3.7mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (11.9mm,4.85mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-12.17mm,3.85mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-12.21mm,1.98mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-12.22mm,0.12mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (12.6mm,0.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (12.6mm,-2.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (12.95mm,10.56mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-13.1mm,15.2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-13.213mm,8.9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-13.9mm,-3.6mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (13mm,11.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-14.1mm,0.1mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-14.1mm,2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-14.1mm,3.9mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-14.6mm,10.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-16.33mm,-1.81mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-16.4mm,6.3mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-16mm,11.487mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-17.32mm,-1.958mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-18.09mm,-2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (18.2mm,8mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-18.4mm,-7.8mm) from Top Layer to Bottom Layer Actual Size : 1.27mm Actual Hole Size : 1mm
+   Violation between Routing Via Style: Via (-18.75mm,-2.03mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-19.16mm,-5.17mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-19.4mm,-2.01mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-19.6mm,3.4mm) from Top Layer to Bottom Layer Actual Size : 1.27mm Actual Hole Size : 1mm
+   Violation between Routing Via Style: Via (1mm,8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (2.2mm,-13.8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (2.6mm,5.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-2.7mm,1.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-20.08mm,-1.99mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-2mm,-19.8mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (2mm,-3.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (3.2mm,9.9mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (3.4mm,-4.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-3.5mm,2.6mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (3.9mm,4.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (4.3mm,-6.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-4.5mm,-6.4mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-4.6mm,-3.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-4.9mm,1.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (5.1mm,9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-5.2mm,3.5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (5.5mm,11.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (5.5mm,-5mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (5mm,-4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-6.2mm,2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-6.2mm,6.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-6.3mm,5.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (6.4mm,12.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-6.4mm,3.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (6mm,5.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (6mm,-6.1mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-7mm,15mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.175mm,6.75mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-8.1mm,9.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.2mm,5.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.2mm,-6.9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.2mm,7.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.2mm,-9.5mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.3mm,8.2mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.3mm,8.9mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.3mm,9.6mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-8.4mm,16.4mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.4mm,-8.5mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (8.6mm,-2mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-8.6mm,8.8mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (-9.138mm,8.137mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (9.31mm,3.59mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (9.77mm,4.43mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (9.815mm,-6.31mm) from Top Layer to Bottom Layer Actual Size : 1mm Actual Hole Size : 0.6mm
+   Violation between Routing Via Style: Via (-9.8mm,17.7mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (9.8mm,-8.3mm) from Top Layer to Bottom Layer Actual Size : 0.6mm Actual Hole Size : 0.2mm
+   Violation between Routing Via Style: Via (9.9mm,5.3mm) from Top Layer to Bottom Layer Actual Size : 0.45mm Actual Hole Size : 0.2mm
+Rule Violations :93
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.9mm) (Disabled)(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (Disabled)(All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 0.254mm, Vertical Gap = 0.254mm ) (All),(All) 
+   Violation between Component Clearance Constraint: (Collision < 0.254mm) Between Component J1-SWD-PROG (10.9mm,-14.7mm) on Bottom Layer And SMT Small Component R4-Resistor 0603 (13.2mm,-8.3mm) on Bottom Layer 
+   Violation between Component Clearance Constraint: (Collision < 0.254mm) Between Component J1-SWD-PROG (10.9mm,-14.7mm) on Bottom Layer And SMT Small Component R9-Resistor 0603 (14.3mm,-7.2mm) on Bottom Layer 
+   Violation between Component Clearance Constraint: (Collision < 0.254mm) Between Component J5-BOOT (18.4mm,-4.2mm) on Top Layer And DIP Component U3-MAX485CPA+ (19.1mm,-1.4mm) on Top Layer 
+   Violation between Component Clearance Constraint: (Collision < 0.254mm) Between SIP Component J2-MAIN_IN (6.2mm,-9.6mm) on Bottom Layer And SIP Component J3-MAIN_OUT (-4.6mm,-12.1mm) on Top Layer 
+   Violation between Component Clearance Constraint: (Collision < 0.254mm) Between Small Component U5-AH372-P-B (15.5mm,11.3mm) on Bottom Layer And SMT Small Component C1-Capacitor SMD (14.6mm,9mm) on Bottom Layer 
+Rule Violations :5
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 98
+Waived Violations : 0
+Time Elapsed        : 00:00:01

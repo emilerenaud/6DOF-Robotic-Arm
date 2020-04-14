@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=+3.3V Pin=Q2-2
+Removed Pin From Net: NetName=RX Pin=Q2-3
+Change Component Footprint: Designator=Q2 Old Footprint=E3 New Footprint=SOT-23_L
+Added Pin To Net: NetName=+3.3V Pin=Q2-1
+Added Pin To Net: NetName=RX Pin=Q2-2
+Added Pin To Net: NetName=NetQ2_3 Pin=Q2-3
+Added Pin To Net: NetName=NetQ2_3 Pin=R16-1
+Added Pin To Net: NetName=NetQ2_3 Pin=U3-1
+Added Net: Name=NetQ2_3

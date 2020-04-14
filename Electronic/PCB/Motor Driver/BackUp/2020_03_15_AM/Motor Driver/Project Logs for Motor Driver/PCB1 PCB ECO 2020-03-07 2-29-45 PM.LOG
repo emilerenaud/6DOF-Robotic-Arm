@@ -1,0 +1,114 @@
+Removed Pin From Net: NetName=+3.3V Pin=C8-2
+Removed Pin From Net: NetName=+3.3V Pin=C9-2
+Removed Pin From Net: NetName=12v Pin=C13-2
+Removed Pin From Net: NetName=12v Pin=C16-2
+Removed Pin From Net: NetName=12v Pin=C17-2
+Removed Pin From Net: NetName=12v Pin=C18-2
+Removed Pin From Net: NetName=GND Pin=U2-17
+Removed Pin From Net: NetName=GND Pin=U2-44
+Removed Pin From Net: NetName=+3.3V Pin=U4-5
+Change Component Comment : Designator=U3 Old Comment=Part Number: MAX485CPA+ New Comment=MAX485CPA+
+Change Component Comment : Designator=R9 Old Comment=Resistor 1206 New Comment=Jumper 0603
+Change Component Comment : Designator=R1 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Comment : Designator=R5 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Comment : Designator=R6 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Comment : Designator=R7 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Comment : Designator=R8 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Comment : Designator=R10 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Comment : Designator=R11 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Comment : Designator=R12 Old Comment=Resistor 1206 New Comment=Resistor 0603
+Change Component Description : Designator=R1 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change Component Description : Designator=R5 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change Component Description : Designator=R6 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change Component Description : Designator=R7 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change Component Description : Designator=R8 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change Component Description : Designator=R10 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change Component Description : Designator=R11 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change Component Description : Designator=R12 Old Description=Resistor 1206 SMD New Description=Resistor 0603 SMD
+Change component parameters: Designator = "R5" ("R5"); Footprint = "0603"; UniqueID = "\DVWFYWHG" ("\DVWFYWHG")
+Change component parameters (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "3.3R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R6" ("R6"); Footprint = "0603"; UniqueID = "\CLLSBCHQ" ("\CLLSBCHQ")
+Change component parameters (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "43R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R7" ("R7"); Footprint = "0603"; UniqueID = "\FYXKLIHK" ("\FYXKLIHK")
+Change component parameters (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "3.3R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R9" ("R9"); Footprint = "0603"; UniqueID = "\ZIPSLPDV" ("\ZIPSLPDV")
+Change component parameters (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "NP"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R12" ("R12"); Footprint = "0603"; UniqueID = "\NJKSREVO" ("\NJKSREVO")
+Change component parameters (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "15K"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Added Component: Designator=R13(0603)
+Add component (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Added Component: Designator=R14(0603)
+Add component (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Added Component: Designator=R15(0603)
+Add component (AddParameter): Name = "Built_By"; Value = "EMA_Cory"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Copyright"; Value = "Copyright (C) 2018 Accelerated Designs. All rights reserved"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ERJ8CWFR024V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "DEV"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Vendor"; Value = "Panasonic"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3V Pin=R13-2
+Added Pin To Net: NetName=GND Pin=R14-1
+Added Pin To Net: NetName=GND Pin=R15-1
+Change Net Name : Old Net Name=12v New Net Name=+12
+Added Pin To Net: NetName=12V Pin=C13-2
+Added Pin To Net: NetName=12V Pin=C16-2
+Added Pin To Net: NetName=12V Pin=C17-2
+Added Pin To Net: NetName=12V Pin=C18-2
+Added Net: Name=12V
+Added Pin To Net: NetName=NetC8_2 Pin=C8-2
+Added Pin To Net: NetName=NetC8_2 Pin=C9-2
+Added Pin To Net: NetName=NetC8_2 Pin=R13-1
+Added Pin To Net: NetName=NetC8_2 Pin=U4-5
+Added Net: Name=NetC8_2
+Added Pin To Net: NetName=NetR14_2 Pin=R14-2
+Added Pin To Net: NetName=NetR14_2 Pin=U2-44
+Added Net: Name=NetR14_2
+Added Pin To Net: NetName=NetR15_2 Pin=R15-2
+Added Pin To Net: NetName=NetR15_2 Pin=U2-17
+Added Net: Name=NetR15_2
+Added Member To Class: ClassName=STM32 Member=Component R13 Jumper 0603
+Added Member To Class: ClassName=TMC2130 Member=Component R14 Resistor 0603
+Added Member To Class: ClassName=TMC2130 Member=Component R15 Resistor 0603

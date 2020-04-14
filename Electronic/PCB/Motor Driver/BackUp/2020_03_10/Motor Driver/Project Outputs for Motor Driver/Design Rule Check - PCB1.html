@@ -1,0 +1,642 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\Altium Designer\ProjectsAltium20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3/10/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2:32:42 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc" class="file"><acronym title="C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc">C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">102</td></tr>
+</table>
+</td>
+</table><a name="IDZHORO00ZKJGNNICHPMLXCBTTYGZUMYNA0ESNQIBJKDHSXTXKY0WB"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRWGNRMSSLDILXR2FVEWAT5W1K0OVLHC1CAKUMB44FMDBTTTQ2WB">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">17</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDMT0R1YMPSTYN5B2SO0B5UUF25KQX1D0ERN2OKSLXEE3ZBWHV5C">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDN2KPSONYWTUPCNKGWVBZECFMSEL3O1COPEUWSM3E5WKPZUUDN0P">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAW5T3KREKHLPMYYUGZCO24DVINIW40OSE1IXUSRWXKTSTDK4EBD">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA4CBI3UKM1F5D3KSW30MZVHVQO34KVC0K3DP5AFTNPN4CW3BCHEL">Width Constraint (Min=0.229mm) (Max=0.4mm) (Preferred=0.4mm) (InNet('+12') or InNet('GND') or InNet('OA1') or InNet('OA2') or InNet('OB1') or InNet('OB2'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRRJVEXXZHDRCLS2NCZV3IM3ZSK1MLRPULEOO1HLGXR2YHSHJOSTF">Width Constraint (Min=0.2mm) (Max=0.2mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYIH44D3TYYPILJDTTDSBKCIVDOAIIYU4VE2P2LOJS0GMIAWU0FJL">SMD Neck-Down Constraint (Percent=50%) (All)</a></td>
+<td class="column2">69</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQEFLVL0ZJTMPS2AOH2ZNYLD0E2LQ1CH4EECAYIRQOZG0LUURGU">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID12BIOLNPBNEDJ44OAM0DBZ55ZHHKPYUQUMDHGJMRCZ4PYKKFL2UN">Hole Size Constraint (Min=0.025mm) (Max=2.9mm) (Disabled)(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCYTDNYWHRRLOFMMH04QMQF2RACADXPT1L3D4T1ENLXS4G5DU4P2K">Hole To Hole Clearance (Gap=0.254mm) (Disabled)(All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWYOGYBZXDOJ3OA2WSG12IRRLZCIQ4VQ5KU3CQZPCKSQ25CZII0AL">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAZVU4NGBCQPCBCPCMXTO2AFWGMGDGOUBPGPCAXN4OEMAPERFJG3B">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">102</td>
+</tr>
+</table><br><a name="IDRWGNRMSSLDILXR2FVEWAT5W1K0OVLHC1CAKUMB44FMDBTTTQ2WB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.2mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3657.836mil|Location2.X=3666.96mil|Location1.Y=3105.674mil|Location2.Y=3114.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3657.836mil|Location2.X=3666.96mil|Location1.Y=3105.674mil|Location2.Y=3114.798mil|Absolute=True">Clearance Constraint: (0.171mm &lt; 0.2mm) Between Pad U1-22(2.25mm,6.516mm) on Top Layer And Track (1.8mm,6mm)(1.8mm,9.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3040.432mil|Location2.X=3049.556mil|Location1.Y=2757.194mil|Location2.Y=2766.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3040.432mil|Location2.X=3049.556mil|Location1.Y=2757.194mil|Location2.Y=2766.318mil|Absolute=True">Clearance Constraint: (0.186mm &lt; 0.2mm) Between Pad U2-45(-13.45mm,-2.115mm) on Bottom Layer And Track (-13.95mm,-3.55mm)(-13.95mm,-2.115mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3017.373mil|Location2.X=3026.497mil|Location1.Y=2757.194mil|Location2.Y=2766.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3017.373mil|Location2.X=3026.497mil|Location1.Y=2757.194mil|Location2.Y=2766.318mil|Absolute=True">Clearance Constraint: (0.186mm &lt; 0.2mm) Between Pad U2-47(-14.45mm,-2.115mm) on Bottom Layer And Track (-13.95mm,-3.55mm)(-13.95mm,-2.115mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4007.021mil|Location2.X=4016.144mil|Location1.Y=3282.611mil|Location2.Y=3291.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4007.021mil|Location2.X=4016.144mil|Location1.Y=3282.611mil|Location2.Y=3291.735mil|Absolute=True">Clearance Constraint: (0.099mm &lt; 0.2mm) Between Track (10.1mm,11.5mm)(14.3mm,7.3mm) on Top Layer And Via (10.7mm,10.3mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4006.493mil|Location2.X=4015.617mil|Location1.Y=3301.769mil|Location2.Y=3310.893mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4006.493mil|Location2.X=4015.617mil|Location1.Y=3301.769mil|Location2.Y=3310.893mil|Absolute=True">Clearance Constraint: (0.17mm &lt; 0.2mm) Between Track (10.1mm,11.5mm)(14.3mm,7.3mm) on Top Layer And Via (11.1mm,11.2mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4065.378mil|Location2.X=4074.502mil|Location1.Y=3268.475mil|Location2.Y=3277.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4065.378mil|Location2.X=4074.502mil|Location1.Y=3268.475mil|Location2.Y=3277.599mil|Absolute=True">Clearance Constraint: (0.099mm &lt; 0.2mm) Between Track (11.049mm,11.251mm)(14.7mm,7.6mm) on Top Layer And Via (12.571mm,10.329mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4080.669mil|Location2.X=4089.793mil|Location1.Y=3283.766mil|Location2.Y=3292.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4080.669mil|Location2.X=4089.793mil|Location1.Y=3283.766mil|Location2.Y=3292.89mil|Absolute=True">Clearance Constraint: (0.099mm &lt; 0.2mm) Between Track (12.2mm,11.3mm)(15.5mm,8mm) on Top Layer And Via (12.571mm,10.329mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.855mil|Location2.X=3665.979mil|Location1.Y=2233.135mil|Location2.Y=2242.259mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3656.855mil|Location2.X=3665.979mil|Location1.Y=2233.135mil|Location2.Y=2242.259mil|Absolute=True">Clearance Constraint: (0.075mm &lt; 0.2mm) Between Track (-4.085mm,-16.3mm)(2.6mm,-16.3mm) on Top Layer And Via (2mm,-15.9mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3680.477mil|Location2.X=3689.601mil|Location1.Y=2217.387mil|Location2.Y=2226.511mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3680.477mil|Location2.X=3689.601mil|Location1.Y=2217.387mil|Location2.Y=2226.511mil|Absolute=True">Clearance Constraint: (0.075mm &lt; 0.2mm) Between Track (-4.25mm,-16.7mm)(3.2mm,-16.7mm) on Top Layer And Via (2.6mm,-16.3mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.099mil|Location2.X=3713.224mil|Location1.Y=2201.639mil|Location2.Y=2210.763mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.099mil|Location2.X=3713.224mil|Location1.Y=2201.639mil|Location2.Y=2210.763mil|Absolute=True">Clearance Constraint: (0.075mm &lt; 0.2mm) Between Track (-4.416mm,-17.1mm)(3.634mm,-17.1mm) on Top Layer And Via (3.2mm,-16.7mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3721.199mil|Location2.X=3730.323mil|Location1.Y=2185.891mil|Location2.Y=2195.015mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3721.199mil|Location2.X=3730.323mil|Location1.Y=2185.891mil|Location2.Y=2195.015mil|Absolute=True">Clearance Constraint: (0.075mm &lt; 0.2mm) Between Track (-4.582mm,-17.5mm)(4.1mm,-17.5mm) on Top Layer And Via (3.634mm,-17.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3739.532mil|Location2.X=3748.657mil|Location1.Y=2170.143mil|Location2.Y=2179.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3739.532mil|Location2.X=3748.657mil|Location1.Y=2170.143mil|Location2.Y=2179.267mil|Absolute=True">Clearance Constraint: (0.075mm &lt; 0.2mm) Between Track (-4.747mm,-17.9mm)(4.6mm,-17.9mm) on Top Layer And Via (4.1mm,-17.5mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3359.611mil|Location2.X=3368.735mil|Location1.Y=2995.93mil|Location2.Y=3005.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3359.611mil|Location2.X=3368.735mil|Location1.Y=2995.93mil|Location2.Y=3005.054mil|Absolute=True">Clearance Constraint: (0.175mm &lt; 0.2mm) Between Track (-5.7mm,2.6mm)(-5.7mm,3.1mm) on Bottom Layer And Via (-5.3mm,3.4mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3359.611mil|Location2.X=3368.735mil|Location1.Y=2995.93mil|Location2.Y=3005.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3359.611mil|Location2.X=3368.735mil|Location1.Y=2995.93mil|Location2.Y=3005.054mil|Absolute=True">Clearance Constraint: (0.175mm &lt; 0.2mm) Between Track (-6.85mm,4.25mm)(-5.7mm,3.1mm) on Bottom Layer And Via (-5.3mm,3.4mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3712.649mil|Location2.X=3721.773mil|Location1.Y=2204.099mil|Location2.Y=2213.223mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3712.649mil|Location2.X=3721.773mil|Location1.Y=2204.099mil|Location2.Y=2213.223mil|Absolute=True">Clearance Constraint: (0.14mm &lt; 0.2mm) Between Via (3.2mm,-16.7mm) from Top Layer to Bottom Layer And Via (3.634mm,-17.1mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3730.365mil|Location2.X=3739.49mil|Location1.Y=2188.351mil|Location2.Y=2197.475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3730.365mil|Location2.X=3739.49mil|Location1.Y=2188.351mil|Location2.Y=2197.475mil|Absolute=True">Clearance Constraint: (0.164mm &lt; 0.2mm) Between Via (3.634mm,-17.1mm) from Top Layer to Bottom Layer And Via (4.1mm,-17.5mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3749.375mil|Location2.X=3758.499mil|Location1.Y=2172.603mil|Location2.Y=2181.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3749.375mil|Location2.X=3758.499mil|Location1.Y=2172.603mil|Location2.Y=2181.727mil|Absolute=True">Clearance Constraint: (0.19mm &lt; 0.2mm) Between Via (4.1mm,-17.5mm) from Top Layer to Bottom Layer And Via (4.6mm,-17.9mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDN2KPSONYWTUPCNKGWVBZECFMSEL3O1COPEUWSM3E5WKPZUUDN0P"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.646mil|Location2.X=4005.516mil|Location1.Y=2921.622mil|Location2.Y=3060.63mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3671.646mil|Location2.X=4005.516mil|Location1.Y=2921.622mil|Location2.Y=3060.63mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (3.8mm,2.749mm)(4.8mm,3.749mm) on Bottom Layer And Pad C8-1(8.2mm,2.2mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4177.356mil|Location2.X=4308.611mil|Location1.Y=2578.966mil|Location2.Y=2680.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4177.356mil|Location2.X=4308.611mil|Location1.Y=2578.966mil|Location2.Y=2680.337mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad J5-2(16.338mm,-6.152mm) on Multi-Layer And Pad J5-1(17.531mm,-6.587mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3407.882mil|Location2.X=3804.134mil|Location1.Y=2781.89mil|Location2.Y=2982.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3407.882mil|Location2.X=3804.134mil|Location1.Y=2781.89mil|Location2.Y=2982.255mil|Absolute=True">Un-Routed Net Constraint: Net 5V Between Pad R2-1(-1.9mm,0.2mm) on Bottom Layer And Track (3.085mm,-0.225mm)(3.085mm,0.209mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3728.74mil|Location2.X=3970.08mil|Location1.Y=2698.567mil|Location2.Y=2757.477mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3728.74mil|Location2.X=3970.08mil|Location1.Y=2698.567mil|Location2.Y=2757.477mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-47(6.25mm,-1.916mm) on Top Layer And Track (7.3mm,-5.5mm)(7.3mm,-5.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3052.677mil|Location2.X=3293.362mil|Location1.Y=2903.071mil|Location2.Y=2986.693mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3052.677mil|Location2.X=3293.362mil|Location1.Y=2903.071mil|Location2.Y=2986.693mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (-12.4mm,1.8mm) from Top Layer to Bottom Layer And Pad U2-32(-8.085mm,1.25mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3552.223mil|Location2.X=3832.284mil|Location1.Y=2858.013mil|Location2.Y=2956.3mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3552.223mil|Location2.X=3832.284mil|Location1.Y=2858.013mil|Location2.Y=2956.3mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (1.6mm,2.3mm)(1.766mm,2.134mm) on Bottom Layer And Pad U4-2(3.8mm,-0.45mm) on Bottom Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.837mil|Location2.X=4262.56mil|Location1.Y=3284.092mil|Location2.Y=3490.272mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.837mil|Location2.X=4262.56mil|Location1.Y=3284.092mil|Location2.Y=3490.272mil|Absolute=True">Isolated copper: Split Plane  (+3.3V) on Int2 (PWR). Copper island connected to pads/vias detected. Copper area is : 7.645 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4263.282mil|Location2.X=4286.806mil|Location1.Y=2681.957mil|Location2.Y=2705.482mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4263.282mil|Location2.X=4286.806mil|Location1.Y=2681.957mil|Location2.Y=2705.482mil|Absolute=True">Isolated copper: Split Plane  (+3.3V) on Int2 (PWR). Dead copper detected. Copper area is : 0.16 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4201.526mil|Location2.X=4227.045mil|Location1.Y=3249.041mil|Location2.Y=3278.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4201.526mil|Location2.X=4227.045mil|Location1.Y=3249.041mil|Location2.Y=3278.459mil|Absolute=True">Isolated copper: Split Plane  (+3.3V) on Int2 (PWR). Dead copper detected. Copper area is : 0.197 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2839.863mil|Location2.X=3182.399mil|Location1.Y=2163.906mil|Location2.Y=2569.084mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2839.863mil|Location2.X=3182.399mil|Location1.Y=2163.906mil|Location2.Y=2569.084mil|Absolute=True">Isolated copper: Split Plane  (+3.3V) on Int2 (PWR). Dead copper detected. Copper area is : 16.273 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4242.542mil|Location2.X=4328.794mil|Location1.Y=3182.571mil|Location2.Y=3297.849mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4242.542mil|Location2.X=4328.794mil|Location1.Y=3182.571mil|Location2.Y=3297.849mil|Absolute=True">Isolated copper: Split Plane  (+3.3V) on Int2 (PWR). Dead copper detected. Copper area is : 2.56 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.828mil|Location2.X=3400.524mil|Location1.Y=2079.62mil|Location2.Y=2183.936mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.828mil|Location2.X=3400.524mil|Location1.Y=2079.62mil|Location2.Y=2183.936mil|Absolute=True">Isolated copper: Split Plane  (+3.3V) on Int2 (PWR). Dead copper detected. Copper area is : 6.185 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2771.39mil|Location2.X=2883.41mil|Location1.Y=2573.712mil|Location2.Y=2795.289mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2771.39mil|Location2.X=2883.41mil|Location1.Y=2573.712mil|Location2.Y=2795.289mil|Absolute=True">Isolated copper: Split Plane  (+3.3V) on Int2 (PWR). Dead copper detected. Copper area is : 7.22 sq. mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4246.181mil|Location2.X=4269.705mil|Location1.Y=2634.973mil|Location2.Y=2658.497mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4246.181mil|Location2.X=4269.705mil|Location1.Y=2634.973mil|Location2.Y=2658.497mil|Absolute=True">Isolated copper: Split Plane  (GND) on Int1 (GND). Dead copper detected. Copper area is : 0.16 sq. mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYIH44D3TYYPILJDTTDSBKCIVDOAIIYU4VE2P2LOJS0GMIAWU0FJL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">SMD Neck-Down Constraint (Percent=50%) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2849.862mil|Location2.Y=2871.103mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2849.862mil|Location2.Y=2871.103mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-1(8.216mm,-0.45mm) on Top Layer And Track (8.216mm,-1.4mm)(8.216mm,-0.45mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=3027.026mil|Location2.Y=3048.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=3027.026mil|Location2.Y=3048.267mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-10(8.216mm,4.05mm) on Top Layer And Track (8.216mm,4.05mm)(9.95mm,4.05mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=3046.712mil|Location2.Y=3067.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=3046.712mil|Location2.Y=3067.953mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-11(8.216mm,4.55mm) on Top Layer And Track (8.216mm,4.55mm)(8.25mm,4.516mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3923.222mil|Location2.X=3986.203mil|Location1.Y=3066.398mil|Location2.Y=3087.639mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3923.222mil|Location2.X=3986.203mil|Location1.Y=3066.398mil|Location2.Y=3087.639mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-12(8.216mm,5.05mm) on Top Layer And Track (8.813mm,5.05mm)(9.175mm,5.412mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3843.552mil|Location2.X=3906.534mil|Location1.Y=3139.232mil|Location2.Y=3160.474mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3843.552mil|Location2.X=3906.534mil|Location1.Y=3139.232mil|Location2.Y=3160.474mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-13(6.75mm,6.516mm) on Top Layer And Track (6.79mm,6.9mm)(8mm,6.9mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3823.867mil|Location2.X=3886.848mil|Location1.Y=3125.693mil|Location2.Y=3146.934mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3823.867mil|Location2.X=3886.848mil|Location1.Y=3125.693mil|Location2.Y=3146.934mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-14(6.25mm,6.516mm) on Top Layer And Track (6.29mm,6.556mm)(6.29mm,7.39mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.619mil|Location2.X=3865.601mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.619mil|Location2.X=3865.601mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-15(5.75mm,6.516mm) on Top Layer And Track (5.75mm,6.516mm)(5.75mm,7.45mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.934mil|Location2.X=3845.915mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.934mil|Location2.X=3845.915mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-16(5.25mm,6.516mm) on Top Layer And Track (5.25mm,6.516mm)(5.25mm,7.516mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.249mil|Location2.X=3826.231mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.249mil|Location2.X=3826.231mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-17(4.75mm,6.516mm) on Top Layer And Track (4.75mm,6.516mm)(4.75mm,7.65mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3743.564mil|Location2.X=3806.545mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3743.564mil|Location2.X=3806.545mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-18(4.25mm,6.516mm) on Top Layer And Track (4.25mm,6.516mm)(4.25mm,7.85mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.193mil|Location2.X=3767.175mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.193mil|Location2.X=3767.175mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-20(3.25mm,6.516mm) on Top Layer And Track (3.25mm,6.516mm)(3.25mm,6.516mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3686.073mil|Location2.X=3749.054mil|Location1.Y=3125.693mil|Location2.Y=3146.934mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3686.073mil|Location2.X=3749.054mil|Location1.Y=3125.693mil|Location2.Y=3146.934mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-21(2.75mm,6.516mm) on Top Layer And Track (2.79mm,6.556mm)(2.79mm,7.432mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3666.791mil|Location2.X=3729.773mil|Location1.Y=3103.799mil|Location2.Y=3125.041mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3666.791mil|Location2.X=3729.773mil|Location1.Y=3103.799mil|Location2.Y=3125.041mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-22(2.25mm,6.516mm) on Top Layer And Track (2.3mm,6mm)(2.3mm,6mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3645.552mil|Location2.X=3715.788mil|Location1.Y=3102.244mil|Location2.Y=3126.11mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3645.552mil|Location2.X=3715.788mil|Location1.Y=3102.244mil|Location2.Y=3126.11mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-23(1.75mm,6.516mm) on Top Layer And Track (1.8mm,6mm)(1.8mm,9.3mm) on Top Layer Relative Track Width: 99.86%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3625.454mil|Location2.X=3688.435mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3625.454mil|Location2.X=3688.435mil|Location1.Y=3124.13mil|Location2.Y=3145.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-24(1.25mm,6.516mm) on Top Layer And Track (1.25mm,6.516mm)(1.29mm,6.477mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.722mil|Location2.X=3630.703mil|Location1.Y=3066.398mil|Location2.Y=3087.639mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.722mil|Location2.X=3630.703mil|Location1.Y=3066.398mil|Location2.Y=3087.639mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-25(-0.216mm,5.05mm) on Top Layer And Track (-0.216mm,5.05mm)(0.984mm,5.05mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.399mil|Location2.X=3629.381mil|Location1.Y=3045.39mil|Location2.Y=3066.631mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.399mil|Location2.X=3629.381mil|Location1.Y=3045.39mil|Location2.Y=3066.631mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-26(-0.216mm,4.55mm) on Top Layer And Track (-0.25mm,4.516mm)(-0.216mm,4.55mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.401mil|Location2.X=3629.382mil|Location1.Y=3025.705mil|Location2.Y=3046.946mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.401mil|Location2.X=3629.382mil|Location1.Y=3025.705mil|Location2.Y=3046.946mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-27(-0.216mm,4.05mm) on Top Layer And Track (-0.25mm,4.016mm)(-0.216mm,4.05mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.722mil|Location2.X=3630.703mil|Location1.Y=3007.342mil|Location2.Y=3028.583mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.722mil|Location2.X=3630.703mil|Location1.Y=3007.342mil|Location2.Y=3028.583mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-28(-0.216mm,3.55mm) on Top Layer And Track (-5.082mm,3.55mm)(-0.216mm,3.55mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.159mil|Location2.X=3629.14mil|Location1.Y=2907.353mil|Location2.Y=2928.594mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.159mil|Location2.X=3629.14mil|Location1.Y=2907.353mil|Location2.Y=2928.594mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-33(-0.216mm,1.05mm) on Top Layer And Track (-0.256mm,1.01mm)(-0.216mm,1.05mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.159mil|Location2.X=3629.14mil|Location1.Y=2887.669mil|Location2.Y=2908.91mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.159mil|Location2.X=3629.14mil|Location1.Y=2887.669mil|Location2.Y=2908.91mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-34(-0.216mm,0.55mm) on Top Layer And Track (-0.256mm,0.51mm)(-0.216mm,0.55mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.151mil|Location2.X=3632.817mil|Location1.Y=2868.975mil|Location2.Y=2891.171mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.151mil|Location2.X=3632.817mil|Location1.Y=2868.975mil|Location2.Y=2891.171mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-35(-0.216mm,0.05mm) on Top Layer And Track (-0.216mm,0.05mm)(1.316mm,0.05mm) on Top Layer Relative Track Width: 81.96%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.722mil|Location2.X=3630.703mil|Location1.Y=2849.862mil|Location2.Y=2871.103mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3567.722mil|Location2.X=3630.703mil|Location1.Y=2849.862mil|Location2.Y=2871.103mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-36(-0.216mm,-0.45mm) on Top Layer And Track (-0.216mm,-0.45mm)(6.55mm,-0.45mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3625.454mil|Location2.X=3688.435mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3625.454mil|Location2.X=3688.435mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-37(1.25mm,-1.916mm) on Top Layer And Track (1.25mm,-6.05mm)(1.25mm,-1.916mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.194mil|Location2.X=3767.176mil|Location1.Y=2792.129mil|Location2.Y=2813.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.194mil|Location2.X=3767.176mil|Location1.Y=2792.129mil|Location2.Y=2813.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-41(3.25mm,-1.916mm) on Top Layer And Track (3.25mm,-2.717mm)(3.25mm,-1.916mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3723.879mil|Location2.X=3786.861mil|Location1.Y=2792.129mil|Location2.Y=2813.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3723.879mil|Location2.X=3786.861mil|Location1.Y=2792.129mil|Location2.Y=2813.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-42(3.75mm,-1.916mm) on Top Layer And Track (3.75mm,-3.184mm)(3.75mm,-1.916mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3741.191mil|Location2.X=3804.172mil|Location1.Y=2789.756mil|Location2.Y=2810.997mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3741.191mil|Location2.X=3804.172mil|Location1.Y=2789.756mil|Location2.Y=2810.997mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-43(4.25mm,-1.916mm) on Top Layer And Track (4.19mm,-3.61mm)(4.19mm,-1.977mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.249mil|Location2.X=3826.231mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3763.249mil|Location2.X=3826.231mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-44(4.75mm,-1.916mm) on Top Layer And Track (4.75mm,-5.65mm)(4.75mm,-1.916mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.934mil|Location2.X=3845.915mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3782.934mil|Location2.X=3845.915mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-45(5.25mm,-1.916mm) on Top Layer And Track (5.25mm,-1.916mm)(5.29mm,-1.956mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.619mil|Location2.X=3865.601mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.619mil|Location2.X=3865.601mil|Location1.Y=2792.13mil|Location2.Y=2813.371mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-46(5.75mm,-1.916mm) on Top Layer And Track (5.75mm,-1.916mm)(5.81mm,-1.977mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.99mil|Location2.X=3904.971mil|Location1.Y=2790.401mil|Location2.Y=2811.643mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3841.99mil|Location2.X=3904.971mil|Location1.Y=2790.401mil|Location2.Y=2811.643mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-48(6.75mm,-1.916mm) on Top Layer And Track (6.75mm,-1.96mm)(6.75mm,-1.916mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2928.602mil|Location2.Y=2949.843mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2928.602mil|Location2.Y=2949.843mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-5(8.216mm,1.55mm) on Top Layer And Track (8.216mm,1.55mm)(9.15mm,1.55mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2948.286mil|Location2.Y=2969.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2948.286mil|Location2.Y=2969.527mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-6(8.216mm,2.05mm) on Top Layer And Track (8.216mm,2.05mm)(9.25mm,2.05mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2967.972mil|Location2.Y=2989.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=2967.972mil|Location2.Y=2989.213mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-7(8.216mm,2.55mm) on Top Layer And Track (8.216mm,2.55mm)(9.316mm,2.55mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.151mil|Location2.X=3964.817mil|Location1.Y=2987.085mil|Location2.Y=3009.281mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.151mil|Location2.X=3964.817mil|Location1.Y=2987.085mil|Location2.Y=3009.281mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-8(8.216mm,3.05mm) on Top Layer And Track (3.05mm,3.05mm)(8.216mm,3.05mm) on Top Layer Relative Track Width: 81.96%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=3007.342mil|Location2.Y=3028.583mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3899.722mil|Location2.X=3962.703mil|Location1.Y=3007.342mil|Location2.Y=3028.583mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U1-9(8.216mm,3.55mm) on Top Layer And Track (7.2mm,3.55mm)(8.216mm,3.55mm) on Top Layer Relative Track Width: 71.58%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.354mil|Location2.X=2999.02mil|Location1.Y=2837.48mil|Location2.Y=2859.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.354mil|Location2.X=2999.02mil|Location1.Y=2837.48mil|Location2.Y=2859.676mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-1(-16.315mm,-0.75mm) on Bottom Layer And Track (-16.315mm,-1.564mm)(-16.315mm,-0.75mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=3015.217mil|Location2.Y=3036.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=3015.217mil|Location2.Y=3036.459mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-10(-16.315mm,3.75mm) on Bottom Layer And Track (-18.96mm,3.75mm)(-16.315mm,3.75mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2987.086mil|Location2.X=3052.752mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2987.086mil|Location2.X=3052.752mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-13(-14.95mm,6.115mm) on Bottom Layer And Track (-14.95mm,6.115mm)(-14.95mm,7.05mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3026.456mil|Location2.X=3092.122mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3026.456mil|Location2.X=3092.122mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-15(-13.95mm,6.115mm) on Bottom Layer And Track (-13.95mm,6.115mm)(-13.95mm,7.05mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.397mil|Location2.X=3129.379mil|Location1.Y=3108.319mil|Location2.Y=3129.561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.397mil|Location2.X=3129.379mil|Location1.Y=3108.319mil|Location2.Y=3129.561mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-17(-12.95mm,6.115mm) on Bottom Layer And Track (-12.95mm,5.167mm)(-12.95mm,6.115mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3105.196mil|Location2.X=3170.862mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3105.196mil|Location2.X=3170.862mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-19(-11.95mm,6.115mm) on Bottom Layer And Track (-11.95mm,6.115mm)(-11.95mm,6.95mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.354mil|Location2.X=2999.02mil|Location1.Y=2857.164mil|Location2.Y=2879.36mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.354mil|Location2.X=2999.02mil|Location1.Y=2857.164mil|Location2.Y=2879.36mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-2(-16.315mm,-0.25mm) on Bottom Layer And Track (-16.315mm,-0.75mm)(-16.315mm,-0.25mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3144.566mil|Location2.X=3210.232mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3144.566mil|Location2.X=3210.232mil|Location1.Y=3107.748mil|Location2.Y=3129.944mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-21(-10.95mm,6.115mm) on Bottom Layer And Track (-10.95mm,5.05mm)(-10.95mm,6.115mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3183.944mil|Location2.X=3246.926mil|Location1.Y=3108.882mil|Location2.Y=3130.124mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3183.944mil|Location2.X=3246.926mil|Location1.Y=3108.882mil|Location2.Y=3130.124mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-23(-9.95mm,6.115mm) on Bottom Layer And Track (-9.964mm,6.129mm)(-9.95mm,6.115mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3204.193mil|Location2.X=3267.175mil|Location1.Y=3108.319mil|Location2.Y=3129.561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3204.193mil|Location2.X=3267.175mil|Location1.Y=3108.319mil|Location2.Y=3129.561mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-24(-9.45mm,6.115mm) on Bottom Layer And Track (-9.45mm,6.115mm)(-9.436mm,6.129mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=3054.587mil|Location2.Y=3075.829mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=3054.587mil|Location2.Y=3075.829mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-25(-8.085mm,4.75mm) on Bottom Layer And Track (-8.085mm,4.75mm)(-6.65mm,4.75mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=3034.901mil|Location2.Y=3056.143mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=3034.901mil|Location2.Y=3056.143mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-26(-8.085mm,4.25mm) on Bottom Layer And Track (-8.085mm,4.25mm)(-6.85mm,4.25mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=3015.217mil|Location2.Y=3036.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=3015.217mil|Location2.Y=3036.459mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-27(-8.085mm,3.75mm) on Bottom Layer And Track (-8.085mm,3.75mm)(-8.071mm,3.736mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2975.847mil|Location2.Y=2997.089mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2975.847mil|Location2.Y=2997.089mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-29(-8.085mm,2.75mm) on Bottom Layer And Track (-8.085mm,2.75mm)(-8.071mm,2.736mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2905.853mil|Location2.X=2968.835mil|Location1.Y=2876.858mil|Location2.Y=2898.1mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2905.853mil|Location2.X=2968.835mil|Location1.Y=2876.858mil|Location2.Y=2898.1mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-3(-16.315mm,0.25mm) on Bottom Layer And Track (-17.351mm,-0.011mm)(-17.104mm,0.236mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2956.161mil|Location2.Y=2977.403mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2956.161mil|Location2.Y=2977.403mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-30(-8.085mm,2.25mm) on Bottom Layer And Track (-8.085mm,2.25mm)(-8.071mm,2.236mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.354mil|Location2.X=3323.02mil|Location1.Y=2916.22mil|Location2.Y=2938.416mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.354mil|Location2.X=3323.02mil|Location1.Y=2916.22mil|Location2.Y=2938.416mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-32(-8.085mm,1.25mm) on Bottom Layer And Track (-8.085mm,1.25mm)(-6.95mm,1.25mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2897.105mil|Location2.Y=2918.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2897.105mil|Location2.Y=2918.347mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-33(-8.085mm,0.75mm) on Bottom Layer And Track (-8.085mm,0.75mm)(-7.157mm,0.75mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2877.421mil|Location2.Y=2898.663mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2877.421mil|Location2.Y=2898.663mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-34(-8.085mm,0.25mm) on Bottom Layer And Track (-8.085mm,0.25mm)(-8.071mm,0.236mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2857.735mil|Location2.Y=2878.977mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.925mil|Location2.X=3320.907mil|Location1.Y=2857.735mil|Location2.Y=2878.977mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-35(-8.085mm,-0.25mm) on Bottom Layer And Track (-8.085mm,-0.25mm)(-8.071mm,-0.264mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3204.756mil|Location2.X=3267.738mil|Location1.Y=2783.756mil|Location2.Y=2804.998mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3204.756mil|Location2.X=3267.738mil|Location1.Y=2783.756mil|Location2.Y=2804.998mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-37(-9.45mm,-2.115mm) on Bottom Layer And Track (-9.436mm,-2.883mm)(-9.436mm,-2.129mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3184.507mil|Location2.X=3247.489mil|Location1.Y=2784.319mil|Location2.Y=2805.561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3184.507mil|Location2.X=3247.489mil|Location1.Y=2784.319mil|Location2.Y=2805.561mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-38(-9.95mm,-2.115mm) on Bottom Layer And Track (-9.95mm,-4.301mm)(-9.95mm,-2.115mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3163.688mil|Location2.X=3229.354mil|Location1.Y=2754.748mil|Location2.Y=2776.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3163.688mil|Location2.X=3229.354mil|Location1.Y=2754.748mil|Location2.Y=2776.944mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-39(-10.45mm,-2.115mm) on Bottom Layer And Track (-10.464mm,-4.229mm)(-10.464mm,-1.213mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2897.105mil|Location2.Y=2918.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2897.105mil|Location2.Y=2918.347mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-4(-16.315mm,0.75mm) on Bottom Layer And Track (-17.25mm,0.75mm)(-16.315mm,0.75mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3144.566mil|Location2.X=3210.232mil|Location1.Y=2783.748mil|Location2.Y=2805.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3144.566mil|Location2.X=3210.232mil|Location1.Y=2783.748mil|Location2.Y=2805.944mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-40(-10.95mm,-2.115mm) on Bottom Layer And Track (-10.95mm,-4.65mm)(-10.95mm,-2.115mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3105.196mil|Location2.X=3170.862mil|Location1.Y=2783.748mil|Location2.Y=2805.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3105.196mil|Location2.X=3170.862mil|Location1.Y=2783.748mil|Location2.Y=2805.944mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-42(-11.95mm,-2.115mm) on Bottom Layer And Track (-11.95mm,-3.65mm)(-11.95mm,-2.115mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.397mil|Location2.X=3129.379mil|Location1.Y=2784.319mil|Location2.Y=2805.561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3066.397mil|Location2.X=3129.379mil|Location1.Y=2784.319mil|Location2.Y=2805.561mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-44(-12.95mm,-2.115mm) on Bottom Layer And Track (-12.95mm,-5.401mm)(-12.95mm,-2.115mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3023.09mil|Location2.X=3104.463mil|Location1.Y=2780.382mil|Location2.Y=2808.265mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3023.09mil|Location2.X=3104.463mil|Location1.Y=2780.382mil|Location2.Y=2808.265mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-46(-13.95mm,-2.115mm) on Bottom Layer And Track (-13.95mm,-3.55mm)(-13.95mm,-2.115mm) on Bottom Layer Relative Track Width: 174.98%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2986.504mil|Location2.X=3052.17mil|Location1.Y=2784.331mil|Location2.Y=2806.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2986.504mil|Location2.X=3052.17mil|Location1.Y=2784.331mil|Location2.Y=2806.527mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-48(-14.95mm,-2.115mm) on Bottom Layer And Track (-15.5mm,-2.1mm)(-14.965mm,-2.1mm) on Bottom Layer Relative Track Width: 100.17%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2916.791mil|Location2.Y=2938.033mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2916.791mil|Location2.Y=2938.033mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-5(-16.315mm,1.25mm) on Bottom Layer And Track (-17.316mm,1.25mm)(-16.315mm,1.25mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2906.245mil|Location2.X=2969.227mil|Location1.Y=2956.161mil|Location2.Y=2977.403mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2906.245mil|Location2.X=2969.227mil|Location1.Y=2956.161mil|Location2.Y=2977.403mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-7(-16.315mm,2.25mm) on Bottom Layer And Track (-17.17mm,2.164mm)(-17.084mm,2.25mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2975.847mil|Location2.Y=2997.089mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2975.847mil|Location2.Y=2997.089mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-8(-16.315mm,2.75mm) on Bottom Layer And Track (-17.307mm,2.75mm)(-16.315mm,2.75mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2995.531mil|Location2.Y=3016.773mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.925mil|Location2.X=2996.907mil|Location1.Y=2995.531mil|Location2.Y=3016.773mil|Absolute=True">SMD Neck-Down Constraint: Between Pad U2-9(-16.315mm,3.25mm) on Bottom Layer And Track (-17.85mm,3.25mm)(-16.315mm,3.25mm) on Bottom Layer Relative Track Width: 87.49%</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDQEFLVL0ZJTMPS2AOH2ZNYLD0E2LQ1CH4EECAYIRQOZG0LUURGU"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4177.356mil|Location2.X=4274.444mil|Location1.Y=2583.249mil|Location2.Y=2680.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4177.356mil|Location2.X=4274.444mil|Location1.Y=2583.249mil|Location2.Y=2680.337mil|Absolute=True">Starved Thermal on Int2 (PWR): Pad J5-2(16.338mm,-6.152mm) on Multi-Layer. Blocked 3 out of 4 entries.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4181.494mil|Location2.X=4306.84mil|Location1.Y=3231.074mil|Location2.Y=3356.42mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\lukab\Desktop\PCB\2020_03_10\Motor Driver\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4181.494mil|Location2.X=4306.84mil|Location1.Y=3231.074mil|Location2.Y=3356.42mil|Absolute=True">Starved Thermal on Int1 (GND): Pad U5-2(16.802mm,10.661mm) on Multi-Layer. Blocked 2 out of 4 entries.</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

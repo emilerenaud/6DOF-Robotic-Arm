@@ -1,0 +1,44 @@
+Pilotes:
+
+	- SPI 
+		Emile √
+	- Analog
+		Luka  √
+	- RS485
+		Luka  √
+	- GPIO
+		Luka  √
+	- PWM
+		Emile √
+		
+Interfaces:
+	
+	- TMC
+	
+	- Hall Sensor
+		Luka
+	- Temp Sensor
+		Luka
+	- Communication
+	
+	- Debug
+
+	- Fan
+	
+	- Servo
+	
+	
+Processus:
+	
+	- Moteur (homing) 
+	
+	- Communication
+	
+	- Température
+	
+	- Pince
+	
+	
+
+	
+	
