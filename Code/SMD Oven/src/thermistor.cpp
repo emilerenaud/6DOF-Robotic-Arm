@@ -1,5 +1,9 @@
 #include <thermistor.h>
 
+thermistorClass::thermistorClass()
+{
+    
+}
 thermistorClass::thermistorClass(const int pin)
 {
     _pin = pin;

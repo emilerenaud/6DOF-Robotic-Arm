@@ -18,16 +18,18 @@ bool button::read()
     _state = digitalRead(_pin);
     if(_state != _lastState)
     {
-        delay(10); // rebond
+        delay(20); // rebond
         if(_state == _pushState)
         {
+            _lastState = _state;
             return 1;
         }
         else
         {
+            _lastState = _state;
             return 0;
         }
-        _lastState = _state;
+        
     }
     return 0;
 }

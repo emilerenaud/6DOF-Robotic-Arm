@@ -24,6 +24,7 @@ private:
     float _temperature;
     float read(void);
 public:
+    thermistorClass();
     thermistorClass(const int pin);
     float readC(void);
     float readF(void);
