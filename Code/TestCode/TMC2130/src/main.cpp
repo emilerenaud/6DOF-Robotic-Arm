@@ -4,20 +4,14 @@
 #include "TMC2130_config.h"
 
 TMC2130Class tmc;
-TMC t;
+
 
 void setup() 
-{ 
+{
+    tmc.Init();
 }
 
 void loop() 
 {
-    // tmc.GeneralConfig();
-    // tmc.ChopConfig();
-    // tmc.CoolConfig();
-    // tmc.PWMConfig();
-
-    tmc.ReadRegisters();
-
-    delay(200);
+    tmc.Rotation(5,256,HIGH);
 }

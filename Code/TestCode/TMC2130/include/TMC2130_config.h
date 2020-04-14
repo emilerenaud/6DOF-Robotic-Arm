@@ -106,23 +106,22 @@ struct GCONF_S
 
         uint8_t I_SCALE_ANALOG      : 1;    //LSB
         uint8_t INT_RSENSE          : 1;
-        uint8_t EN_PWM_MODE         : 1;//R
-        uint8_t ENC_COMMUTATION     : 1;//R
-        uint8_t SHAFT               : 1;//R
-        uint8_t DIAG0_ERROR         : 1;//R
-        uint8_t DIAG0_OTPW          : 1;//R
-        uint8_t DIAG0_STALL         : 1;//R
-        uint8_t DIAG1_STALL         : 1;//R
-        uint8_t DIAG1_INDEX         : 1;//R
-        uint8_t DIAG1_ONSTATE       : 1;//R
-        uint8_t DIAG1_STEPS_SKIPPED : 1;//R
+        uint8_t EN_PWM_MODE         : 1;
+        uint8_t ENC_COMMUTATION     : 1;
+        uint8_t SHAFT               : 1;
+        uint8_t DIAG0_ERROR         : 1;
+        uint8_t DIAG0_OTPW          : 1;
+        uint8_t DIAG0_STALL         : 1;
+        uint8_t DIAG1_STALL         : 1;
+        uint8_t DIAG1_INDEX         : 1;
+        uint8_t DIAG1_ONSTATE       : 1;
+        uint8_t DIAG1_STEPS_SKIP    : 1;
         uint8_t DIAG0_INT_PUSHPULL  : 1;
         uint8_t DIAG1_PUSHPULL      : 1;
         uint8_t SMALL_HYSTERISIS    : 1;
         uint8_t STOP_ENABLE         : 1;
-        
         uint8_t DIRECT_MODE         : 1;
-        uint8_t TEST_MODE           : 1;    //SET TO 0 FOR USERS
+        uint8_t TEST_MODE           : 1;    
         uint16_t RESERVED           : 14;   //MSB
 
 };
@@ -176,12 +175,12 @@ union IOIN_U
 
 struct IHOLD_IRUN_S
 {    
-    uint8_t IHOLD      : 5;
-    uint8_t RESERVED0  : 4;
+    uint8_t IHOLD      : 5;     // x x x x x x x x / x x 0 0  0 1 0 0 / 0 0 0 1  1 1 1 1 / 0 0 0 0  1 0 1 0 
+    uint8_t RESERVED0  : 3;
     uint8_t IRUN       : 5;
-    uint8_t RESERVED1  : 4;
+    uint8_t RESERVED1  : 3;
     uint8_t IHOLDDELAY : 4;     //Check in datasheet for bit index. (p.27)
-    uint16_t RESERVED2 : 10;
+    uint16_t RESERVED2 : 12;
 };
 
 union IHOLD_IRUN_U

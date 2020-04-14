@@ -5,39 +5,41 @@ Pilotes:
 	- Analog
 		Luka  √
 	- RS485
-		Luka  √
+		Luka  √ (à vérifier)
 	- GPIO
 		Luka  √
 	- PWM
 		Emile √
+	- Servo
+		Emile 
 		
 Interfaces:
 	
 	- TMC
-	
+		Luka/Émile
 	- Hall Sensor
-		Luka
+		Luka/Émile
 	- Temp Sensor
 		Luka
 	- Communication
-	
+		Émile
 	- Debug
-
+		Luka
 	- Fan
-	
+		Émile
 	- Servo
-	
+		Émile
 	
 Processus:
 	
 	- Moteur (homing) 
-	
+		?
 	- Communication
-	
+		?
 	- Température
-	
+		?
 	- Pince
-	
+		?
 	
 
 	
