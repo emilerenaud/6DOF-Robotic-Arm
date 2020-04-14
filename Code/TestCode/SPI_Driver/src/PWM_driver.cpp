@@ -1,32 +1,47 @@
 #include "PWM_driver.h"
-#include <Arduino.h>
-#include "PinConfigured.h"
 
-uint32_t g_anOutputPinConfiguredTest[MAX_NB_PORT] = {0};
+uint8_t _cycleCount = 0;
+uint8_t _dutyCycle = 0;
+uint8_t _pin;
+bool _actifState = 1;
 
-static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to)
+HardwareTimer *timer = new HardwareTimer(TIM1);
+
+void callback_IT_timer(HardwareTimer*)
 {
-  if (from != to) {
-    if (from > to) {
-      value = (value < (uint32_t)(1 << (from - to))) ? 0 : ((value + 1) >> (from - to)) - 1;
-    } else {
-      if (value != 0) {
-        value = ((value + 1) << (to - from)) - 1;
-      }
-    }
+  if(_cycleCount <= _dutyCycle)
+    digitalWrite(_pin,1); // enable gpio.
+  else
+  {
+    digitalWrite(_pin,0); // disable gpio.
+    if(_cycleCount == 100)
+      _cycleCount = 0;
   }
-  return value;
+  _cycleCount ++;
 }
 
-void write_pwm(const int ulPin,int ulValue)
+void init_PWM(uint8_t pin, uint8_t actifState)
 {
-    //analogWrite(pin,pwm);
-    PinName p = digitalPinToPinName(ulPin);
-    if (pin_in_pinmap(p, PinMap_PWM)) {
-        if (is_pin_configured(p, g_anOutputPinConfiguredTest) == false) {
-          set_pin_configured(p, g_anOutputPinConfiguredTest);
-        }
-        ulValue = mapResolution(ulValue, 8, PWM_RESOLUTION);
-        pwm_start(p, 1000, ulValue);
-    }
+    _pin = pin;
+    _actifState = actifState;
+    pinMode(_pin,OUTPUT);
+
+    timer->setOverflow(10000, HERTZ_FORMAT); // 10 Hz
+    timer->attachInterrupt(callback_IT_timer);
+    stop_PWM();
+}
+
+void set_PWM(uint8_t dutyCycle)
+{
+    _dutyCycle = dutyCycle;
+}
+
+void start_PWM(void)
+{
+    timer->resume();
+}
+
+void stop_PWM(void)
+{
+    timer->pause();
 }
