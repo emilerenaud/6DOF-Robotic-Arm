@@ -1,0 +1,85 @@
+Removed Parameter ComponentLink1Description:Datasheet from Part Q1
+Removed Parameter ComponentLink1URL:https://assets.nexperia.com/documents/data-sheet/BUK9880-55A.pdf from Part Q1
+Removed Parameter ComponentLink2Description:Digikey from Part Q1
+Removed Parameter ComponentLink2URL:https://www.digikey.ca/product-detail/en/BUK9880-55A%2fCUX/1727-2230-1-ND/5361200/?itemSeq=318542302 from Part Q1
+Removed Parameter Height:4.75mm from Part U5
+Removed Parameter Height:7mm from Part J6
+Removed Parameter LatestRevisionDate:17-Jul-2002 from Part J4
+Removed Parameter LatestRevisionNote:Re-released for DXP Platform. from Part J4
+Removed Parameter Mouser Part Number:621-AH372-P-B from Part U5
+Removed Parameter Mouser Part Number: from Part J6
+Removed Parameter Mouser Price/Stock: from Part J6
+Removed Parameter Mouser Price/Stock:https://www.mouser.com/Search/Refine.aspx?Keyword=621-AH372-P-B from Part U5
+Removed Parameter Publisher:Altium Limited from Part J4
+Removed Parameter RS Part Number:1333361P from Part U5
+Removed Parameter RS Part Number:8201589P from Part J6
+Removed Parameter RS Price/Stock:http://uk.rs-online.com/web/p/products/1333361P from Part U5
+Removed Parameter RS Price/Stock:http://uk.rs-online.com/web/p/products/8201589P from Part J6
+Change Value of Parameter Manufacturer_Part_Number in Part C1 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C1 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C1 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C13 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C13 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C13 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C14 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C14 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C14 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C15 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C15 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C15 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C16 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C16 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C16 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C17 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C17 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C17 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C18 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C18 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C18 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C19 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C19 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C19 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Part_Number in Part C23 Old= New=C0603C104Z3VACTU
+Change Value of Parameter RefDes in Part C23 Old=C0603C104Z3VACTU New=RefDes
+Change Value of Parameter Vendor in Part C23 Old=AVX Corporation New=https://www.digikey.ca/product-detail/en/C0603C104Z3VACTU/399-1100-1-ND/411375/?itemSeq=321556474
+Change Value of Parameter Manufacturer_Name in Part J6 Old=JST (JAPAN SOLDERLESS TERMINALS) New=JST Sales America Inc.
+Change Value of Parameter Manufacturer_Part_Number in Part R2 Old=ERJ8CWFR024V New=
+Change Value of Parameter Vendor in Part R2 Old=Panasonic New=
+Change Value of Parameter Manufacturer_Part_Number in Part R10 Old=ERJ8CWFR024V New=RMCF0603JT10K0
+Change Value of Parameter Vendor in Part R10 Old=Panasonic New=https://www.digikey.ca/product-detail/en/RMCF0603JT10K0/RMCF0603JT10K0CT-ND/1943191/?itemSeq=321633246
+Change Value of Parameter Manufacturer_Part_Number in Part R11 Old=ERJ8CWFR024V New=
+Change Value of Parameter Vendor in Part R11 Old=Panasonic New=
+Change Value of Parameter Manufacturer_Part_Number in Part R12 Old=ERJ8CWFR024V New=RMCF0603FG15K0
+Change Value of Parameter Vendor in Part R12 Old=Panasonic New=https://www.digikey.ca/product-detail/en/RMCF0603FG15K0/RMCF0603FG15K0CT-ND/4425035/?itemSeq=321674385
+Change Value of Parameter Manufacturer_Part_Number in Part R14 Old=ERJ8CWFR024V New=
+Change Value of Parameter Vendor in Part R14 Old=Panasonic New=
+Change Value of Parameter Manufacturer_Part_Number in Part R15 Old=ERJ8CWFR024V New=
+Change Value of Parameter Vendor in Part R15 Old=Panasonic New=
+Change Value of Parameter Manufacturer_Part_Number in Part U2 Old=TMC2130-TA New=TMC2130-TA-T
+Change Value of Parameter Value in Part U2 Old=Value New=
+Change Value of Parameter Vendor in Part U2 Old=TRINAMIC New=https://www.digikey.ca/product-detail/en/trinamic-motion-control-gmbh/TMC2130-TA-T/1460-1186-1-ND/6572873
+Change Value of Parameter Datasheet Link in Part U5 Old=https://www.mouser.com/datasheet/2/115/AH372-1317530.pdf New=https://www.diodes.com/assets/Datasheets/AH372.pdf
+Change Value of Parameter Manufacturer_Name in Part U5 Old=Diodes Inc. New=Diodes Incorporated
+Change Value of Parameter Value in Part U6 Old=Value New=
+Change Value of Parameter VENDOR in Part U6 Old=STMicroelectronics New=https://www.digikey.ca/product-detail/en/stmicroelectronics/LM335Z/497-1584-ND/591686
+Added Parameter Datasheet Link=https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf to Part R10
+Added Parameter Datasheet Link=https://www.seielect.com/catalog/sei-rmcf_rmcp.pdf to Part R12
+Added Parameter Datasheet Link=https://www.st.com/content/ccc/resource/technical/document/datasheet/04/fa/9d/16/39/87/44/8d/CD00000459.pdf/files/CD00000459.pdf/jcr:content/translations/en.CD00000459.pdf to Part U6
+Added Parameter Datasheet Link=https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC2130_datasheet.pdf to Part U2
+Added Parameter Excel Number=E-0033 to Part C1
+Added Parameter Excel Number=E-0033 to Part C13
+Added Parameter Excel Number=E-0033 to Part C14
+Added Parameter Excel Number=E-0033 to Part C15
+Added Parameter Excel Number=E-0033 to Part C16
+Added Parameter Excel Number=E-0033 to Part C17
+Added Parameter Excel Number=E-0033 to Part C18
+Added Parameter Excel Number=E-0033 to Part C19
+Added Parameter Excel Number=E-0033 to Part C23
+Added Parameter Manufacturer_Name=Stackpole Electronics Inc to Part R10
+Added Parameter Manufacturer_Name=Stackpole Electronics Inc to Part R12
+Added Parameter Manufacturer_Name=STMicroelectronics to Part U6
+Added Parameter Manufacturer_Name=Trinamic Motion Control GmbH to Part U2
+Added Parameter RefDes=RefDes to Part U5
+Added Parameter Type=DEV to Part U5
+Added Parameter Vendor=https://www.digikey.ca/product-detail/en/jst-sales-america-inc/S4B-XH-A(LF)(SN)/455-2243-ND/1651041 to Part J6
+Added Parameter Vendor=https://www.digikey.ca/products/en?keywords=621-AH372-P-B to Part U5
