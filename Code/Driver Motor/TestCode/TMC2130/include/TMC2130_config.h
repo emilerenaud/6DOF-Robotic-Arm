@@ -501,7 +501,7 @@ struct PWMCONF_S
     uint8_t PWM_GRAD   : 8;
     uint8_t PWM_FREQ0  : 1;
     uint8_t PWM_FREQ1  : 1;
-    uint8_t PWM_AUTO   : 1;
+    uint8_t PWM_AUTO    : 1;
     uint8_t PWM_SYMM   : 1;
     uint8_t FREEWHEEL0 : 1;
     uint8_t FREEWHEEL1 : 1;
