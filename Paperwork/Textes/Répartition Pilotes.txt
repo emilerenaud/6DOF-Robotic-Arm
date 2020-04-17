@@ -14,19 +14,19 @@ Pilotes:
 Interfaces:
 	
 	- TMC
-	
+		Luka/Émile √
 	- Hall Sensor
-		Luka
+		Luka  √
 	- Temp Sensor
-		Luka
+		Luka  √	
 	- Communication
-	
+		Luka  √
 	- Debug
-
+		Luka/Émile 
 	- Fan
-	
+		Émile √ 
 	- Servo
-	
+		Émile
 	
 Processus:
 	

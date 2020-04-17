@@ -21,7 +21,7 @@ public:
     void Write(tmc_add add, tmc_write dataOut);
     tmc_read Read(tmc_add add);
     void Init();
-    void Rotation(float degree, float microstep, int direction);
+    void Rotation(float degree, float microstep, int direction, int motor);
     void GeneralConfig();
     void IHoldIrunConfig();
     void TPowerDownConfig();

@@ -63,4 +63,6 @@
 #define READ LOW
 #define WRITE HIGH
 
-#define onBoardLED PC13
+#define NEMA17 1
+
+#define TINCAN 2

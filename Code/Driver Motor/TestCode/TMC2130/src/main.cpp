@@ -8,10 +8,11 @@ TMC2130Class tmc;
 
 void setup() 
 {
+    pinMode(LEDG, OUTPUT);
     tmc.Init();
 }
 
 void loop() 
 {
-    tmc.Rotation(5,256,HIGH);
+    tmc.Rotation(5, 256, HIGH, NEMA17);
 }
