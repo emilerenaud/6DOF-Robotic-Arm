@@ -8,9 +8,11 @@ TempSensorClass temp = TempSensorClass(TEMP);
 RS485Class tx = RS485Class(19200);
 
 void setup() {
+    pinMode(LEDR, OUTPUT);
 }
 
 void loop() {
+    digitalWrite(LEDR, HIGH);
     char arrTemp[50];
     sprintf(arrTemp, "Temp: %i\n", temp.Temperature());
     tx.Write(arrTemp);

@@ -279,7 +279,7 @@ void TMC2130Class::ReadRegisters()
     tmc_add add;
     TMC dataIn; 
 
-    add.address = reg.gen_conf.GCONF;                          //Might need a mask.
+    add.address = reg.gen_conf.GCONF;                          //Might need a mask
     dataIn.g_conf.receiveBytes = TMC2130Class::Read(add);
 
     add.address = reg.gen_conf.GSTAT;
