@@ -50,8 +50,8 @@
 
     #ifdef DEBUG
         #define LEDR PB5
-        #define LEDG PB6
-        #define LEDB PB7
+        #define LEDB PB6
+        #define LEDG PB7
     #endif
 
     #ifdef FAN_EN

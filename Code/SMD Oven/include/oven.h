@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <thermistor.h>
 
+
 extern int secondCounter;
 
 class Oven
@@ -13,13 +14,14 @@ private:
     int _maxTimePreheat;
     int _tempReflow;
     int _maxTimeReflow;
-    int _currentTemp;
+    float _currentTemp;
     int _relayHighPin;
     int _relayLowPin;
     int _startTimer;
     unsigned long _safetyTimeReflow;
 
-    thermistorClass _thermistor;
+    //thermistorClass _thermistor;
+    // thermistor _thermistor;
 
     void startHeat(void);
     void stopHeat(void);

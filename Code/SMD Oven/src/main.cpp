@@ -64,6 +64,7 @@ Oven oven(150,90,217,50,relayHighPin,relayLowPin);
 int ovenState = IDLE;
 int oldTemperature = 0;
 int counter = 0;
+int diviseur = 0;
 
 void setup() {
 
@@ -88,7 +89,6 @@ void loop()
   }
 
   gestionOven();
- 
 }
 
 void setupTimer()
@@ -150,14 +150,15 @@ void gestionOven()
 {
   if(ovenState != INIT)
   {
-    if(oven.get_currentTemp() != oldTemperature)
-    {
-    lcd.setCursor(0,3);
-    lcd.print("Current Temp : ");
-    lcd.print(oven.get_currentTemp());
-    oldTemperature = oven.get_currentTemp();
-    lcd.print("*C ");
-    }
+      if(oven.get_currentTemp() != oldTemperature)
+      {
+      lcd.setCursor(0,3);
+      lcd.print("Current Temp : ");
+      lcd.print(oven.get_currentTemp());
+      oldTemperature = oven.get_currentTemp();
+      lcd.print("*C ");
+      }
+    
   }
   switch(ovenState)
   {
@@ -308,11 +309,16 @@ void gestionOven()
         lcd.print("State : Preheat     ");
         readyToPrint = 0;
       }
-      if(oven.preheat())
+      if(diviseur == 4)
       {
-        ovenState = REFLOW;
-        readyToPrint = 1;
+        diviseur = 0;
+        if(oven.preheat())
+        {
+          ovenState = REFLOW;
+          readyToPrint = 1;
+        }
       }
+        diviseur ++;
     break;
 
     case REFLOW:
@@ -329,11 +335,17 @@ void gestionOven()
         lcd.print("State : Reflow      ");
         readyToPrint = 0;
       }
-      if(oven.reflow())
+      if(diviseur == 4)
       {
-        ovenState = COOLING;
-        readyToPrint = 1;
+        diviseur = 0;
+        if(oven.reflow())
+        {
+          ovenState = COOLING;
+          readyToPrint = 1;
+        }
       }
+      diviseur ++;
+      
     break;
 
     case COOLING:

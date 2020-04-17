@@ -1,12 +1,7 @@
 #include <oven.h>
+#include <thermistor.h>
 
-Oven::Oven()
-{
-    _tempPreheat = 0;
-    _maxTimePreheat = 0;
-    _tempReflow = 0;
-    _maxTimeReflow = 0;
-}
+thermistor therm1(A0,0);
 
 Oven::Oven(int tempPreheat, int maxTimePreheat, int tempReflow, int maxTimeReflow, const int relayHighPin, const int relayLowPin)
 {
@@ -24,7 +19,9 @@ Oven::Oven(int tempPreheat, int maxTimePreheat, int tempReflow, int maxTimeReflo
     pinMode(_relayHighPin,OUTPUT);
     digitalWrite(_relayHighPin,LOW);
 
-    _thermistor = thermistorClass(A0);
+    // _thermistor = thermistorClass(A0);
+    //  thermistor _thermistor(A0,0);
+    // _thermistor = thermistor(A0,0);
 }
 
 void Oven::set_tempPreheat(int tempPreheat)
@@ -69,16 +66,19 @@ int Oven::get_maxTimeReflow()
 
 int Oven::get_currentTemp()
 {
-    return _thermistor.readC();
+    // return _thermistor.readC();
+    _currentTemp = therm1.analog2temp();
+    return _currentTemp;
 }
 
 bool Oven::preheat()
 {
-    if(_thermistor.readC() < (_tempPreheat - 5))
+    _currentTemp = therm1.analog2temp();
+    if(_currentTemp < (_tempPreheat - 5))
     {
         Oven::startHeat();
     }
-    else if(_thermistor.readC() > (_tempPreheat + 5))
+    else if(_currentTemp > (_tempPreheat + 5))
     {
         Oven::stopHeat();
     }
@@ -108,11 +108,12 @@ bool Oven::preheat()
 
 bool Oven::reflow()
 {
-    if(_thermistor.readC() < (_tempReflow - 2))
+    _currentTemp = therm1.analog2temp();
+    if(_currentTemp < (_tempReflow - 2))
     {
         Oven::startHeat();
     }
-    else if(_thermistor.readC() > (_tempReflow + 2))
+    else if(_currentTemp > (_tempReflow + 2))
     {
         Oven::stopHeat();
     }
