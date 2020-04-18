@@ -48,12 +48,12 @@ void TMC2130Class::Init()           /*Right now, TMC is initialized as the Getti
 }
 
 /*VERIFY*/
-void TMC2130Class::Rotation(float degree, float microstep, int direction)
+void TMC2130Class::Rotation(float degree, float microstep, int direction, int motor)
 {
     float gearRatio = 38.4;
     float turnFor1degree = gearRatio / 9.375;
 
-    float stepsFor1degree = turnFor1degree * microstep;
+    float stepsFor1degree = turnFor1degree * microstep / motor;
 
     int stepsToDo =  int(round(degree * stepsFor1degree));
 
