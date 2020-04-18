@@ -124,7 +124,7 @@ void TMC2130Class::IHoldIrunConfig(){
     dataOut.ihold_irun.bits.RESERVED2  = LOW;
     dataOut.ihold_irun.bits.IHOLDDELAY = 6;
     dataOut.ihold_irun.bits.RESERVED1  = LOW;
-    dataOut.ihold_irun.bits.IRUN       = 31;
+    dataOut.ihold_irun.bits.IRUN       = 1;
     dataOut.ihold_irun.bits.RESERVED0  = LOW;
     dataOut.ihold_irun.bits.IHOLD      = 10;
  

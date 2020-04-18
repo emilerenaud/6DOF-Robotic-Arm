@@ -9,6 +9,8 @@ TMC2130Class tmc;
 void setup() 
 {
     tmc.Init();
+    pinMode(LEDB,OUTPUT);
+    digitalWrite(LEDB,HIGH);
 }
 
 void loop() 
