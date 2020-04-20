@@ -10,6 +10,8 @@ void setup()
 {
     pinMode(LEDG, OUTPUT);
     tmc.Init();
+    pinMode(LEDB,OUTPUT);
+    digitalWrite(LEDB,HIGH);
 }
 
 void loop() 
