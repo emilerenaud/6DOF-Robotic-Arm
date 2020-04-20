@@ -13,7 +13,12 @@ int RS485Class::Read(void){
   return _rxtx.read();
 }
 
-void RS485Class::Write(const char *data){
+void RS485Class::Write(int data){
+  digitalWrite(RXTX_EN, WRITE);
+  _rxtx.write(data);
+}
+
+void RS485Class::Print(const char *data){
   digitalWrite(RXTX_EN, WRITE);
   _rxtx.write(data);
 }

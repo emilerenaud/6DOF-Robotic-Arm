@@ -23,6 +23,7 @@ public:
     void disableDevice(void);
     unsigned char readByte(void);
     void writeByte(unsigned char byte);
+    unsigned char readWritebyte(unsigned char byte);
 
 };
 

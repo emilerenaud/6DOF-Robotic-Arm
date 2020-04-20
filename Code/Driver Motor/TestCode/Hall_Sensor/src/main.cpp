@@ -1,15 +1,12 @@
 #include <Arduino.h>
 #include <configuration.h>
-#include <RS485_driver.h>
 #include <HallSensor_interface.h> 
 #include <string.h>
 
 HallSensorClass hall = HallSensorClass(HALL);
-// RS485Class tx(19200);
 bool doOnce = 1;
 
 void setup() {
-    Serial.begin(9600);
     pinMode(LEDB,OUTPUT);
     pinMode(FAN,OUTPUT);
     pinMode(LEDG,OUTPUT);
@@ -17,8 +14,6 @@ void setup() {
     digitalWrite(LEDR,HIGH);
     digitalWrite(LEDG,HIGH);
     digitalWrite(LEDB,HIGH);
-
-    // pinMode(HALL,INPUT);
 }
 
 void loop() {
@@ -53,25 +48,13 @@ void loop() {
         digitalWrite(LEDB,HIGH);
     }
     
-    // if(digitalRead(HALL))
-    // {
-    //     digitalWrite(FAN,LOW);
-    // }
-    // else
-    // {
-    //     digitalWrite(FAN,HIGH);
-    // }
     if(hall.Read())
     {
-        //tx.Write("SOMETHING\n");
-        // Serial.println("Hall On");
         digitalWrite(LEDR,LOW);
     }
         
     else
     {
-        //tx.Write("NOTHING\n");
-        // Serial.println("Hall Off");
         digitalWrite(LEDR,HIGH);
     }
         

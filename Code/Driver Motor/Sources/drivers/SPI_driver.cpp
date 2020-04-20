@@ -14,7 +14,7 @@ SPIClass::SPIClass(const int inSCK, const int inMISO, const int inMOSI, const in
     pinMode(_CS,OUTPUT);
 
     SPIClass::disableDevice();  // Disable device.
-    SPIClass::clock_low();       // Pull down clock.
+    SPIClass::clock_high();       // Pull down clock.
 }   // end SPIClass
 
 void SPIClass::enableDevice()
@@ -30,14 +30,14 @@ void SPIClass::disableDevice()
 unsigned char SPIClass::readByte()
 {
     unsigned char byte = 0;
-    for(int i = 0; i<8; i++)    // Send 8 bits
+    for(int i=0; i<8; i++)    // Send 8 bits
     {
-        SPIClass::clock_high();
-        SPIClass::spi_delay();
-        if(digitalRead(_MISO))
-            byte = byte + 0x01;
         byte = byte << 1;
         SPIClass::clock_low();
+        SPIClass::spi_delay();
+        SPIClass::clock_high();
+        if(digitalRead(_MISO))
+            byte = byte + 0x01;
         
     }   // end for.
     return byte;
@@ -45,18 +45,39 @@ unsigned char SPIClass::readByte()
 
 void SPIClass::writeByte(unsigned char byte)
 {
-    for(int i = 0; i<8; i++)    // Send 8 bits
+    for(int i=0; i<8; i++)    // Send 8 bits
     {
+        
         if(byte & 0x80)                 // MSB is 1
             digitalWrite(_MOSI,HIGH);   // Pull high data line.
         else                            // MSB is 0
             digitalWrite(_MOSI,LOW);    // Pull down data line.
-        SPIClass::clock_high();         // Pull high clock line. The chip now see data.
-        SPIClass::spi_delay();
         SPIClass::clock_low();          // Pull down clock line.
+        SPIClass::spi_delay();
+        SPIClass::clock_high();         // Pull high clock line. The chip now see data.
         byte = byte << 1;               // Shift byte to send the next bit.
     }   // end for.
 }   // end writeByte
+
+unsigned char SPIClass::readWritebyte(unsigned char dataOut)
+{
+    unsigned char dataIn = 0;
+    for(int i=0; i<8; i++)
+    {
+        dataIn = dataIn << 1;
+        if(dataOut & 0x80)                 // MSB is 1
+            digitalWrite(_MOSI,HIGH);   // Pull high data line.
+        else                            // MSB is 0
+            digitalWrite(_MOSI,LOW);    // Pull down data line.
+        SPIClass::clock_low();
+        SPIClass::spi_delay();
+        SPIClass::clock_high();
+        if(digitalRead(_MISO))
+            dataIn = dataIn + 0x01;
+        dataOut = dataOut << 1;               // Shift byte to send the next bit.
+    }
+    return dataIn;
+}
 
 // Private Function SPIClass
 

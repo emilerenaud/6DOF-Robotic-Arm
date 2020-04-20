@@ -1,9 +1,6 @@
 #ifndef RS485_H
 #define RS485_H
 
-#define START LOW
-#define STOP  HIGH
-
 #include "Arduino.h"
 #include <configuration.h>
 
@@ -15,7 +12,8 @@ class RS485Class {
     RS485Class();
     RS485Class(unsigned long baud);
     int Read(void);  
-    void Write(const char *data); 
+    void Write(int data); 
+    void Print(const char * data); 
 };
 
 #endif
