@@ -14,6 +14,7 @@ class RS485Class {
   public:
     RS485Class();
     RS485Class(unsigned long baud);
+    void set_input(void);
     int Read(void);  
     void Write(int data); 
 };
