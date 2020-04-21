@@ -31,13 +31,14 @@ Interfaces:
 Processus:
 	
 	- Moteur (homing) 
-	
+		Luka √
 	- Communication
-	
+		??
 	- Température
-	
+		Luka
 	- Pince
-	
+		Émile
+		
 	
 
 	
