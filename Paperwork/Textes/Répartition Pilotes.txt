@@ -26,19 +26,29 @@ Interfaces:
 	- Fan
 		Émile √ 
 	- Servo
-		Émile
+		Luka
 	
 Processus:
 	
 	- Moteur (homing) 
 		Luka √
 	- Communication
-		??
-	- Température
-		Luka
-	- Pince
 		Émile
+	- Température
+		Luka √
+	- Pince
+		Luka
 		
+-Finaliser code et gui debug
+-Commencer le cablage
+-Modifier direction pour absolue.
+
+-La semaine prochaine 
+-Finir le cablage
+-Tester tout ensemble
+-Monter les autres boards
+
+
 	
 
 	

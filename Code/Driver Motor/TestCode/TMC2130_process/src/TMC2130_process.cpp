@@ -5,9 +5,10 @@ TMC2130_process::TMC2130_process()
     _tmc.Init();
 }
 
-int TMC2130_process::Rotation(float degree, float microstep, int direction)
+int TMC2130_process::Rotation(float position, float microstep, int direction)
 {
     static bool _once = true;
+    float _move;
 
     if(_hall.Read())
     {
@@ -25,12 +26,14 @@ int TMC2130_process::Rotation(float degree, float microstep, int direction)
         }
     }
 
-    if(_tmc.Rotation(degree, microstep, direction))
+    _move = position - _degree_counter;
+
+    if(_tmc.Rotation(_move, microstep, direction))
     {
         if(direction == CW)
-            _degree_counter += (int)degree;
+            _degree_counter += (int)_move;
         else
-            _degree_counter -= (int)degree;
+            _degree_counter -= (int)_move;
         return DONE;
     }
 

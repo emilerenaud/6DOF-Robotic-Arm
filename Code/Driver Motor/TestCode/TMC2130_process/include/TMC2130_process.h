@@ -14,7 +14,7 @@ private:
     int _degree_counter = 0;
 public:
     TMC2130_process();
-    int Rotation(float degree, float microstep, int direction);
+    int Rotation(float position, float microstep, int direction);
     int Homing(float microstep);
 };
 

@@ -9,7 +9,8 @@
     #define TMC2130
     #define SPI_EN
     #define HALL_SENSOR
-    #define TEMP_SENSOR
+    //#define TEMP_SENSOR
+    #define SERVO_EN
     #define RS485
     #define DEBUG
     #define FAN_EN
