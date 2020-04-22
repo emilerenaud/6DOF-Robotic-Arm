@@ -38,40 +38,6 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=..\Library\Library\A-Emile\Footprint_Emile.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MIXDQKIN
-
-[Document2]
-DocumentPath=..\Library\Library\A-Emile\Schematic_Emile.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=UHOXTHBJ
-
-[Document3]
 DocumentPath=Top.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -88,7 +54,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NJIQLFXT
 
-[Document4]
+[Document2]
 DocumentPath=STM32.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -105,7 +71,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JWRYXUOF
 
-[Document5]
+[Document3]
 DocumentPath=TMC2130.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -122,7 +88,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LPDICLLQ
 
-[Document6]
+[Document4]
 DocumentPath=PCB1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -139,7 +105,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NBGEJJXV
 
-[Document7]
+[Document5]
 DocumentPath=CAMtastic1.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -156,7 +122,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
+[Document6]
 DocumentPath=CAMtastic2.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -173,83 +139,125 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document7]
+DocumentPath=Motor Driver.SCHLIB
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=WQNBNWTX
+
+[Document8]
+DocumentPath=PCB1.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=AINHIJFH
+
 [GeneratedDocument1]
-DocumentPath=BOM.xls
+DocumentPath=Project Outputs for Motor Driver\BOM-Motor_Driver_V0.1.xls
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for Motor Driver\Design Rule Check - PCB1.html
+DocumentPath=BOM.xls
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs for Motor Driver\PCB1.DRR
+DocumentPath=Project Outputs for Motor Driver\Design Rule Check - PCB1.html
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs for Motor Driver\PCB1.EXTREP
+DocumentPath=Project Outputs for Motor Driver\Motor Driver.xls
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GBL
+DocumentPath=Project Outputs for Motor Driver\PCB1.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GBO
+DocumentPath=Project Outputs for Motor Driver\PCB1.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GBP
+DocumentPath=Project Outputs for Motor Driver\PCB1.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GBS
+DocumentPath=Project Outputs for Motor Driver\PCB1.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GM1
+DocumentPath=Project Outputs for Motor Driver\PCB1.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GM2
+DocumentPath=Project Outputs for Motor Driver\PCB1.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GP1
+DocumentPath=Project Outputs for Motor Driver\PCB1.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GP2
+DocumentPath=Project Outputs for Motor Driver\PCB1.GM2
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GTL
+DocumentPath=Project Outputs for Motor Driver\PCB1.GP1
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GTO
+DocumentPath=Project Outputs for Motor Driver\PCB1.GP2
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GTP
+DocumentPath=Project Outputs for Motor Driver\PCB1.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for Motor Driver\PCB1.GTS
+DocumentPath=Project Outputs for Motor Driver\PCB1.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for Motor Driver\PCB1.LDP
+DocumentPath=Project Outputs for Motor Driver\PCB1.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs for Motor Driver\PCB1.REP
+DocumentPath=Project Outputs for Motor Driver\PCB1.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs for Motor Driver\PCB1.RUL
+DocumentPath=Project Outputs for Motor Driver\PCB1.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument20]
+DocumentPath=Project Outputs for Motor Driver\PCB1.REP
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=Project Outputs for Motor Driver\PCB1.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument22]
 DocumentPath=Project Outputs for Motor Driver\PCB1.TXT
 DItemRevisionGUID=
 
@@ -266,7 +274,7 @@ ConfigurationType=Source
 [OutputGroup1]
 Name=Netlist Outputs
 Description=
-TargetPrinter=OneNote
+TargetPrinter=HPEF2847 (HP ENVY 4520 series)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=CadnetixNetlist
 OutputName1=Cadnetix Netlist
@@ -452,7 +460,7 @@ PageOptions11=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup4]
 Name=Assembly Outputs
 Description=
-TargetPrinter=OneNote
+TargetPrinter=HPEF2847 (HP ENVY 4520 series)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Assembly
 OutputName1=Assembly Drawings
@@ -554,7 +562,7 @@ Configuration12_Item2=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLaye
 [OutputGroup6]
 Name=Report Outputs
 Description=
-TargetPrinter=OneNote
+TargetPrinter=HPEF2847 (HP ENVY 4520 series)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=BOM_PartType
 OutputName1=Bill of Materials
@@ -567,15 +575,15 @@ Configuration1_Item1=CaptionAsName
 Configuration1_Name2=ForceUpdateSettings
 Configuration1_Item2=False
 Configuration1_Name3=General
-Configuration1_Item3=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Users\Public\Documents\Altium\AD20\Templates\BOM Default Template.XLT|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1200|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=1|UseDirectApi=False|BomSetName=
+Configuration1_Item3=OpenExported=False|AddToProject=True|ReportBOMViolationsInMessages=False|ForceFit=False|NotFitted=False|Database=False|DatabasePriority=False|IncludePcbData=False|IncludeVaultData=False|IncludeCloudData=False|IncludeDocumentData=True|IncludeAlternatives=False|ShowExportOptions=True|TemplateFilename=C:\Users\Public\Documents\Altium\AD20\Templates\BOM Default Template.XLT|TemplateVaultGuid=|TemplateRevisionGuid=|BatchMode=5|FormWidth=1451|FormHeight=710|SupplierProdQty=1|SupplierAutoQty=False|SupplierUseCachedPricing=False|SupplierCurrency=USD|SolutionsPerItem=1|SuppliersPerSolution=1|ViewType=1|UseDirectApi=False|BomSetName=
 Configuration1_Name4=GroupOrder
 Configuration1_Item4=Comment=True|Footprint=True
 Configuration1_Name5=SortOrder
-Configuration1_Item5=Designator=Up|Comment=Up|Footprint=Up
+Configuration1_Item5=Excel Number=Up
 Configuration1_Name6=VisibleOrder
-Configuration1_Item6=Comment=120|Description=120|Designator=120|Footprint=120|Quantity=120
+Configuration1_Item6=Excel Number=100|Description=120|Designator=120|Footprint=120|Quantity=120|Manufacturer_Part_Number=100|Vendor=100
 Configuration1_Name7=VisibleOrder_Flat
-Configuration1_Item7=Comment=120|Description=120|Designator=120|Footprint=120|Quantity=120
+Configuration1_Item7=Excel Number=100|Description=120|Designator=120|Footprint=120|Quantity=120|Manufacturer_Part_Number=100|Vendor=100
 OutputType2=ComponentCrossReference
 OutputName2=Component Cross Reference Report
 OutputDocumentPath2=
@@ -605,7 +613,7 @@ OutputDefault6=0
 [OutputGroup7]
 Name=Other Outputs
 Description=
-TargetPrinter=OneNote
+TargetPrinter=HPEF2847 (HP ENVY 4520 series)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Text Print
 OutputName1=Text Print
@@ -785,7 +793,7 @@ PageOptions29=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|Print
 [OutputGroup8]
 Name=Validation Outputs
 Description=
-TargetPrinter=OneNote
+TargetPrinter=HPEF2847 (HP ENVY 4520 series)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=BOM_Violations
 OutputName1=BOM Checks Report
@@ -829,7 +837,7 @@ OutputDefault7=0
 [OutputGroup9]
 Name=Export Outputs
 Description=
-TargetPrinter=OneNote
+TargetPrinter=HPEF2847 (HP ENVY 4520 series)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=AutoCAD dwg/dxf PCB
 OutputName1=AutoCAD dwg/dxf File PCB
@@ -890,7 +898,7 @@ OutputDefault11=0
 [OutputGroup10]
 Name=PostProcess Outputs
 Description=
-TargetPrinter=OneNote
+TargetPrinter=HPEF2847 (HP ENVY 4520 series)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Copy Files
 OutputName1=Copy Files
