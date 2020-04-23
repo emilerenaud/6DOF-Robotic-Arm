@@ -11,6 +11,7 @@ class ServoClass {
   public:
     ServoClass();
     ServoClass(uint32_t pin);
+    void set_pin(uint8_t pin);
     void Write(uint32_t val);  
 };
 
