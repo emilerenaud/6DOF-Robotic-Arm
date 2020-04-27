@@ -16,12 +16,19 @@ struct SEND_S
 
 struct RECEIVE_S
 {
+	// Data: A,A,A,H ,R,G,B,E - G,G,G,G ,G,G,G,D - D,D,D,D ,D,D,D,D - F,F,F,F ,F,F,F,F
+	// first Byte
+	uint8_t adress    : 3;
     uint8_t homing    : 1;
+	uint8_t rgbmode   : 3;
+	uint8_t endis     : 1;
+	// Second Byte
+	uint8_t gripper   : 7;
+    // Third byte
     uint16_t direction : 9;
-    uint8_t endis     : 1;
-    uint8_t gripper   : 7;
+	// Fourth Byte
     uint8_t fan       : 8;
-    uint8_t rgbmode   : 3;
+    
 };
 
 struct SENDBYTES_S

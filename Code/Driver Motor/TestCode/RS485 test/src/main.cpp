@@ -20,21 +20,16 @@ void setup() {
 }
 
 void loop() {
-  if(doOnce)
-  {
-    doOnce = 0;
-    rs485.Write(0x12);
-    delay(10);
-    rs485.Write(0x12);
-    delay(10);
-    rs485.set_input();
-  }
   int data = rs485.Read();
   if(data != -1)
   {
     if(data == 0x12)
     {
       digitalWrite(FAN,HIGH);
+      delay(500);
+      rs485.Write(0x55);
+      delay(5);
+      rs485.set_input();
     }
     else
     {
