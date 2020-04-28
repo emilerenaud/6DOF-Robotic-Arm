@@ -1,4 +1,4 @@
-#include <driver_timer.h>
+#include <Timer_driver.h>
 
 HardwareTimer *timerPWM = new HardwareTimer(TIM1);
 HardwareTimer *timerCOM = new HardwareTimer(TIM2);

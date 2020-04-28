@@ -1,5 +1,5 @@
-#ifndef DRIVER_TIMER_H
-#define DRIVER_TIMER_H
+#ifndef TIMER_DRIVER_H
+#define TIMER_DRIVER_H
 #include <Arduino.h>
 
 
