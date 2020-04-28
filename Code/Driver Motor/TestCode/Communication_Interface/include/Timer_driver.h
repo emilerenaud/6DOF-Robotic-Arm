@@ -1,9 +1,9 @@
 #ifndef TIMER_DRIVER_H
 #define TIMER_DRIVER_H
 #include <Arduino.h>
+#include <configuration.h>
 
-
-void init_timer_COM(void);
+void init_timer_COM(void(*pFunctionToSet)(void));
 void setFunction_timer_COM(void(*pFunctionToSet)(void));
 void callback_timer_COM(HardwareTimer*);
 

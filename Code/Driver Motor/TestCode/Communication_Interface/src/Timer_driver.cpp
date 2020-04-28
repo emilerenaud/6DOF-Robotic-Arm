@@ -9,9 +9,17 @@ HardwareTimer *timerCOM = new HardwareTimer(TIM2);
 // VARIABLE
 void (*pFunction)(void);
 
-void init_timer_COM(void)
+void init_timer_COM(void(*pFunctionToSet)(void))
 {
+    pFunction = (*pFunctionToSet);
+
+    #ifdef DEBUG_TIMER_DRIVER_COM
+    timerCOM->setOverflow(10, HERTZ_FORMAT); // 10ms
+    pinMode(LEDR,OUTPUT);
+    #else
     timerCOM->setOverflow(100, HERTZ_FORMAT); // 10ms
+    #endif
+
     timerCOM->attachInterrupt(callback_timer_COM);
     timerCOM->resume();
 }
@@ -24,6 +32,10 @@ void setFunction_timer_COM(void(*pFunctionToSet)(void))
 void callback_timer_COM(HardwareTimer*)
 {
     (*pFunction)();
+    
+    #ifdef DEBUG_TIMER_DRIVER_COM
+    digitalWrite(LEDR,!digitalRead(LEDR)); // Debug
+    #endif
 }
 
 

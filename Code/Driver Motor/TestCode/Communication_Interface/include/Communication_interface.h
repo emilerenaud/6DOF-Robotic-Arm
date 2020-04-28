@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include <configuration.h>
 #include <RS485_driver.h>
-
+#include <Timer_driver.h>
 
 struct SEND_S
 {
@@ -65,12 +65,15 @@ union RECEIVE_U
 class ComClass {   
   private:
     RECEIVE_U _receive;
+    uint8_t _byteCounter = 0;
+    RS485Class rs485 = RS485Class(19200);
   public:
     ComClass();
-    RS485Class rs485 = RS485Class(19200);
     RECEIVE_U Read(void);
     uint8_t dataReceived(void);
     void Write(SEND_U send);
+    void checkData(void);
+    bool decodeChecksum(void);
 
 
 

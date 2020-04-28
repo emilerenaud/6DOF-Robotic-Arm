@@ -1,23 +1,26 @@
 #include <Arduino.h>
 #include <Communication_interface.h>
-#include <driver_timer.h>
+#include <Timer_driver.h>
 
 ComClass com = ComClass();
+
 uint8_t buffer[64];
 uint8_t i = 0;
 SEND_U send;
 RECEIVE_U receive;
-void blinkLed(void)
+
+void checkData(void)
 {
-  digitalToggle(LEDB);
+  com.checkData();
+
 }
 
 void setup() {
   pinMode(LEDB,OUTPUT);
+  pinMode(LEDR,OUTPUT);
   digitalWrite(LEDB,HIGH);
-  setFunction_timer_COM(blinkLed);
-  init_timer_COM();
-
+  digitalWrite(LEDR,HIGH);
+  init_timer_COM(checkData);
 }
 
 void loop() {
@@ -39,6 +42,5 @@ void loop() {
 
   // delay(100);
   // digitalWrite(LEDB,LOW);
-
   delay(3000);
 }

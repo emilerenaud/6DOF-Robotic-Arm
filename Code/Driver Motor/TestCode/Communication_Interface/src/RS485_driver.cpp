@@ -15,13 +15,14 @@ void RS485Class::set_input(void)
   digitalWrite(RXTX_EN, READ);
 }
 
-bool RS485Class::data_available()
+uint8_t RS485Class::data_available()
 {
   if(_rxtx.available() > 0)
-    return 1;               // return 1 if there are data in the buffer.
+    return _rxtx.available();               // return 1 if there are data in the buffer.
   else
     return 0;
 }
+
 
 int RS485Class::Read(void){
   digitalWrite(RXTX_EN, READ);
