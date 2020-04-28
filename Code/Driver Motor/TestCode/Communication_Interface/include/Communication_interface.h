@@ -68,9 +68,9 @@ class ComClass {
     uint8_t _byteCounter = 0;
     RS485Class rs485 = RS485Class(19200);
   public:
+    bool _newDataIn = 0;
     ComClass();
     RECEIVE_U Read(void);
-    uint8_t dataReceived(void);
     void Write(SEND_U send);
     void checkData(void);
     bool decodeChecksum(void);

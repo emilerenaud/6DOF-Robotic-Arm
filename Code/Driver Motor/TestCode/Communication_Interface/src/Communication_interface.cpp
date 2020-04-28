@@ -27,22 +27,17 @@ void ComClass::Write(SEND_U send){
     rs485.Write(send.sendBytes.thirdByte);    
 }
 
-uint8_t ComClass::dataReceived()
-{
-    if(rs485.data_available())
-    {
-    
-    }
-    return 0;
-}
-
 void ComClass::checkData(void)
 {
     if(rs485.data_available() >= 5)
     {
         Read();
         if(decodeChecksum())
+        {
+            _newDataIn = 1;
             digitalWrite(LEDB,!digitalRead(LEDB));  // Debug
+        }
+            
     }
 }
 
@@ -53,7 +48,7 @@ bool ComClass::decodeChecksum()
                             _receive.receiveBytes.thirdByte +
                             _receive.receiveBytes.fourthByte;
     if(_receive.receiveBytes.fifthByte == total)
-        return 1;
+        return 1;   // return 1 if checksum is good.
     else
         return 0;
 }

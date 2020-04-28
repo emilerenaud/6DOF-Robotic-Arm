@@ -2,7 +2,7 @@
 #define FAN_INTERFACE_H
 
 #include <Arduino.h>
-#include <PWM_driver.h>
+#include <Timer_driver.h>
 
 class FanClass
 {
