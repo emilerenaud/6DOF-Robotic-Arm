@@ -28,7 +28,6 @@ struct RECEIVE_S
     uint16_t direction : 9;
 	// Fourth Byte
     uint8_t fan       : 8;
-    
 };
 
 struct SENDBYTES_S

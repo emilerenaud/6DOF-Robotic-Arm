@@ -16,12 +16,18 @@ struct SEND_S
 
 struct RECEIVE_S
 {
+    // Data: A,A,A,H ,R,G,B,E - G,G,G,G ,G,G,G,D - D,D,D,D ,D,D,D,D - F,F,F,F ,F,F,F,F
+	// first Byte
+	uint8_t adress    : 3;
     uint8_t homing    : 1;
+	uint8_t rgbmode   : 3;
+	uint8_t endis     : 1;
+	// Second Byte
+	uint8_t gripper   : 7;
+    // Third byte
     uint16_t direction : 9;
-    uint8_t endis     : 1;
-    uint8_t gripper   : 7;
+	// Fourth Byte
     uint8_t fan       : 8;
-    uint8_t rgbmode   : 3;
 };
 
 struct SENDBYTES_S
@@ -55,10 +61,12 @@ union RECEIVE_U
 
 class ComClass {   
   private:
-    RS485Class rs485 = RS485Class(19200);
+    RECEIVE_U _receive;
   public:
     ComClass();
-    RECEIVE_U Read();
+    RS485Class rs485 = RS485Class(19200);
+    RECEIVE_U Read(void);
+    uint8_t dataReceived(void);
     void Write(SEND_U send);
 
 
