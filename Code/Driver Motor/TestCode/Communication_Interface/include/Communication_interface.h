@@ -62,6 +62,8 @@ union RECEIVE_U
 };
 
 
+//Class
+
 class ComClass {   
   private:
     RECEIVE_U _receive;
@@ -69,10 +71,11 @@ class ComClass {
     RS485Class rs485 = RS485Class(19200);
   public:
     bool _newDataIn = 0;
+    bool _sendData = 0;
     ComClass();
     RECEIVE_U Read(void);
     void Write(SEND_U send);
-    void checkData(void);
+    void processData(void);
     bool decodeChecksum(void);
 
 

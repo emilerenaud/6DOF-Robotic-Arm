@@ -2,25 +2,16 @@
 #include <Communication_interface.h>
 #include <Timer_driver.h>
 
-ComClass com = ComClass();
+ComClass COM = ComClass();
 
-uint8_t buffer[64];
-uint8_t i = 0;
-SEND_U send;
-RECEIVE_U receive;
-
-void checkData(void)
+void process_COM(void)
 {
-  com.checkData();
-
+  COM.processData();
 }
 
 void setup() {
   pinMode(LEDB,OUTPUT);
-  pinMode(LEDR,OUTPUT);
-  digitalWrite(LEDB,HIGH);
-  digitalWrite(LEDR,HIGH);
-  init_timer_COM(checkData);
+  init_timer_COM(process_COM);
 }
 
 void loop() {

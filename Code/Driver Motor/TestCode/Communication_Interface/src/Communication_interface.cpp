@@ -1,5 +1,6 @@
 #include "Communication_interface.h"
 
+// Class
 ComClass::ComClass()
 {
 }
@@ -27,7 +28,7 @@ void ComClass::Write(SEND_U send){
     rs485.Write(send.sendBytes.thirdByte);    
 }
 
-void ComClass::checkData(void)
+void ComClass::processData(void)
 {
     if(rs485.data_available() >= 5)
     {
@@ -37,7 +38,10 @@ void ComClass::checkData(void)
             _newDataIn = 1;
             digitalWrite(LEDB,!digitalRead(LEDB));  // Debug
         }
-            
+    }
+    if(_sendData == 1)
+    {
+        // Send data
     }
 }
 
