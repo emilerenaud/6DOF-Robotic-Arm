@@ -1,0 +1,7 @@
+
+
+
+crystal = recommand 30pF stm32. Calculated = 34pF
+GPIO = recommand to put GND or VCC. unused pin via PD or PU
+On pourrait baisser un peu le courant de la LED. pcq stm32 prend 25mA genre.
+
