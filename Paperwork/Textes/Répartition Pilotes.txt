@@ -1,0 +1,55 @@
+Pilotes:
+
+	- SPI 
+		Emile √
+	- Analog
+		Luka  √
+	- RS485
+		Luka  √
+	- GPIO
+		Luka  √
+	- PWM
+		Emile √
+		
+Interfaces:
+	
+	- TMC
+		Luka/Émile √
+	- Hall Sensor
+		Luka  √
+	- Temp Sensor
+		Luka  √	
+	- Communication
+		Luka  √
+	- Debug
+		Luka/Émile 
+	- Fan
+		Émile √ 
+	- Servo
+		Luka
+	
+Processus:
+	
+	- Moteur (homing) 
+		Luka √
+	- Communication
+		Émile
+	- Température
+		Luka √
+	- Pince
+		Luka
+		
+-Finaliser code et gui debug
+-Commencer le cablage
+-Modifier direction pour absolue.
+
+-La semaine prochaine 
+-Finir le cablage
+-Tester tout ensemble
+-Monter les autres boards
+
+
+	
+
+	
+	
