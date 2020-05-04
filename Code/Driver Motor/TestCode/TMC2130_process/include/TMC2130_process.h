@@ -8,11 +8,12 @@
 class TMC2130_process
 {
 private:
-    TMC2130Class _tmc = TMC2130Class();
+    
     HallSensorClass _hall = HallSensorClass(HALL);
     int _rotation = 0;
     int _degree_counter = 0;
 public:
+    TMC2130Class _tmc = TMC2130Class();
     TMC2130_process();
     int Rotation(float position, float microstep, int direction);
     int Homing(float microstep);

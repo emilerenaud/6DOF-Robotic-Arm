@@ -6,7 +6,7 @@
 
 TMC2130_process _tmc = TMC2130_process();
 int once = true;
-
+int i = 0;
 //Temperature_process temp = Temperature_process();
 
 void setup() {
@@ -19,15 +19,20 @@ void loop() {
   
   if (once)
   {
-    while(_tmc.Rotation(27, 256, CW) == 0);
+    i ++;
+    while(_tmc.Rotation(i, 256, CW) == 0);
+    if(i == 360)
+      i = 0;
+    // _tmc._tmc.ReadRegisters();
+    // while(_tmc.Rotation(20, 256, CW) == 0);
     once = false;
-    delay(1000);
+    delay(20);
   }
 
   else
   {
-      while(_tmc.Homing(256) == 0);
+      // while(_tmc.Homing(256) == 0);
       once = true;
-      delay(1000);
+      // delay(1000);
   }
 }

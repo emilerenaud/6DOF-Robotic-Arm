@@ -2,6 +2,7 @@
 
 /*Might need mask for sendBytes and receiveBytes to forbid unnecessary reading/writing*/
 
+
 TMC2130Class::TMC2130Class()
 {
     _en.Write(HIGH);

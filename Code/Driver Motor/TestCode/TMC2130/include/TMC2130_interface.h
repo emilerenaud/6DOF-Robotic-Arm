@@ -7,6 +7,7 @@
 #include "SPI_driver.h"
 #include "GPIO_driver.h"
 #include "math.h"
+#include "Debug_interface.h"
 
 
 class TMC2130Class
@@ -16,6 +17,7 @@ private:
     GPIOClass _en   = GPIOClass(EN, OUTPUT);
     GPIOClass _dir  = GPIOClass(DIR, OUTPUT);
     GPIOClass _step = GPIOClass(STEP, OUTPUT);
+    DebugClass debug = DebugClass(LEDR,LEDG,LEDB,0);
 public:
     TMC2130Class();
     void Write(tmc_add add, tmc_write dataOut);

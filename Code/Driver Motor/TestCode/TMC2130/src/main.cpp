@@ -5,16 +5,19 @@
 
 TMC2130Class tmc;
 
+int doOnce = 1;
 
 void setup() 
 {
-    pinMode(LEDG, OUTPUT);
     tmc.Init();
-    pinMode(LEDB,OUTPUT);
-    digitalWrite(LEDB,HIGH);
 }
 
 void loop() 
 {
-    tmc.Rotation(5, 256, HIGH, NEMA17);
+    if(doOnce)
+    {
+        doOnce = 0;
+        tmc.Rotation(5, 256, HIGH, NEMA17); 
+    }
+    
 }
