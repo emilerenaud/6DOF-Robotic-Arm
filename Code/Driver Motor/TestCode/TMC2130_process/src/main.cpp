@@ -1,38 +1,40 @@
 #include <Arduino.h>
 #include <TMC2130_process.h>
 #include <GPIO_driver.h>
-#include <TMC2130_interface.h>
 #include <Temperature_process.h>
+#include <Timer_driver.h>
+#include <Communication_process.h>
+#include <TMC2130_process.h>
+#include <Debug_interface.h>
+#include <Fan_interface.h>
 
-TMC2130_process _tmc = TMC2130_process();
-int once = true;
-int i = 0;
-//Temperature_process temp = Temperature_process();
+
+ComProcess com = ComProcess();
+TMC2130_process tmc = TMC2130_process();
+DebugClass debug = DebugClass(LEDR, LEDG, LEDB);
+FanClass fan = FanClass(FAN);
+
+void process_COM(void)
+{
+  com.DecodeData();
+}
 
 void setup() {
+  pinMode(LEDB, OUTPUT);
+  init_timer_COM(process_COM);
 }
 
 void loop() {
-  
-  
-  //temp.Control();
-  
-  if (once)
+  if(com._endis == ACTIVE)
   {
-    i ++;
-    while(_tmc.Rotation(i, 256, CW) == 0);
-    if(i == 360)
-      i = 0;
-    // _tmc._tmc.ReadRegisters();
-    // while(_tmc.Rotation(20, 256, CW) == 0);
-    once = false;
-    delay(20);
+    tmc.Rotation(com._position, 256);
   }
 
-  else
+  if(com._homing == ACTIVE)
   {
-      // while(_tmc.Homing(256) == 0);
-      once = true;
-      // delay(1000);
+    tmc.Homing(256);
   }
+  debug.Write(com._red, com._green, com._blue);
+  fan.set_power(com._fan);
+
 }

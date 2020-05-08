@@ -7,7 +7,6 @@ RS485Class::RS485Class(unsigned long baud){
   pinMode(RXTX_EN, OUTPUT);
   set_input();
   _rxtx.begin(baud);
-  
 }
 
 void RS485Class::set_input(void)
@@ -38,5 +37,6 @@ void RS485Class::Write(int data){
   _rxtx.write(data);
   delay(1);     // seems to work fine.
   _rxtx.read(); // read to clear the input buffer + "clear" the line for the next device.
+  set_input();
 }
 

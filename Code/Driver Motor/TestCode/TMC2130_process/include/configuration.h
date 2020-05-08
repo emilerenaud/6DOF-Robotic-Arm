@@ -78,6 +78,18 @@
     #define CCW LOW
 
     #define DONE 1
-    #define NOT_DONE 0;
+    #define NOT_DONE 0
+
+    #define ACTIVE 1
+    #define INACTIVE 0
+
+    #define SHOULDER 1
+    #define BICEP 2
+    #define FOREARM 3
+    #define WRIST 4
+    #define WRIST_R 5
+    #define GRIPPER_R 6
+
+
 
 #endif

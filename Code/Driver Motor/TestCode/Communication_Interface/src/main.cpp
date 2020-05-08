@@ -11,27 +11,40 @@ void process_COM(void)
 
 void setup() {
   pinMode(LEDB,OUTPUT);
+  pinMode(LEDG,OUTPUT);
+  pinMode(LEDR,OUTPUT);
   init_timer_COM(process_COM);
 }
 
 void loop() {
-  // send.sendBytes.firstByte = 0x11;
-  // send.sendBytes.secondByte = 0x22;
-  // send.bits.debug = 0x61;
-  // com.Write(send); // works well.
-  // digitalWrite(LEDB,HIGH);
-  // i = 0;
-  // while(com.rs485.data_available())
-  // {
-  //   buffer[i] = com.rs485.Read();
-  //   i++;
-  // }
-  // for(int j = 0; j <= i; j ++)
-  // {
-  //   com.rs485.Write(buffer[j]);
-  // }
+  uint16_t position = (uint16_t(COM._receive.bits.position) << 1) + COM._receive.bits.firstbit;
 
-  // delay(100);
-  // digitalWrite(LEDB,LOW);
-  delay(3000);
+  if(position == 186)
+  {
+    digitalWrite(LEDR, LOW);
+  }
+  else
+  {
+    digitalWrite(LEDR, HIGH);
+  }
+  
+  if(position == 2)
+  {
+    digitalWrite(LEDG, LOW);
+  }
+  else
+  {
+     digitalWrite(LEDG, HIGH);
+   }
+
+  if(position == 300)
+  {
+    digitalWrite(LEDB, LOW);
+  }
+  else
+  {
+    digitalWrite(LEDB, HIGH);
+  }
+
+  delay(500);
 }

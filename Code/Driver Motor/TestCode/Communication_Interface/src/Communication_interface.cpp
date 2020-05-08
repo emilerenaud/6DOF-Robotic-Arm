@@ -8,11 +8,11 @@ ComClass::ComClass()
 
 RECEIVE_U ComClass::Read(){
     // Clear the structure
-    _receive.receiveBytes.firstByte = 0;
-    _receive.receiveBytes.secondByte = 0;
-    _receive.receiveBytes.thirdByte = 0;
-    _receive.receiveBytes.fourthByte = 0;
-    _receive.receiveBytes.fifthByte = 0;
+    // _receive.receiveBytes.firstByte = 0;
+    // _receive.receiveBytes.secondByte = 0;
+    // _receive.receiveBytes.thirdByte = 0;
+    // _receive.receiveBytes.fourthByte = 0;
+    // _receive.receiveBytes.fifthByte = 0;
     // Fill the structure w/ the new data
     _receive.receiveBytes.firstByte = rs485.Read();
     _receive.receiveBytes.secondByte = rs485.Read();
@@ -29,14 +29,14 @@ void ComClass::Write(SEND_U send){
 }
 
 void ComClass::processData(void)
-{
+{       
     if(rs485.data_available() >= 5)
     {
         Read();
         if(decodeChecksum())
         {
             _newDataIn = 1;
-            digitalWrite(LEDB,!digitalRead(LEDB));  // Debug
+            //digitalToggle(LEDB);  // Debug
         }
     }
     if(_sendData == 1)
