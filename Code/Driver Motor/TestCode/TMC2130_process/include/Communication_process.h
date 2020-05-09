@@ -11,15 +11,15 @@ private:
     ComClass _com = ComClass();
 
 public:
-	uint8_t _adress;
-    uint8_t _homing;
-	uint8_t _red;
-	uint8_t _green;
-	uint8_t _blue;
-	uint8_t _endis;    
-	uint8_t _gripper;
-    uint16_t _position;
-    uint8_t _fan;
+	uint8_t _adress = 0;
+    uint8_t _homing = 0;
+	uint8_t _red = 1;
+	uint8_t _green = 1;
+	uint8_t _blue = 1;
+	uint8_t _endis = 0;    
+	uint8_t _gripper = 0;
+    uint16_t _position = 0;
+    uint8_t _fan = 0;
     
     ComProcess();
     void DecodeData();
