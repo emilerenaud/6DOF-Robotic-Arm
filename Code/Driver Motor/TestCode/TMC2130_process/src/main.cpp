@@ -7,6 +7,7 @@
 #include <TMC2130_process.h>
 #include <Debug_interface.h>
 #include <Fan_interface.h>
+#include <init_stm32.h>
 
 
 ComProcess com = ComProcess();
@@ -21,6 +22,7 @@ void process_COM(void)
 
 void setup() {
   pinMode(LEDB, OUTPUT);
+  init_stm32();
   init_timer_COM(process_COM);
 }
 
