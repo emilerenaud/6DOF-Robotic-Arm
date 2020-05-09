@@ -35,6 +35,15 @@ void loop() {
     tmc.Homing(256);
   }
   debug.Write(com._red, com._green, com._blue);
-  fan.set_power(com._fan);
+  if(com._fan > 0)
+  {
+    fan.set_power(com._fan);
+    fan.start();
+  }
+  else
+  {
+    fan.stop();
+  }
+  
 
 }

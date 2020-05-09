@@ -2,7 +2,7 @@
 #define FAN_INTERFACE_H
 
 #include <Arduino.h>
-#include <PWM_driver.h>
+#include <Timer_driver.h>
 
 class FanClass
 {
@@ -16,5 +16,4 @@ public:
     void start(void);
     void stop(void);
 };
-
 #endif

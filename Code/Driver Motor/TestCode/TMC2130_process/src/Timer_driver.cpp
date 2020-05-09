@@ -46,8 +46,9 @@ uint8_t PWM_cycleCount = 0;
 uint8_t PWM_dutyCycle = 0;
 
 // FUNCTIONS
-void init_timer_PWM(void)
+void init_timer_PWM(uint8_t pin)
 {
+    PWM_pin = pin;
     timerPWM->setOverflow(1000, HERTZ_FORMAT); // 1ms
     timerPWM->attachInterrupt(callback_timer_PWM);
     timerPWM->resume();
