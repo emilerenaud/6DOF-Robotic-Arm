@@ -23,11 +23,10 @@ void ComClass::Write(SEND_U send){
 
 void ComClass::processData(void)
 {       
+    digitalToggle(LEDB);
     if(rs485.data_available() >= 5)
     {
         Read();
-        // delay(10);
-        // rs485.Write(0x04);
         if(decodeChecksum())
         {
             _newDataIn = 1;

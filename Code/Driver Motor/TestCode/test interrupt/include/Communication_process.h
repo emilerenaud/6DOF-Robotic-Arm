@@ -8,10 +8,9 @@ class ComProcess
 {
 
 private:
-    
+    ComClass _com = ComClass();
 
 public:
-ComClass _com = ComClass();
 	uint8_t _adress;
     uint8_t _homing;
 	uint8_t _red;

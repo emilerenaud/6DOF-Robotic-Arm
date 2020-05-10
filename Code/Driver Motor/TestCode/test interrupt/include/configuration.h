@@ -69,8 +69,8 @@
 	#define READ LOW
 	#define WRITE HIGH
 
-	#define NEMA17 200
-	#define TINCAN 48
+	#define NEMA17 1
+	#define TINCAN 2
 
     #define MOTOR NEMA17
 	
