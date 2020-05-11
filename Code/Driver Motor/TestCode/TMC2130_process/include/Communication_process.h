@@ -12,6 +12,8 @@ private:
 
 public:
 ComClass _com = ComClass();
+	bool _readyForNewData = 1;
+	bool _sendFinish = 0;
 	uint8_t _adress;
     uint8_t _homing;
 	uint8_t _red;

@@ -21,34 +21,42 @@ void process_COM(void)
 }
 
 void setup() {
-  // init_stm32();
+  init_stm32();
   init_timer_COM(process_COM);
 }
 
 void loop() {
-  // process_COM();
-  // if(com._com._receive.receiveBytes.firstByte == 0x00)
-  // {
-  //   debug.Write(0,1,1);
-  // }
-  // if(com._com._receive.receiveBytes.firstByte == 0x40)
-  // {
-  //   debug.Write(1,0,1);
-  // }
+   
   tmc._tmc.checkDiag();
-  
+    
   if(com._endis == ACTIVE)
   {
-    tmc.Rotation(com._position, 256);
+    if(tmc.Rotation(com._position, 256) == DONE)
+    {
+      com._readyForNewData= 1;
+    }
+    else
+    {
+      com._readyForNewData = 0;
+    }
   }
 
   if(com._homing == ACTIVE)
   {
-    tmc.Homing(256);
+    if(tmc.Homing(256) == DONE)
+    {
+      com._readyForNewData = 1;
+    }
+    else
+    {
+      com._readyForNewData = 0;
+    }
   }
   debug.Write(com._red, com._green, com._blue);
 
   fan.set_power(com._fan);
+  
+
   
   
 

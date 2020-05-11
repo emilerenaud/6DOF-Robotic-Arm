@@ -90,6 +90,8 @@
     #define WRIST_R 5
     #define GRIPPER_R 6
 
+  
 
+    #define DRIVER SHOULDER
 
 #endif

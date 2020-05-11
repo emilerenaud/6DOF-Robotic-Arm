@@ -26,12 +26,12 @@ void ComClass::processData(void)
     if(rs485.data_available() >= 5)
     {
         Read();
-        // delay(10);
-        // rs485.Write(0x04);
         if(decodeChecksum())
         {
             _newDataIn = 1;
             //digitalToggle(LEDB);  // Debug
+            delay(10);
+            rs485.Write(0xAA); // ok feedback.
         }
     }
     if(_sendData == 1)
