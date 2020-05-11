@@ -20,7 +20,9 @@ void setup() {
   pinMode(PB5,OUTPUT);
   pinMode(PB12,OUTPUT);
   digitalWrite(PB12,LOW);
-  _rxtx.begin(9600);
+  pinMode(PB6,OUTPUT);
+  digitalWrite(PB6,HIGH);
+  _rxtx.begin(19200);
   // timerCOM->setMode()
   timerCOM->setOverflow(10,HERTZ_FORMAT);
   timerCOM->attachInterrupt(Update_IT_callback);
@@ -34,8 +36,8 @@ void loop() {
   if(_rxtx.available() > 0)
   {
     _rxtx.read();
-    digitalToggle(PB5);
+    digitalToggle(PB6);
   }
   // put your main code here, to run repeatedly:
-  delay(500);
+  // delay(500);
 }

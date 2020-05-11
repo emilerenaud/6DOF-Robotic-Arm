@@ -87,9 +87,9 @@ int TMC2130Class::Rotation(float degree, float microstep, int direction)
     {
         _stepsToDo--;
         _step.Write(HIGH);
-        delayMicroseconds(10);
+        delayMicroseconds(5);
         _step.Write(LOW);
-        delayMicroseconds(10);
+        delayMicroseconds(5);
         return NOT_DONE;
     }
 

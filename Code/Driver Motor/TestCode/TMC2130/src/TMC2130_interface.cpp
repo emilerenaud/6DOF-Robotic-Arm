@@ -155,7 +155,7 @@ void TMC2130Class::GeneralConfig()
     add.address = reg.gen_conf.GCONF;
 
     dataOut.g_conf.bits.I_SCALE_ANALOG     = LOW;
-    dataOut.g_conf.bits.INT_RSENSE         = LOW;
+    dataOut.g_conf.bits.INT_RSENSE         = 1;
     dataOut.g_conf.bits.EN_PWM_MODE        = HIGH;
     dataOut.g_conf.bits.ENC_COMMUTATION    = LOW;
     dataOut.g_conf.bits.SHAFT              = LOW;

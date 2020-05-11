@@ -26,6 +26,7 @@ void setup() {
 }
 
 void loop() {
+  // process_COM();
   // if(com._com._receive.receiveBytes.firstByte == 0x00)
   // {
   //   debug.Write(0,1,1);
@@ -45,15 +46,9 @@ void loop() {
     tmc.Homing(256);
   }
   debug.Write(com._red, com._green, com._blue);
-  if(com._fan > 0)
-  {
-    fan.set_power(com._fan);
-    fan.start();
-  }
-  else
-  {
-    fan.stop();
-  }
+  
+  fan.set_power(com._fan);
+  
   
 
 }

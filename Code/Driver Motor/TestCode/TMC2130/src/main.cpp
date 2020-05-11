@@ -17,7 +17,7 @@ void loop()
     if(doOnce)
     {
         doOnce = 0;
-        tmc.Rotation(5, 256, HIGH, NEMA17); 
+        tmc.Rotation(30, 256, HIGH, NEMA17); 
     }
     
 }

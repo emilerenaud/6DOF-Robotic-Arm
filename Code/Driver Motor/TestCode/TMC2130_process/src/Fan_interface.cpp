@@ -5,6 +5,8 @@ FanClass::FanClass(uint8_t pin)
     _pin = pin;
     pinMode(_pin,OUTPUT);
     init_timer_PWM(_pin);
+    set_power(0);
+    start();
 }
 
 void FanClass::set_power(uint8_t power)
