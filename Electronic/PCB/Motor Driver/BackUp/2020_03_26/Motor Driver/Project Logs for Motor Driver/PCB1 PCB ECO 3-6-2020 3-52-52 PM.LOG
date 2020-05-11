@@ -1,7 +1,0 @@
-Removed Pin From Net: NetName=NRST Pin=S1-1
-Removed Pin From Net: NetName=GNDA Pin=S1-2
-Removed Member From Class: ClassName=STM32 Member=S1
-Added Component: Designator=*(PAD)
-Added Component: Designator=*(PAD)
-Added Member To Class: ClassName=STM32 Member=Component * Pad
-Added Member To Class: ClassName=STM32 Member=Component * Pad

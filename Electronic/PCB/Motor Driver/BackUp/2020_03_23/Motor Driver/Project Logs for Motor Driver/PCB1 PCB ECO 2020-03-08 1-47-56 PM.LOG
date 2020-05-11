@@ -1,4 +1,0 @@
-Change Component Footprint: Designator=J1 Old Footprint=Header 4x1 1.277mm SMD New Footprint=HDR1X4
-Added Member To Class: ClassName=STM32 Member=Component C2 Capacitor 1206
-Added Member To Class: ClassName=STM32 Member=Component C3 Capacitor 1206
-Added Member To Class: ClassName=STM32 Member=Component C4 Capacitor 1206
