@@ -187,7 +187,7 @@ void TMC2130Class::GeneralConfig()
     dataOut.g_conf.bits.EN_PWM_MODE        = HIGH;
     dataOut.g_conf.bits.ENC_COMMUTATION    = LOW;
     dataOut.g_conf.bits.SHAFT              = LOW;
-    dataOut.g_conf.bits.DIAG0_ERROR        = HIGH;
+    dataOut.g_conf.bits.DIAG0_ERROR        = LOW;
     dataOut.g_conf.bits.DIAG0_OTPW         = LOW;
     dataOut.g_conf.bits.DIAG0_STALL        = LOW;
     dataOut.g_conf.bits.DIAG1_STALL        = LOW;

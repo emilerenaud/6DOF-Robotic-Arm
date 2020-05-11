@@ -35,6 +35,7 @@ void loop() {
   // {
   //   debug.Write(1,0,1);
   // }
+  tmc._tmc.checkDiag();
   
   if(com._endis == ACTIVE)
   {
@@ -46,7 +47,7 @@ void loop() {
     tmc.Homing(256);
   }
   debug.Write(com._red, com._green, com._blue);
-  
+
   fan.set_power(com._fan);
   
   
