@@ -12,7 +12,7 @@
     #define TEMP_SENSOR
     //#define SERVO_EN
     #define RS485
-    #define DEBUG
+    #define DEBUG_LED
     #define FAN_EN
 
     #ifdef TMC2130
@@ -49,7 +49,7 @@
         #define WRITE HIGH
     #endif
 
-    #ifdef DEBUG
+    #ifdef DEBUG_LED
         #define LEDR PB5
         #define LEDB PB6
         #define LEDG PB7
