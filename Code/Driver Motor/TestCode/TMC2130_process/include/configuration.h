@@ -83,14 +83,13 @@
     #define ACTIVE 1
     #define INACTIVE 0
 
+    #define DEBUG 0
     #define SHOULDER 1
     #define BICEP 2
     #define FOREARM 3
     #define WRIST 4
     #define WRIST_R 5
     #define GRIPPER_R 6
-
-  
 
     #define DRIVER SHOULDER
 

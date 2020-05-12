@@ -18,6 +18,7 @@ public:
     TMC2130_process();
     int Rotation(float position, float microstep);
     int Homing(float microstep);
+    void Disable(void);
 };
 
 #endif

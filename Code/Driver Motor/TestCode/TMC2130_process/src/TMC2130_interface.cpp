@@ -81,7 +81,7 @@ int TMC2130Class::Rotation(float degree, float microstep, int direction)
     }
 
     _dir.Write(direction);
-     _en.Write(LOW);
+    Endis(LOW);
 
     if(_stepsToDo > 0)
     {
@@ -96,6 +96,11 @@ int TMC2130Class::Rotation(float degree, float microstep, int direction)
     _calcStep = true;
     _en.Write(HIGH);
     return DONE;
+}
+
+void TMC2130Class::Endis(bool endis)
+{
+    _en.Write(endis);    
 }
 
 /*WORKING*/

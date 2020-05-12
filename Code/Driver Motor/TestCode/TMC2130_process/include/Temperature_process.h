@@ -8,8 +8,8 @@
 class Temperature_process{
   private:
     TempSensorClass _temp = TempSensorClass(TEMP);
-    FanClass _fan = FanClass(FAN);
   public:
+    FanClass _fan = FanClass(FAN);
     Temperature_process();
     void Control();  
 };

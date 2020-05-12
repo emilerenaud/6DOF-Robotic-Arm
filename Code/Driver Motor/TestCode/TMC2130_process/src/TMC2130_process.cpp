@@ -65,3 +65,8 @@ int TMC2130_process::Homing(float microstep)
     //   _tmc.Rotation(1, microstep, CCW);  
     // }
 }
+
+void TMC2130_process::Disable(void)
+{
+    _tmc.Endis(HIGH);
+}

@@ -31,6 +31,7 @@ public:
     void Init();
     void checkDiag(void);
     int Rotation(float degree, float microstep, int direction);
+    void Endis(bool endis);
     void GeneralConfig();
     void IHoldIrunConfig();
     void TPowerDownConfig();

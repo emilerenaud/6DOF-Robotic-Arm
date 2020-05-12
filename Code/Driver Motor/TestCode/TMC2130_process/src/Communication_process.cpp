@@ -12,7 +12,7 @@ void ComProcess::DecodeData()
     _com.processData();
     if(_readyForNewData == 1)
     {
-        if(_com._receive.bits.adress == DRIVER)
+        if(_com._receive.bits.adress == DRIVER || _com._receive.bits.adress == DEBUG)
         {
             _position = (uint16_t(_com._receive.bits.position) << 1) + _com._receive.bits.firstbit;
             _adress = _com._receive.bits.adress;
