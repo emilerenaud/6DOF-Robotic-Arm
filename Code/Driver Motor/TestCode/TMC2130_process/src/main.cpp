@@ -45,9 +45,12 @@ void process_COM(void)
 
 void process_motor(void)
 {
-  fan.Control();
-  MovingAxis();
-  //gripper.Position(com._gripper);
+  if(com._adress == DRIVER)
+  {
+    fan.Control();
+    MovingAxis();
+    //gripper.Position(com._gripper);
+  }
 }
 
 void process_debug(void)
