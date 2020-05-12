@@ -47,6 +47,7 @@ void TMC2130Class::Init()           /*Right now, TMC is initialized as the Getti
     TMC2130Class::PWMConfig();
     TMC2130Class::CoolConfig();
     TMC2130Class::TCoolThreshHold();
+    checkDiag();
 }
 
 void TMC2130Class::checkDiag()
@@ -82,7 +83,7 @@ int TMC2130Class::Rotation(float degree, float microstep, int direction)
 
     _dir.Write(direction);
     Endis(LOW);
-
+    checkDiag();
     if(_stepsToDo > 0)
     {
         _stepsToDo--;

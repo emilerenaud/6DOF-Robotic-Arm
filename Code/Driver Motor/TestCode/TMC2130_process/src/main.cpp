@@ -60,11 +60,9 @@ void process_debug(void)
     MovingAxis();
     //gripper.Position(com._gripper)
     fan._fan.set_power(com._fan);
-    
+    fan._fan.start();
 
     debug.Write(com._red, com._green, com._blue);
-
-    tmc._tmc.checkDiag();
   }
 }
 
