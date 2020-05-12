@@ -29,7 +29,7 @@ void MovingAxis(void);
 void setup() {
   //gripper.set_pin(SERVO);   
   init_stm32();
-  //init_timer_COM(process_COM);
+  init_timer_COM(process_COM);
 }
 
 void loop() {
@@ -52,23 +52,12 @@ void process_motor(void)
 
 void process_debug(void)
 {
-  static int oldfan = 1;
-
   if(com._adress == DEBUG)
   {
     MovingAxis();
-    //gripper.Position(com._gripper);
-
-    if(com._fan != oldfan)
-    {
-      oldfan = com._fan;
-      fan._fan.set_power(60);
-      fan._fan.start();
-    }
-    else if (com._fan == 0)
-    {
-      fan._fan.stop();
-    }
+    //gripper.Position(com._gripper)
+    fan._fan.set_power(com._fan);
+    
 
     debug.Write(com._red, com._green, com._blue);
 

@@ -9,18 +9,19 @@ void Temperature_process::Control(){
     int temp = _temp.Temperature();
     int speed = 0;
 
-    if(temp > 25)
+    if(temp > _tempHigh)
     {
-        if((speed = temp * 1.5) > 99)
+        speed = 30 + (temp + 10 / 2);
+        if(speed >= 100)
         {
-            speed = 99;
+            speed = 100;
         }
         _fan.set_power(speed);
-        _fan.start();
+        _fan.start(); // Needed. Not sur why.
     }
-    else
+    else if(temp < _tempLow)    // Hysterisis Low
     {
-        _fan.stop();
+        _fan.set_power(0);
     }
     
 }
