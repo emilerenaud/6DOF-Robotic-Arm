@@ -2,9 +2,6 @@
 
 ComProcess::ComProcess()
 {
-     _red = 1;
-	 _green = 1;
-	_blue = 1;
 }
 
 void ComProcess::DecodeData()

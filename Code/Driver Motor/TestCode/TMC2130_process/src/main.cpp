@@ -10,10 +10,16 @@
 #include <Communication_process.h>
 #include <TMC2130_process.h>
 
-ComProcess com = ComProcess();
-TMC2130_process tmc = TMC2130_process();
+
 DebugClass debug = DebugClass(LEDR, LEDG, LEDB,LOW);
 Temperature_process fan = Temperature_process();
+
+ComProcess com = ComProcess();
+TMC2130_process tmc = TMC2130_process();
+
+/*Last axis: comment TEMP_SENSOR and uncomment SERVO_EN in configuration.h.
+             uncomment every gripper line to use gripper.*/
+//GripperClass gripper;
 
 void process_COM(void);
 void process_motor(void);
