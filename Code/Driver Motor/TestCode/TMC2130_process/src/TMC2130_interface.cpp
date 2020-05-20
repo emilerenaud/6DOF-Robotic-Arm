@@ -88,9 +88,9 @@ int TMC2130Class::Rotation(float degree, float microstep, int direction)
     {
         _stepsToDo--;
         _step.Write(HIGH);
-        delayMicroseconds(5);
+        delayMicroseconds(10);
         _step.Write(LOW);
-        delayMicroseconds(5);
+        delayMicroseconds(10);
         return NOT_DONE;
     }
 
@@ -115,7 +115,7 @@ void TMC2130Class::ChopConfig()
 
     dataOut.chop_conf.bits.RESERVED = LOW;
     dataOut.chop_conf.bits.DISS2G   = LOW;    //Based on chapter 22 init example.
-    dataOut.chop_conf.bits.DEDGE    = HIGH;
+    dataOut.chop_conf.bits.DEDGE    = 1;
     dataOut.chop_conf.bits.INTPOL   = LOW;
     dataOut.chop_conf.bits.MRES3    = LOW; 
     dataOut.chop_conf.bits.MRES2    = LOW;    //MRES(0..3) = 0 for 256 microstep.
@@ -130,21 +130,21 @@ void TMC2130Class::ChopConfig()
     dataOut.chop_conf.bits.VSENSE   = LOW;   //Sense resistor voltage based current scaling.
     dataOut.chop_conf.bits.TBL1     = HIGH;  //TBL(0..1) set comparator blank time to 16, 24, 36 or 54 clocks
     dataOut.chop_conf.bits.TBL0     = LOW;
-    dataOut.chop_conf.bits.CHM      = LOW;
+    dataOut.chop_conf.bits.CHM      = 0;
     dataOut.chop_conf.bits.RNDTF    = LOW;
     dataOut.chop_conf.bits.DISFDCC  = LOW;   //disables current comparator usage for termination of the fast decay cycle
     dataOut.chop_conf.bits.FD3      = LOW;   
     dataOut.chop_conf.bits.HEND3    = LOW;
     dataOut.chop_conf.bits.HEND2    = LOW;
     dataOut.chop_conf.bits.HEND1    = LOW;
-    dataOut.chop_conf.bits.HEND0    = LOW;
-    dataOut.chop_conf.bits.HSTRT2   = HIGH;
+    dataOut.chop_conf.bits.HEND0    = 1;
+    dataOut.chop_conf.bits.HSTRT2   = 0;
     dataOut.chop_conf.bits.HSTRT1   = LOW;
     dataOut.chop_conf.bits.HTSRT0   = LOW;
-    dataOut.chop_conf.bits.TOFF3    = HIGH;   //TOFF off time and driver enable
+    dataOut.chop_conf.bits.TOFF3    = 0;   //TOFF off time and driver enable
     dataOut.chop_conf.bits.TOFF2    = LOW;
-    dataOut.chop_conf.bits.TOFF1    = LOW;
-    dataOut.chop_conf.bits.TOFF0    = LOW;
+    dataOut.chop_conf.bits.TOFF1    = 1;
+    dataOut.chop_conf.bits.TOFF0    = 1;
 
     TMC2130Class::Write(add, dataOut.chop_conf.sendBytes); 
 }
@@ -157,9 +157,9 @@ void TMC2130Class::IHoldIrunConfig(){
 
     add.address = reg.vel_ctrl.IHOLD_IRUN;
     dataOut.ihold_irun.bits.RESERVED2  = LOW;
-    dataOut.ihold_irun.bits.IHOLDDELAY = 12;
+    dataOut.ihold_irun.bits.IHOLDDELAY = 6;
     dataOut.ihold_irun.bits.RESERVED1  = LOW;
-    dataOut.ihold_irun.bits.IRUN       = 15;
+    dataOut.ihold_irun.bits.IRUN       = 10;
     dataOut.ihold_irun.bits.RESERVED0  = LOW;
     dataOut.ihold_irun.bits.IHOLD      = 5;
  
@@ -174,7 +174,7 @@ void TMC2130Class::TPowerDownConfig(){
 
     add.address = reg.vel_ctrl.TPOWERDOWN;
     dataOut.t_powerdown.bits.RESERVED  = LOW;
-    dataOut.t_powerdown.bits.TPOWERDOWN = 100; // was 10.
+    dataOut.t_powerdown.bits.TPOWERDOWN = 10; // was 10.
  
     TMC2130Class::Write(add, dataOut.t_powerdown.sendBytes); 
 }
@@ -189,11 +189,11 @@ void TMC2130Class::GeneralConfig()
     add.address = reg.gen_conf.GCONF;
 
     dataOut.g_conf.bits.I_SCALE_ANALOG     = LOW;
-    dataOut.g_conf.bits.INT_RSENSE         = HIGH;
+    dataOut.g_conf.bits.INT_RSENSE         = 1;
     dataOut.g_conf.bits.EN_PWM_MODE        = HIGH;
     dataOut.g_conf.bits.ENC_COMMUTATION    = LOW;
     dataOut.g_conf.bits.SHAFT              = LOW;
-    dataOut.g_conf.bits.DIAG0_ERROR        = LOW;
+    dataOut.g_conf.bits.DIAG0_ERROR        = HIGH;
     dataOut.g_conf.bits.DIAG0_OTPW         = LOW;
     dataOut.g_conf.bits.DIAG0_STALL        = LOW;
     dataOut.g_conf.bits.DIAG1_STALL        = LOW;
@@ -202,7 +202,7 @@ void TMC2130Class::GeneralConfig()
     dataOut.g_conf.bits.DIAG1_STEPS_SKIP   = HIGH;
     dataOut.g_conf.bits.DIAG0_INT_PUSHPULL = LOW;
     dataOut.g_conf.bits.DIAG1_PUSHPULL     = LOW;
-    dataOut.g_conf.bits.SMALL_HYSTERISIS   = LOW;
+    dataOut.g_conf.bits.SMALL_HYSTERISIS   = HIGH;
     dataOut.g_conf.bits.STOP_ENABLE        = LOW;
     dataOut.g_conf.bits.DIRECT_MODE        = LOW;
     dataOut.g_conf.bits.TEST_MODE          = LOW;
@@ -242,7 +242,7 @@ void TMC2130Class::PWMConfig(){
     dataOut.pwm_conf.bits.PWM_FREQ1  = LOW;
     dataOut.pwm_conf.bits.PWM_FREQ0  = HIGH;
     dataOut.pwm_conf.bits.PWM_GRAD   = 1;    
-    dataOut.pwm_conf.bits.PWM_AMPL   = 255;          
+    dataOut.pwm_conf.bits.PWM_AMPL   = 0xc0;          
 
     TMC2130Class::Write(add, dataOut.pwm_conf.sendBytes); 
 }

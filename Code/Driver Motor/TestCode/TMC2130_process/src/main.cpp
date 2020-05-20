@@ -17,6 +17,8 @@ Temperature_process fan = Temperature_process();
 ComProcess com = ComProcess();
 TMC2130_process tmc = TMC2130_process();
 
+bool doOnce = 1;
+bool sens = 1;
 /*Last axis: comment TEMP_SENSOR and uncomment SERVO_EN in configuration.h.
              uncomment every gripper line to use gripper.*/
 //GripperClass gripper;
@@ -36,6 +38,26 @@ void loop() {
   process_COM();
   process_debug();
   process_motor();
+  // if(doOnce)
+  // {
+  //   com._endis = 1;
+  //   if(sens)
+  //   {
+  //     com._position = 300;
+  //     sens = 0;
+  //   }
+  //   else
+  //   {
+  //     com._position = 0;
+  //     sens = 1;
+  //   }
+  //   doOnce = 0;
+  //   delay(1000);
+  // }
+  // if(tmc.Rotation(com._position, 256) == DONE)
+  //   doOnce = 1;
+
+
 }
 
 void process_COM(void)

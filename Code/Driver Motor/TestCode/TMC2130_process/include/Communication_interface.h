@@ -78,6 +78,7 @@ class ComClass {
   public:
     RECEIVE_U _receive;
     SEND_U _send;
+    uint8_t buffer[10];
     bool _newDataIn = 0;
     bool _sendData = 0;
     ComClass();

@@ -7,10 +7,11 @@ ComProcess::ComProcess()
 void ComProcess::DecodeData()
 {
     _com.processData();
-    if(_readyForNewData == 1)
+    if(_readyForNewData == 1 && _com._newDataIn == 1) // check if it can take new data and if they are new data.
     {
         if(_com._receive.bits.adress == DRIVER || _com._receive.bits.adress == DEBUG)
         {
+            _com._newDataIn = 0;
             _position = (uint16_t(_com._receive.bits.position) << 1) + _com._receive.bits.firstbit;
             _adress = _com._receive.bits.adress;
             _homing = _com._receive.bits.homing;
