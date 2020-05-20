@@ -1,0 +1,71 @@
+Altium Designer Pick and Place Locations
+C:\Users\lukab\Desktop\DEC\6DOF-Robotic-Arm\Electronic\PCB\Motor Driver\Motor Driver\Project Outputs for Free Documents\Pick Place\Pick Place for PCB1.txt
+
+========================================================================================================================
+File Design Information:
+
+Date:       20/05/20
+Time:       14:11
+Revision:   c39951c1dd44cf7969311be807107014d140a2cb
+Variant:    No variations
+Units used: mil
+
+Designator Comment         Layer       Footprint             Center-X(mil) Center-Y(mil) Rotation Description                
+C23        "Capacitor SMD" TopLayer    0603                  251.969       606.299       270      "Capacitor SMD 0603"       
+C22        "Capacitor SMD" TopLayer    0603                  -39.370       -62.992       360      "Capacitor SMD 0603"       
+C21        "Capacitor SMD" TopLayer    0603                  374.016       279.528       90       "Capacitor SMD 0603"       
+R19        "Resistor 0603" BottomLayer 0603                  389.764       23.622        270      "Resistor 0603 SMD"        
+R18        "Resistor 0603" TopLayer    0603                  323.228       486.221       360      "Resistor 0603 SMD"        
+Q1         "MOSFET N-CH"   TopLayer    SOT223_M              23.622        669.292       180      "55V 7A SOT223"            
+R17        "Resistor 0603" BottomLayer 0603                  511.811       102.362       270      "Resistor 0603 SMD"        
+R16        "Resistor 0603" BottomLayer 0603                  511.811       216.535       270      "Resistor 0603 SMD"        
+Y1         8M              TopLayer    ATS080B-E             -577.932      -417.616      126      "Crystal Oscillator"       
+R3         "Resistor 0603" BottomLayer 0603                  531.497       -177.165      360      "Resistor 0603 SMD"        
+J3         MAIN_OUT        TopLayer    JST_5POS_2.5mm_90°    15.748        -476.378      180      Connector                  
+U3         MAX485CPA+      TopLayer    DIP_8_-_3D            601.968       94.882        360      "RS485 Communication"      
+C1         "Capacitor SMD" BottomLayer 0603                  574.803       354.330       125      "Capacitor SMD 0603"       
+C4         "Capacitor SMD" TopLayer    0603                  287.402       -185.039      90       "Capacitor SMD 0603"       
+C3         "Capacitor SMD" TopLayer    0603                  413.386       -185.039      90       "Capacitor SMD 0603"       
+C2         "Capacitor SMD" TopLayer    0603                  350.394       -185.039      90       "Capacitor SMD 0603"       
+R15        "Resistor 0603" BottomLayer 0603                  -728.347      244.095       270      "Resistor 0603 SMD"        
+R14        "Resistor 0603" BottomLayer 0603                  -531.496      -263.779      90       "Resistor 0603 SMD"        
+R13        "Resistor 0603" BottomLayer 0603                  259.843       -7.874        270      "Resistor 0603 SMD"        
+RST        "PAD RST"       BottomLayer PAD                   590.551       110.236       270      "SMD Pad for contact"      
+R12        "Resistor 0603" BottomLayer 0603                  -106.296      -51.182       180      "Resistor 0603 SMD"        
+U4         RT9193-28GB     BottomLayer SOT94P279X130-5N      149.607       31.496        90       "Voltage Regulator 3.3V"   
+J6         MOTOR           BottomLayer JST_4POS_2.5mm_90°    -5.906        472.442       360      Connector                  
+J2         MAIN_IN         BottomLayer JST_5POS_2.5mm_90°    47.244        -377.953      0        Connector                  
+U6         LM335Z          BottomLayer TO92                  -154.724      261.024       180      "Temperature Sensor"       
+U5         AH372-P-B       BottomLayer AH372PB               638.915       403.924       305      "Hall Sensor"              
+U2         TMC2130-TA      BottomLayer eTQFP48_9x9           -480.315      78.740        360      "Motor Driver TMC2130"     
+U1         STM32F103C8T6   TopLayer    LQFP-48               157.481       90.551        180      "Integrated Circuit STM32" 
+R11        "Resistor 0603" BottomLayer 0603                  -106.300      -169.291      360      "Resistor 0603 SMD"        
+R10        "Resistor 0603" TopLayer    0603                  -106.299      555.118       360      "Resistor 0603 SMD"        
+R9         "Resistor 0603" BottomLayer 0603                  562.992       -283.465      135      "Resistor 0603 SMD"        
+R8         "Resistor 0603" BottomLayer 0603                  -449.213      -435.828      180      "Resistor 0603 SMD"        
+R7         "Resistor 0603" TopLayer    0603                  -440.945      641.732       225      "Resistor 0603 SMD"        
+R6         "Resistor 0603" TopLayer    0603                  -385.827      590.550       225      "Resistor 0603 SMD"        
+R5         "Resistor 0603" TopLayer    0603                  -330.709      535.432       225      "Resistor 0603 SMD"        
+R4         "Resistor 0603" BottomLayer 0603                  519.686       -326.772      135      "Resistor 0603 SMD"        
+R2         "Resistor 0603" BottomLayer 0603                  -106.295      7.874         180      "Resistor 0603 SMD"        
+R1         "Resistor 0603" BottomLayer 0603                  665.355       -19.685       90       "Resistor 0603 SMD"        
+J5         BOOT            TopLayer    Header_3x2_1.27mm_SMD 683.816       -203.788      340      "Header, 3-Pin, Dual row"  
+J4         FAN             BottomLayer HDR1X2                330.709       627.165       90       "Header, 2-Pin"            
+J1         SWD-PROG        BottomLayer HDR1X4                535.200       -472.674      45       "Header, 4-Pin"            
+D1         "LED RGB 5050"  BottomLayer LED_5050              -462.346      536.988       42       LED                        
+C20        "Capacitor SMD" BottomLayer 0603                  665.354       118.110       270      "Capacitor SMD 0603"       
+C19        "Capacitor SMD" BottomLayer 0603                  -307.087      -220.472      90       "Capacitor SMD 0603"       
+C18        "Capacitor SMD" BottomLayer 0603                  -650.000      -238.976      90       "Capacitor SMD 0603"       
+C17        "Capacitor SMD" BottomLayer 0603                  -588.977      -238.976      90       "Capacitor SMD 0603"       
+C16        "Capacitor SMD" BottomLayer 0603                  -472.441      -263.779      90       "Capacitor SMD 0603"       
+C15        "Capacitor SMD" BottomLayer 0603                  -299.214      -118.110      360      "Capacitor SMD 0603"       
+C14        "Capacitor SMD" BottomLayer 0603                  -106.296      -110.237      360      "Capacitor SMD 0603"       
+C13        "Capacitor SMD" BottomLayer 0603                  -370.078      -220.473      270      "Capacitor SMD 0603"       
+C12        "Capacitor SMD" BottomLayer 0603                  -488.189      -370.080      180      "Capacitor SMD 0603"       
+C11        "Capacitor SMD" BottomLayer 0603                  -377.953      -503.938      180      "Capacitor SMD 0603"       
+C10        "Capacitor SMD" BottomLayer 0603                  641.733       224.410       360      "Capacitor SMD 0603"       
+C9         "Capacitor SMD" BottomLayer 0603                  220.469       149.606       360      "Capacitor SMD 0603"       
+C8         "Capacitor SMD" BottomLayer 0603                  291.339       86.614        180      "Capacitor SMD 0603"       
+C7         "Capacitor SMD" BottomLayer 0603                  86.615        149.606       360      "Capacitor SMD 0603"       
+C6         "Capacitor SMD" TopLayer    0603                  39.371        366.141       180      "Capacitor SMD 0603"       
+C5         "Capacitor SMD" BottomLayer 0603                  -244.095      -220.472      90       "Capacitor SMD 0603"       

@@ -1,12 +1,9 @@
-Output: NC Drill Files
-Type  : NC Drill
-From  : Project [Motor Driver.PrjPcb]
-   Generated File[PCB1.TXT]
-   Generated File[PCB1.LDP]
-   Generated File[PCB1.DRR]
+Output: AutoCAD dwg/dxf File PCB
+Type  : AutoCAD PCB
+From  : PCB Document [PCB1.PcbDoc]
 
 
-Files Generated   : 3
+Files Generated   : 0
 Documents Printed : 0
 
-Finished Output Generation At 8:50:23 AM On 4/3/2020
+Finished Output Generation At 2:43:17 PM On 5/20/2020
