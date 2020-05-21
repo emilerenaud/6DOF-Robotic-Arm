@@ -1,9 +1,0 @@
-Output: Report Single Pin Nets
-Type  : SinglePinNetReporter
-From  : Variant [[No Variations]] of Project [Motor Driver.PrjPcb]
-
-
-Files Generated   : 0
-Documents Printed : 0
-
-Finished Output Generation At 2:11:40 PM On 5/20/2020
