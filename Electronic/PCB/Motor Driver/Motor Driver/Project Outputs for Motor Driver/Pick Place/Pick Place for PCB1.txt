@@ -1,12 +1,12 @@
 Altium Designer Pick and Place Locations
-C:\Users\lukab\Desktop\DEC\6DOF-Robotic-Arm\Electronic\PCB\Motor Driver\Motor Driver\Project Outputs for Motor Driver\Pick Place\Pick Place for PCB1.txt
+C:\Users\Emile\6DOF-Robotic-Arm\Electronic\PCB\Motor Driver\Motor Driver\Project Outputs for Motor Driver\Pick Place\Pick Place for PCB1.txt
 
 ========================================================================================================================
 File Design Information:
 
 Date:       20/05/20
-Time:       14:43
-Revision:   c39951c1dd44cf7969311be807107014d140a2cb
+Time:       22:35
+Revision:   77ce0ca41c60b36f469feb7d1a105e5207474fdc
 Variant:    No variations
 Units used: mil
 

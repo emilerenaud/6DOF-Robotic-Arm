@@ -45,6 +45,74 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
+Generating : Bottom Paste
+      File : PCB1.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D21
+    D23
+    D35
+    D85
+    D86
+    D88
+    D89
+    D90
+    D91
+    D97
+*************************************************************
+
+*************************************************************
+Generating : Int1 (GND)
+      File : PCB1.GP1
+
+    Adding Layer      : Int1 (GND)
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D58
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+    D80
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : PCB1.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+*************************************************************
+
+*************************************************************
 Generating : Board
       File : PCB1.GM2
 
@@ -73,27 +141,30 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Bottom Paste
-      File : PCB1.GBP
+Generating : Int2 (PWR)
+      File : PCB1.GP2
 
-    Adding Layer      : Bottom Paste
-
-    Adding Layer      : Bottom Layer
+    Adding Layer      : Int2 (PWR)
 
     Adding Layer      : Multi-Layer
 
 
 Used DCodes :
-    D21
-    D23
-    D35
-    D85
-    D86
-    D88
-    D89
-    D90
-    D91
-    D97
+    D11
+    D49
+    D58
+    D71
+    D72
+    D74
+    D75
+    D76
+    D77
+    D79
+    D80
+    D81
+    D82
+    D83
+    D84
 *************************************************************
 
 *************************************************************
@@ -173,46 +244,6 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Top Paste
-      File : PCB1.GTP
-
-    Adding Layer      : Top Paste
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D19
-    D20
-    D21
-    D22
-    D23
-    D24
-    D25
-*************************************************************
-
-*************************************************************
-Generating : Top Overlay
-      File : PCB1.GTO
-
-    Adding Layer      : Top Overlay
-
-
-Used DCodes :
-    D10
-    D11
-    D12
-    D13
-    D14
-    D15
-    D16
-    D17
-    D18
-*************************************************************
-
-*************************************************************
 Generating : Bottom Layer
       File : PCB1.GBL
 
@@ -255,52 +286,21 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Int2 (PWR)
-      File : PCB1.GP2
+Generating : Top Overlay
+      File : PCB1.GTO
 
-    Adding Layer      : Int2 (PWR)
-
-    Adding Layer      : Multi-Layer
+    Adding Layer      : Top Overlay
 
 
 Used DCodes :
+    D10
     D11
-    D49
-    D58
-    D71
-    D72
-    D74
-    D75
-    D76
-    D77
-    D79
-    D80
-    D81
-    D82
-    D83
-    D84
-*************************************************************
-
-*************************************************************
-Generating : Int1 (GND)
-      File : PCB1.GP1
-
-    Adding Layer      : Int1 (GND)
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D58
-    D71
-    D72
-    D73
-    D74
-    D75
-    D76
-    D77
-    D78
-    D79
-    D80
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
 *************************************************************
 
