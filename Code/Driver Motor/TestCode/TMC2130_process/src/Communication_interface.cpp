@@ -39,26 +39,6 @@ void ComClass::processData(void)
     if(rs485.data_available() >= 5)
     {
         Read();
-        // if(_receive.receiveBytes.firstByte == 0x89)
-        //     {
-        //         digitalWrite(LEDB,LOW);
-        //     }
-        //     else
-        //         digitalWrite(LEDB,HIGH);
-
-        //     if(_receive.receiveBytes.secondByte == 0x89)
-        //     {
-        //         digitalWrite(LEDR,LOW);
-        //     }
-        //     else
-        //         digitalWrite(LEDR,HIGH);
-        //     if(_receive.receiveBytes.secondByte == 0x89)
-        //     {
-        //         digitalWrite(LEDG,LOW);
-        //     }
-        //     else
-        //         digitalWrite(LEDG,HIGH);
-
         if(decodeChecksum())
         {
             _newDataIn = 1;
@@ -70,14 +50,13 @@ void ComClass::processData(void)
         }
         else
         {
-            
             _receive.receiveBytes.firstByte = 0;
             _receive.receiveBytes.secondByte = 0;
             _receive.receiveBytes.thirdByte = 0;
             _receive.receiveBytes.fourthByte = 0;
             _receive.receiveBytes.fifthByte = 0;
             // digitalWrite(LEDG,LOW); // Open green light if message checksum is not correct.
-            while(rs485.data_available() > 0)
+            while(rs485.data_available() > 0) // Clear buffer if checksum is not good.
             {
                 rs485.Read();
             }

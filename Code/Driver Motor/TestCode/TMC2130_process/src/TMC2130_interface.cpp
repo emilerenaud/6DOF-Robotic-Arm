@@ -77,20 +77,22 @@ int TMC2130Class::Rotation(float degree, float microstep, int direction)
     if(_calcStep)
     {
         // stepsToDo =  int(round(degree * stepsFor1degree));
-        _stepsToDo = degree * (((NEMA17 * microstep * 38.4)/360)/2); // Divider by 2 cause the stepper move 2 micro-steps by clock pulse
+        _stepsToDo = degree * (((NEMA17 * microstep * 38.4)/360)); // Divider by 2 cause the stepper move 2 micro-steps by clock pulse
         _calcStep = false;
     }
 
     _dir.Write(direction);
     Endis(LOW);
-    checkDiag();
+    // checkDiag();
     if(_stepsToDo > 0)
     {
         _stepsToDo--;
         _step.Write(HIGH);
-        delayMicroseconds(10);
+        delayMicroseconds(5);
+        // delayMicroseconds(100); // For non-TMC driver
         _step.Write(LOW);
-        delayMicroseconds(10);
+        delayMicroseconds(5);
+        // delayMicroseconds(100); // For non-TMC driver. 50 microsecond. Trop rapide.
         return NOT_DONE;
     }
 
@@ -159,7 +161,7 @@ void TMC2130Class::IHoldIrunConfig(){
     dataOut.ihold_irun.bits.RESERVED2  = LOW;
     dataOut.ihold_irun.bits.IHOLDDELAY = 6;
     dataOut.ihold_irun.bits.RESERVED1  = LOW;
-    dataOut.ihold_irun.bits.IRUN       = 10;
+    dataOut.ihold_irun.bits.IRUN       = 20;
     dataOut.ihold_irun.bits.RESERVED0  = LOW;
     dataOut.ihold_irun.bits.IHOLD      = 5;
  

@@ -91,6 +91,10 @@
     #define WRIST_R 5
     #define GRIPPER_R 6
 
-    #define DRIVER SHOULDER
+    // #define DRIVER SHOULDER
+    // #define DRIVER BICEP
+    #define DRIVER FOREARM
+    // #define DRIVER WRIST
+    // #define DRIVER WRIST_R
 
 #endif
