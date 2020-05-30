@@ -9,7 +9,7 @@ class Temperature_process{
   private:
     TempSensorClass _temp = TempSensorClass(TEMP);
     int _tempHigh = 26;
-    int _tempLow = 23;
+    int _tempLow = 22;
   public:
     FanClass _fan = FanClass(FAN);
     Temperature_process();

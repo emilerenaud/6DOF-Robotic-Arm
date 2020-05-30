@@ -48,6 +48,7 @@ int TMC2130_process::Homing(float microstep)
             _debug.open_green();
             delay(300);
             _debug.close_green();
+            home_yet = false;
             return DONE;
         }   
         _tmc.Rotation(2, microstep, CCW);
