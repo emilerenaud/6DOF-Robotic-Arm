@@ -42,11 +42,12 @@ void ComClass::processData(void)
         if(decodeChecksum())
         {
             _newDataIn = 1;
+            if(_receive.bits.adress == DRIVER)
+            {
              digitalWrite(LEDB,LOW);
-             delay(100);
+             delay(50);
              digitalWrite(LEDB,HIGH);
-            // rs485.Write(0xAA); // ok feedback.
-
+            }
         }
         else
         {
