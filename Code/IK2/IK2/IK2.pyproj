@@ -24,7 +24,6 @@
     <Compile Include="IK2.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="poppy_ergo.URDF" />
     <Content Include="ur3_robot.urdf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
