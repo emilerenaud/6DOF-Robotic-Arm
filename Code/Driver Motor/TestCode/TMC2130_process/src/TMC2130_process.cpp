@@ -34,26 +34,15 @@ int TMC2130_process::Rotation(float position, float microstep)
 
 int TMC2130_process::Homing(float microstep)
 {
-    static bool home_yet = false;
-    if(_tmc.Rotation(_degree_counter, microstep, CCW))  // Returns 1 when done
+    if(_hall.Read())
     {
-        _degree_counter = 0;
-        home_yet = true;
-    }
-
-    if(home_yet == true)
-    {
-        if(_hall.Read())
-        {
-            _debug.open_green();
-            delay(300);
-            _debug.close_green();
-            home_yet = false;
-            return DONE;
-        }   
-        _tmc.Rotation(2, microstep, CCW);
-    }
-
+        _debug.open_green();
+        delay(300);
+        _debug.close_green();
+        return DONE;
+    }   
+    _tmc.Rotation(2, microstep, CCW);
+    
     return NOT_DONE;
 }
 

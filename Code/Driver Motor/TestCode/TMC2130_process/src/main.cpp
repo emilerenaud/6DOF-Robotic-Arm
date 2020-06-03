@@ -94,8 +94,8 @@ void MovingAxis(void)
     {
       if(com._homing == ACTIVE)
       {
-        // if(tmc.Homing(256) == DONE)
-        if(tmc.Homing(32) == DONE) // For non-TMC driver.
+        if(tmc.Homing(256) == DONE)
+        //if(tmc.Homing(32) == DONE) // For non-TMC driver.
         {
           com._readyForNewData = 1;
           com._homing = 0;
@@ -105,8 +105,8 @@ void MovingAxis(void)
       }
       else
       {
-        // if(tmc.Rotation(com._position, 256) == DONE)
-        if(tmc.Rotation(com._position, 32) == DONE) // For non-TMC driver.
+        if(tmc.Rotation(com._position, 256) == DONE)
+        //if(tmc.Rotation(com._position, 32) == DONE) // For non-TMC driver.
           com._readyForNewData = 1;
         else
           com._readyForNewData = 0;
