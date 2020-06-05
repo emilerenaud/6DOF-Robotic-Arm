@@ -7,7 +7,6 @@ RS485Class::RS485Class(unsigned long baud){
   pinMode(RXTX_EN, OUTPUT);
   set_input();
   _rxtx.begin(baud);
-  
 }
 
 void RS485Class::set_input(void)
@@ -18,11 +17,10 @@ void RS485Class::set_input(void)
 uint8_t RS485Class::data_available()
 {
   if(_rxtx.available() > 0)
-    return _rxtx.available();               // return 1 if there are data in the buffer.
+    return _rxtx.available(); // return number of byte waiting in the buffer
   else
     return 0;
 }
-
 
 int RS485Class::Read(void){
   digitalWrite(RXTX_EN, READ);
@@ -33,12 +31,12 @@ int RS485Class::Read(void){
     return 0;
 }
 
-
 void RS485Class::Write(int data){
   digitalWrite(RXTX_EN, WRITE);
   delay(1);
   _rxtx.write(data);
   delay(1);     // seems to work fine.
-  _rxtx.read(); // read to clear the input buffer.
+  _rxtx.read(); // read to clear the input buffer + "clear" the line for the next device.
+  set_input();
 }
 

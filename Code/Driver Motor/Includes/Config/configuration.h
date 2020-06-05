@@ -9,10 +9,10 @@
     #define TMC2130
     #define SPI_EN
     #define HALL_SENSOR
-    //#define TEMP_SENSOR
-    #define SERVO_EN
+    #define TEMP_SENSOR
+    //#define SERVO_EN
     #define RS485
-    #define DEBUG
+    #define DEBUG_EN
     #define FAN_EN
 
     #ifdef TMC2130
@@ -49,10 +49,10 @@
         #define WRITE HIGH
     #endif
 
-    #ifdef DEBUG
+    #ifdef DEBUG_EN
         #define LEDR PB5
-        #define LEDB PB7
-        #define LEDG PB6
+        #define LEDB PB6
+        #define LEDG PB7
     #endif
 
     #ifdef FAN_EN
@@ -69,8 +69,8 @@
 	#define READ LOW
 	#define WRITE HIGH
 
-	#define NEMA17 1
-	#define TINCAN 2
+	#define NEMA17 200
+	#define TINCAN 48
 
     #define MOTOR NEMA17
 	
@@ -78,6 +78,24 @@
     #define CCW LOW
 
     #define DONE 1
-    #define NOT_DONE 0;
+    #define NOT_DONE 0
+
+    #define ACTIVE 1
+    #define INACTIVE 0
+
+    #define DEBUG 0
+    #define SHOULDER 1
+    #define BICEP 2
+    #define FOREARM 3
+    #define WRIST 4
+    #define WRIST_R 5
+    #define GRIPPER_R 6
+
+    #define DRIVER SHOULDER
+    // #define DRIVER BICEP
+    // #define DRIVER FOREARM
+    // #define DRIVER WRIST
+    // #define DRIVER WRIST_R
+    //#define DRIVER GRIPPER_R
 
 #endif

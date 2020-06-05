@@ -16,5 +16,4 @@ public:
     void start(void);
     void stop(void);
 };
-
 #endif

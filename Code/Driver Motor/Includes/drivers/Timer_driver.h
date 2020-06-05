@@ -9,7 +9,7 @@ void callback_timer_COM(HardwareTimer*);
 
 
 //---------- TIMER PWM ----------//
-void init_timer_PWM(void);
+void init_timer_PWM(uint8_t pin);
 void callback_timer_PWM(HardwareTimer*);
 void start_timer_PWM(void);
 void stop_timer_PWM(void);

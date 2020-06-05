@@ -5,56 +5,48 @@ TMC2130_process::TMC2130_process()
     _tmc.Init();
 }
 
-int TMC2130_process::Rotation(float position, float microstep, int direction)
+int TMC2130_process::Rotation(float position, float microstep)
 {
-    static bool _once = true;
     float _move;
 
-    if(_hall.Read())
+    if((position - _degree_counter) < 0)
     {
-        if(_once == true)
-        {
-            if(direction == CW)
-                _rotation++;
-            else
-                _rotation--;
-            _once = false;
-        }
-        else
-        {
-            _once = true;
-        }
+        _move = -1 * (position - _degree_counter);
+        _direction = CCW;
+    }
+    else
+    {
+        _move = position - _degree_counter; 
+        _direction = CW;  
     }
 
-    _move = position - _degree_counter;
-
-    if(_tmc.Rotation(_move, microstep, direction))
+    if(_tmc.Rotation(_move, microstep, _direction))
     {
-        if(direction == CW)
+        if(_direction == CW)
             _degree_counter += (int)_move;
         else
             _degree_counter -= (int)_move;
         return DONE;
     }
-
     return NOT_DONE;
-
 }
 
 
 int TMC2130_process::Homing(float microstep)
 {
-
-    if(_tmc.Rotation(_degree_counter, microstep, CCW))  //Returns 1 when done
+    if(_hall.Read())
     {
-        _degree_counter = 0;
+        _debug.open_green();
+        delay(300);
+        _debug.close_green();
         return DONE;
-    }
-
+    }   
+    _tmc.Rotation(2, microstep, CCW);
+    
     return NOT_DONE;
+}
 
-    // while (!_hall.Read())
-    // {
-    //   _tmc.Rotation(1, microstep, CCW);  
-    // }
+void TMC2130_process::Disable(void)
+{
+    _tmc.Endis(HIGH);
 }
